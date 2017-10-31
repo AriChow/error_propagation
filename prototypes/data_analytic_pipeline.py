@@ -11,7 +11,7 @@ from sklearn import metrics
 
 
 class image_classification_pipeline(object):
-	def __init__(self, ml_type=None, data_name=None, data_loc=None, val_splits=None, test_size=None, fe=None, dr=None, la=None, **kwargs):
+	def __init__(self, kwargs, ml_type=None, data_name=None, data_loc=None, val_splits=None, test_size=None, fe=None, dr=None, la=None):
 		self.feature_extraction = fe
 		self.dimensionality_reduction = dr
 		self.learning_algorithm = la
@@ -22,8 +22,18 @@ class image_classification_pipeline(object):
 		self.test_size = test_size
 		self.f1_score = 0
 		self.accuracy = 0
+		self.result = None
 		for key, value in kwargs.items():
 			self.__setattr__(key, value)
+
+	def get_error(self):
+		return self.result
+
+	def get_accuracy(self):
+		return self.accuracy
+
+	def get_f1_score(self):
+		return self.f1_score
 
 	def run(self):
 		# Load the data
@@ -45,7 +55,7 @@ class image_classification_pipeline(object):
 			indices = np.arange(len(y))
 			X1, _, y1, y_val, id1, _ = train_test_split(X, y, indices, test_size=self.test_size, random_state=42, shuffle=True)
 			s = []
-			val_splits = 5
+			# val_splits = 5
 			kf = StratifiedKFold(n_splits=self.val_splits, random_state=42, shuffle=True)
 			names1 = []
 			for i in range(len(id1)):
@@ -69,7 +79,7 @@ class image_classification_pipeline(object):
 			res = 1 - np.mean(f1)
 			self.f1_score = np.mean(s)
 			self.accuracy = np.mean(acc)
-		elif self.ml_type == 'test':
+		elif self.ml_type == 'testing':
 			# Train val split
 			X = np.empty((len(y), 1))
 			indices = np.arange(len(y))
@@ -80,10 +90,10 @@ class image_classification_pipeline(object):
 			self.f1_score = f
 			self.accuracy = a
 		import glob
-		files = glob.glob(self.data_location + '/features/')
+		files = glob.glob(self.data_location + 'features/*.npz')
 		for f in files:
 			os.remove(f)
-		return res
+		self.result = res
 
 	def run_pipeline(self, names, y_train, y_val, idx1, idx2):
 		# Feature extraction
@@ -96,7 +106,7 @@ class image_classification_pipeline(object):
 		elif self.feature_extraction == "VGG":
 			f_val = self.VGG_all_features(names, idx2)
 			f_train = self.VGG_all_features(names, idx1)
-		elif self.feature_extraction == "Inception":
+		elif self.feature_extraction == "inception":
 			f_val = self.inception_all_features(names, idx2)
 			f_train = self.inception_all_features(names, idx1)
 
@@ -107,7 +117,7 @@ class image_classification_pipeline(object):
 			f_val = dr.transform(f_val)
 
 		elif self.dimensionality_reduction == "ISOMAP":
-			dr = self.isomap(f_train, self.isomap_n_neighbors, self.isomap_n_components)
+			dr = self.isomap(f_train, self.n_neighbors, self.n_components)
 			f_train = dr.transform(f_train)
 			f_val = dr.transform(f_val)
 
@@ -115,7 +125,7 @@ class image_classification_pipeline(object):
 		# Learning algorithms
 		clf =[]
 		if self.learning_algorithm == "RF":
-			clf = self.random_forests(f_train, y_train, self.rf_n_estimators, self.rf_max_features)
+			clf = self.random_forests(f_train, y_train, int(self.n_estimators), self.max_features)
 		elif self.learning_algorithm == "SVM":
 			clf = self.support_vector_machines(f_train, y_train, self.svm_C, self.svm_gamma)
 
