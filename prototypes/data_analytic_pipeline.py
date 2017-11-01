@@ -89,10 +89,10 @@ class image_classification_pipeline(object):
 			res = 1 - f
 			self.f1_score = f
 			self.accuracy = a
-		import glob
-		files = glob.glob(self.data_location + 'features/*.npz')
-		for f in files:
-			os.remove(f)
+		# import glob
+		# files = glob.glob(self.data_location + 'features/*.npz')
+		# for f in files:
+		# 	os.remove(f)
 		self.result = res
 
 	def run_pipeline(self, names, y_train, y_val, idx1, idx2):

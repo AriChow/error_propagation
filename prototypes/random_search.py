@@ -2,10 +2,9 @@ from prototypes.data_analytic_pipeline import image_classification_pipeline
 import numpy as np
 
 class random_search(object):
-	def __init__(self, pipeline, trials=None, max_trials=10000, data_name=None, data_loc=None):
+	def __init__(self, pipeline, trials=None, data_name=None, data_loc=None):
 		self.pipeline = pipeline
 		self.trials = trials
-		self.max_trials = max_trials
 		self.data_name = data_name
 		self.data_location = data_loc
 		self.error = []
@@ -20,10 +19,10 @@ class random_search(object):
 	def get_accuracy(self):
 		return self.accuracy
 
-	def populate_random_search(self):
+	def populate_random_search(self, max_trials=10000):
 		pipeline = self.pipeline
 		trials = []
-		for i in range(self.max_trials):
+		for i in range(max_trials):
 			step = pipeline['feature_extraction']
 			r = np.random.choice(range(len(step)), 1)[0]
 			t = [step[r]]
@@ -34,24 +33,22 @@ class random_search(object):
 			step = pipeline['dimensionality_reduction']
 			r = np.random.choice(range(len(step)), 1)[0]
 			t.append(step[r])
-			hyper = {}
 			if step[r] == "PCA":
 				r = np.random.choice([True, False], 1)[0]
 				hyper['pca_whiten'] = r
 			elif step[r] == 'ISOMAP':
 				isomap_n_neighbors = np.random.choice([3, 4, 5, 6, 7], 1)[0]
 				isomap_n_components = np.random.choice([2, 3, 4], 1)[0]
-				hyper['isomap_n_neighbors'] = isomap_n_neighbors
-				hyper['isomap_n_components'] = isomap_n_components
+				hyper['n_neighbors'] = isomap_n_neighbors
+				hyper['n_components'] = isomap_n_components
 			step = pipeline['learning_algorithm']
 			r = np.random.choice(range(len(step)), 1)[0]
 			t.append(step[r])
-			hyper = {}
 			if step[r] == "RF":
 				rf_n_estimators = np.random.choice(range(8, 300), 1)[0]
 				rf_max_features = np.random.uniform(0.3, 0.8, 1)[0]
-				hyper['rf_n_estimators'] = rf_n_estimators
-				hyper['rf_max_features'] = rf_max_features
+				hyper['n_estimators'] = rf_n_estimators
+				hyper['max_features'] = rf_max_features
 			elif step[r] == 'SVM':
 				svm_C = np.random.uniform(0.1, 100, 1)[0]
 				svm_gamma = np.random.uniform(0.01, 8, 1)[0]
