@@ -8,7 +8,8 @@ from mahotas.features import haralick
 import cv2
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn import metrics
-
+from sklearn.preprocessing import Normalizer
+import glob
 
 class image_classification_pipeline(object):
 	def __init__(self, kwargs, ml_type=None, data_name=None, data_loc=None, val_splits=None, test_size=None, fe=None, dr=None, la=None):
@@ -23,6 +24,10 @@ class image_classification_pipeline(object):
 		self.f1_score = 0
 		self.accuracy = 0
 		self.result = None
+		r = glob.glob(self.data_location + 'features/*.npz')
+		for i in range(len(r)):
+			if self.feature_extraction in r[i] and self.feature_extraction == 'haralick':
+				os.remove(r[i])
 		for key, value in kwargs.items():
 			self.__setattr__(key, value)
 
@@ -65,18 +70,22 @@ class image_classification_pipeline(object):
 			for idx1, idx2 in kf.split(X1, y1):
 				X_train = []
 				y_train = []
+				ids1 = []
 				for i in idx1:
 					X_train.append(names1[i])
 					y_train.append(y1[i])
+					ids1.append(id1[i])
 				X_val = []
 				y_val = []
+				ids2 = []
 				for i in idx2:
 					X_val.append(names1[i])
 					y_val.append(y1[i])
-				a, f, _ = self.run_pipeline(names, y_train, y_val, idx1, idx2)
+					ids2.append(id1[i])
+				a, f, _ = self.run_pipeline(names, y_train, y_val, ids1, ids2)
 				f1.append(f)
 				acc.append(a)
-			res = 1 - np.mean(f1)
+			res = np.mean(f1)
 			self.f1_score = np.mean(s)
 			self.accuracy = np.mean(acc)
 		elif self.ml_type == 'testing':
@@ -86,7 +95,7 @@ class image_classification_pipeline(object):
 			_, _, y_train, y_val, idx1, idx2 = train_test_split(X, y, indices, test_size=self.test_size, random_state=42,
 																shuffle=True)
 			a, f, _ = self.run_pipeline(names, y_train, y_val, idx1, idx2)
-			res = 1 - f
+			res = f
 			self.f1_score = f
 			self.accuracy = a
 		# import glob
@@ -121,6 +130,10 @@ class image_classification_pipeline(object):
 			f_train = dr.transform(f_train)
 			f_val = dr.transform(f_val)
 
+		# Pre-processing
+		normalizer = Normalizer().fit(f_train)
+		f_train = normalizer.transform(f_train)
+		f_val = normalizer.transform(f_val)
 
 		# Learning algorithms
 		clf =[]
@@ -131,8 +144,9 @@ class image_classification_pipeline(object):
 
 		# Metrics
 		y_pred = clf.predict(f_val)
+		p_pred = clf.predict_proba(f_val)
 		conf = metrics.confusion_matrix(y_val, y_pred)
-		f1 = metrics.f1_score(y_val, y_pred, average='weighted')
+		f1 = metrics.log_loss(y_val, p_pred)
 		acc = metrics.accuracy_score(y_val, y_pred)
 		return acc, f1, conf
 
@@ -228,7 +242,7 @@ class image_classification_pipeline(object):
 		return clf
 
 	def support_vector_machines(self, X, y, C, gamma):
-		clf = svm.SVC(C=C, gamma=gamma, class_weight='balanced')
+		clf = svm.SVC(C=C, gamma=gamma, class_weight='balanced', probability=True)
 		clf.fit(X, y)
 		return clf
 
