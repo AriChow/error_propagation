@@ -14,6 +14,7 @@ class GradientQuantification(object):
 		self.error = 0
 		self.eval_error = 0
 		self.trials = []
+		self.errors = []
 
 	def get_gradients(self):
 		return self.gradients
@@ -60,7 +61,7 @@ class GradientQuantification(object):
 		errors = []
 		for epoch in range(epochs):
 			# if (epoch + 1) % 31 == 0:
-			if True == False:
+			if True:
 				# Hyperparameter search
 				key1 = list(self.hyper.keys())
 				p = np.random.permutation(len(key1))
@@ -108,7 +109,7 @@ class GradientQuantification(object):
 									h1 = self.pipeline[h]
 									h_test = h1[0] - self.hyper[h]['jump']
 									if h_test < self.hyper[h]['min']:
-										h_test = self.hyper[h]['min'] + 1
+										h_test = self.hyper[h]['min']
 									kwargs = trial[3]
 									kwargs[h] = h_test
 									g1 = image_classification_pipeline(kwargs=kwargs, ml_type='validation', data_name=self.data_name, data_loc=self.data_location, val_splits=3, test_size=0.2, fe=trial[0], dr=trial[1], la=trial[2])
@@ -118,7 +119,7 @@ class GradientQuantification(object):
 									err1 = self.expected_error(e1, self.edge_probabilities)
 									h_test = h1[0] + self.hyper[h]['jump']
 									if h_test > self.hyper[h]['max']:
-										h_test = self.hyper[h]['max']-1
+										h_test = self.hyper[h]['max']
 									kwargs = trial[3]
 									kwargs[h] = h_test
 									g1 = image_classification_pipeline(kwargs=kwargs, ml_type='validation',
@@ -176,6 +177,7 @@ class GradientQuantification(object):
 
 		final_error = self.expected_error(self.eval_error, self.edge_probabilities)
 		self.error = final_error
+		self.errors =errors
 		return errors
 
 	@staticmethod

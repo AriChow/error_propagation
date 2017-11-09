@@ -171,11 +171,11 @@ if __name__ == '__main__':
 	hyper['n_neighbors'] = {'max': 8, 'min': 3, 'jump': 1, 'type': 'discrete', 'parent': 'ISOMAP', 'family': 'feature_extraction'}
 	hyper['pca_whiten'] = {'max': 2, 'min': 1, 'jump': 1, 'type': 'discrete', 'parent': 'PCA', 'family': 'feature_extraction'}
 	hyper['haralick_distance'] = {'max': 4, 'min': 1, 'jump': 1, 'type': 'discrete', 'parent': 'haralick', 'family': 'inputs'}
-	g = GradientQuantification(pipeline, hyper, dataset, data_home)
-	g.initialize()
-	pickle.dump(g, open(results_home + 'intermediate/initial_gradients_' + dataset + '.pkl', 'wb'), -1)
+	# g = GradientQuantification(pipeline, hyper, dataset, data_home)
+	# g.initialize()
+	# pickle.dump(g, open(results_home + 'intermediate/initial_gradients_' + dataset + '.pkl', 'wb'), -1)
 
-	# g = pickle.load(open(results_home + 'intermediate/initial_gradients_' + dataset + '.pkl', 'rb'))
+	g = pickle.load(open(results_home + 'intermediate/initial_gradients_' + dataset + '.pkl', 'rb'))
 	err0 = g.get_error()
 	n_epochs = 100000
 
@@ -190,7 +190,7 @@ if __name__ == '__main__':
 	err01 = g.get_error()
 	errors_f = g.gradient_search(epochs=n_epochs, agnostic='inputs')
 	err1 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_feature_extraction_' + dataset + '.pkl', 'wb'), -1)
+	pickle.dump(g, open(results_home + 'intermediate/gradients_feature_extraction_full_' + dataset + '.pkl', 'wb'), -1)
 
 	# Dimensionality reduction agnostic gradients
 	# g = GradientQuantification(pipeline, hyper, dataset, data_home)
@@ -199,7 +199,7 @@ if __name__ == '__main__':
 	err02 = g.get_error()
 	errors_d = g.gradient_search(epochs=n_epochs, agnostic='feature_extraction')
 	err2 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_dimensionality_reduction_' + dataset + '.pkl', 'wb'), -1)
+	pickle.dump(g, open(results_home + 'intermediate/gradients_dimensionality_reduction_full_' + dataset + '.pkl', 'wb'), -1)
 
 	# Learning algorithm agnostic gradients
 	# g = GradientQuantification(pipeline, hyper, dataset, data_home)
@@ -208,8 +208,8 @@ if __name__ == '__main__':
 	err03 = g.get_error()
 	errors_l = g.gradient_search(epochs=n_epochs, agnostic='dimensionality_reduction')
 	err3 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_learning_algorithm_' + dataset + '.pkl', 'wb'), -1)
-	f = open(results_home + 'experiments/gradient_search_' + dataset + '.txt', 'w')
+	pickle.dump(g, open(results_home + 'intermediate/gradients_learning_algorithm_full_' + dataset + '.pkl', 'wb'), -1)
+	f = open(results_home + 'experiments/gradient_search_full_' + dataset + '.txt', 'w')
 	f.write("Initial error (control):" + str(err0) + '\n')
 	f.write("Final error (control):" + str(err) + '\n')
 	f.write("Initial error (feature extraction):" + str(err01) + '\n')
@@ -221,9 +221,15 @@ if __name__ == '__main__':
 	f.write("Feature extraction error: " + str(err1-err) + '\n')
 	f.write("Dimensionality reduction error: " + str(err2 - err) + '\n')
 	f.write("Learning algorithm error: " + str(err3 - err) + '\n')
-	plt.plot(range(n_epochs), errors, 'r', range(n_epochs), errors_f, 'b', range(n_epochs), errors_d, 'g', range(n_epochs), errors_l, 'y')
+	plt.figure()
+	# plt.plot(range(n_epochs), errors, 'r', range(n_epochs), errors_f, 'b', range(n_epochs), errors_d, 'g', range(n_epochs), errors_l, 'y')
+	plt.plot(range(n_epochs), errors, 'r', label='Control')
+	plt.plot(range(n_epochs), errors_f, 'b', label='Agnostic to feature extraction')
+	plt.plot(range(n_epochs), errors_d, 'g', label='Agnostic to dimensionality reduction')
+	plt.plot(range(n_epochs), errors_l, 'y', label='Agnostic to learning algorithms')
+
 	plt.title('Error plots')
 	plt.ylabel('Log-loss')
 	plt.xlabel('Iterations')
-	plt.savefig(results_home + 'experiments/gradient_search_' + dataset + '.jpg')
+	plt.savefig(results_home + 'experiments/gradient_search_full_' + dataset + '.jpg')
 	f.close()
