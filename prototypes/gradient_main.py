@@ -71,7 +71,7 @@ if __name__ == '__main__':
 	err01 = g.get_error()
 	errors_f = g.gradient_search(epochs=n_epochs, agnostic='inputs')
 	err1 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_feature_extraction_full_' + dataset + '.pkl', 'wb'), -1)
+	pickle.dump(g, open(results_home + 'intermediate/gradients_feature_extraction_' + dataset + '.pkl', 'wb'), -1)
 
 	# Dimensionality reduction agnostic gradients
 	# g = GradientQuantification(pipeline, hyper, dataset, data_home)
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 	err02 = g.get_error()
 	errors_d = g.gradient_search(epochs=n_epochs, agnostic='feature_extraction')
 	err2 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_dimensionality_reduction_full_' + dataset + '.pkl', 'wb'), -1)
+	pickle.dump(g, open(results_home + 'intermediate/gradients_dimensionality_reduction_' + dataset + '.pkl', 'wb'), -1)
 
 	# Learning algorithm agnostic gradients
 	# g = GradientQuantification(pipeline, hyper, dataset, data_home)
@@ -89,8 +89,8 @@ if __name__ == '__main__':
 	err03 = g.get_error()
 	errors_l = g.gradient_search(epochs=n_epochs, agnostic='dimensionality_reduction')
 	err3 = g.get_error()
-	pickle.dump(g, open(results_home + 'intermediate/gradients_learning_algorithm_full_' + dataset + '.pkl', 'wb'), -1)
-	f = open(results_home + 'experiments/gradient_search_full_' + dataset + '.txt', 'w')
+	pickle.dump(g, open(results_home + 'intermediate/gradients_learning_algorithm_' + dataset + '.pkl', 'wb'), -1)
+	f = open(results_home + 'experiments/gradient_search_' + dataset + '.txt', 'w')
 	f.write("Initial error (control):" + str(err0) + '\n')
 	f.write("Final error (control):" + str(err) + '\n')
 	f.write("Initial error (feature extraction):" + str(err01) + '\n')
@@ -112,5 +112,5 @@ if __name__ == '__main__':
 	plt.title('Error plots')
 	plt.ylabel('Log-loss')
 	plt.xlabel('Iterations')
-	plt.savefig(results_home + 'experiments/gradient_search_full_' + dataset + '.jpg')
+	plt.savefig(results_home + 'experiments/gradient_search_' + dataset + '.jpg')
 	f.close()

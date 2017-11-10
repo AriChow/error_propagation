@@ -7,7 +7,6 @@ from prototypes.data_analytic_pipeline import image_classification_pipeline
 import pickle
 import matplotlib.pyplot as plt
 
-
 if __name__ == '__main__':
 	home = os.path.expanduser('~')
 	dataset = 'breast'
@@ -24,7 +23,7 @@ if __name__ == '__main__':
 	pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP"]
 	pipeline['learning_algorithm'] = ["SVM", "RF"]
 	g = random_search(pipeline, dataset, data_home)
-	g.populate_random_search()
+	g.populate_random_search(max_trials=1000)
 	g.run_random_search()
 	pickle.dump(g, open(results_home + 'intermediate/random_search_' + dataset + '.pkl', 'wb'), -1)
 	trials = g.get_trials()

@@ -60,8 +60,8 @@ class GradientQuantification(object):
 		key = list(self.edge_probabilities.keys())
 		errors = []
 		for epoch in range(epochs):
-			if (epoch + 1) % 31 == 0:
-			# if True:
+			# if (epoch + 1) % 31 == 0:
+			if False:
 				# Hyperparameter search
 				key1 = list(self.hyper.keys())
 				p = np.random.permutation(len(key1))
