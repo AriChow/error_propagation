@@ -3,3 +3,4 @@
 38.925331, 1.008598, 38.939610, 1, 0.014279, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='10'
 78.454725, 0.846834, 78.552557, 2, 0.097833, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''false'', svm_C='54.10582404072731', svm_gamma='5.627505745726167'
 80.086504, 0.691811, 80.340105, 3, 0.253601, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''true'', rf_max_features='0.5249461832010445', rf_n_estimators='134'
+1198.809771, 0.690898, 1202.025131, 4, 3.215360, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.3557884991785605', rf_n_estimators='93'

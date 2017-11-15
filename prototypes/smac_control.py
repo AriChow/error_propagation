@@ -356,7 +356,7 @@ smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipelin
 incumbent = smac.optimize()
 home = os.path.expanduser('~')
 pickle.dump(incumbent, open(home + '/Documents/research/EP_project/results/intermediate/smac_control_' + dataset + '.pkl', 'wb'), -1)
-pickle.dump(smac, open(home + '/Documents/research/EP_project/results/intermediate/smac_object_control_' + dataset + '.pkl', 'wb'), -1)
+# pickle.dump(smac, open(home + '/Documents/research/EP_project/results/intermediate/smac_object_control_' + dataset + '.pkl', 'wb'), -1)
 inc_value = pipeline_from_cfg(incumbent)
 print("CONTROL RESULTS: \n")
 print("Validation score: " + str(inc_value) + '\n')

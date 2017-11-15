@@ -60,8 +60,8 @@ class GradientQuantification(object):
 		key = list(self.edge_probabilities.keys())
 		errors = []
 		for epoch in range(epochs):
-			# if (epoch + 1) % 31 == 0:
-			if False:
+			if (epoch + 1) % 31 == 0:
+			# if False:
 				# Hyperparameter search
 				key1 = list(self.hyper.keys())
 				p = np.random.permutation(len(key1))
@@ -130,11 +130,11 @@ class GradientQuantification(object):
 									e1 = copy.deepcopy(self.eval_error)
 									e1[t] = g1.get_error()
 									err2 = self.expected_error(e1, self.edge_probabilities)
-									self.pipeline[h] += -alpha * (err2 - err1) / (2 * self.hyper[h]['jump'])
-									if self.pipeline[h] < self.hyper[h]['min']:
-										self.pipeline[h] = self.hyper[h]['min']
-									if self.pipeline[h] > self.hyper[h]['max']:
-										self.pipeline[h] = self.hyper[h]['max']
+									self.pipeline[h][0] += -alpha * (err2 - err1) / (2 * self.hyper[h]['jump'])
+									if self.pipeline[h][0] < self.hyper[h]['min']:
+										self.pipeline[h] = [self.hyper[h]['min']]
+									if self.pipeline[h][0] > self.hyper[h]['max']:
+										self.pipeline[h] = [self.hyper[h]['max']]
 									h1 = self.pipeline[h]
 									kwargs = trial[3]
 									kwargs[h] = h1[0]
