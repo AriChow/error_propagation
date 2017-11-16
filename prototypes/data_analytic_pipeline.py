@@ -30,6 +30,7 @@ class image_classification_pipeline(object):
 				os.remove(r[i])
 		for key, value in kwargs.items():
 			self.__setattr__(key, value)
+		self.kwargs = kwargs
 
 	def get_error(self):
 		return self.result
