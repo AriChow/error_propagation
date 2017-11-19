@@ -5,7 +5,7 @@ import pickle
 import time
 
 class random_MCMC():
-	def __init__(self, data_name, data_loc, results_loc, pipeline, path_resources, hyper_resources, iters):
+	def __init__(self, data_name, data_loc, results_loc, type1, pipeline, path_resources, hyper_resources, iters):
 		self.pipeline = pipeline
 		self.paths = []
 		self.pipelines = []
@@ -17,6 +17,7 @@ class random_MCMC():
 		self.data_loc = data_loc
 		self.iters = iters
 		self.results_loc = results_loc
+		self.type1 = type1
 
 	def populate_paths(self):
 		pipeline = self.pipeline
@@ -168,6 +169,7 @@ class random_MCMC():
 			self.best_pipelines.append(p[err_argmin])
 			self.potential.append(err[err_argmin])
 		t0 = time.time()
+		times = []
 		for t in range(2, self.iters):
 			for i in range(resources):
 				path, ind = self.pick_path(pipelines, eps, 1)
@@ -187,13 +189,20 @@ class random_MCMC():
 				self.best_pipelines[i] = p[err_argmin]
 				self.potential[i] = err[err_argmin]
 			t1 = time.time()
-			if (t1-t0) > max_time:
-				break
+			self.pipelines = pipelines
+			err_argmin = np.argmin(self.potential)
+			best_pipeline = self.best_pipelines[err_argmin]
+			best_error = self.potential[err_argmin]
+			# if (t1-t0) > (1200 * (t-1)):
+			pickle.dump([self, best_pipeline, best_error], open(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
+			times.append(t1-t0)
+			# if (t1-t0) > max_time:
+			# 	break
 		self.pipelines = pipelines
 		err_argmin = np.argmin(self.potential)
 		best_pipeline = self.best_pipelines[err_argmin]
 		best_error = self.potential[err_argmin]
-		return best_pipeline, best_error
+		return best_pipeline, best_error, times
 
 
 

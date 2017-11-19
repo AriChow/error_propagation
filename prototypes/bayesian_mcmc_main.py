@@ -1,9 +1,9 @@
 import numpy as np
 import os
-from prototypes.random_based_mcmc import random_MCMC
+from prototypes.bayesian_based_mcmc import bayesian_MCMC
 import pickle
 
-if __name__ == '__main__':
+if __name__=='__main__':
 	home = os.path.expanduser('~')
 	dataset = 'breast'
 	data_home = home + '/Documents/research/EP_project/data/'
@@ -28,59 +28,59 @@ if __name__ == '__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
 
 	# CONTROL
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC.pkl', 'wb'))
 
 	# FEATURE EXTRACTION AGNOSTIC
 	pipeline['feature_extraction'] = ['VGG']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_VGG.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_VGG.pkl', 'wb'))
 
 	pipeline['feature_extraction'] = ['inception']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_inception.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_inception.pkl', 'wb'))
 
 	pipeline['feature_extraction'] = ['haralick']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_haralick.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_haralick.pkl', 'wb'))
 
 	# DIMENSIONALITY REDUCTION AGNOSTIC
 	pipeline['dimensionality_reduction'] = ['PCA']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_PCA.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_PCA.pkl', 'wb'))
 
 	pipeline['dimensionality_reduction'] = ['ISOMAP']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_ISOMAP.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_ISOMAP.pkl', 'wb'))
 
 	# LEARNING ALGORITHM AGNOSTIC
 	pipeline['learning_algorithm'] = ['RF']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_RF.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_RF.pkl', 'wb'))
 
 	pipeline['learning_algorithm'] = ['SVM']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=1)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_SVM.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.bayesianmcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_SVM.pkl', 'wb'))

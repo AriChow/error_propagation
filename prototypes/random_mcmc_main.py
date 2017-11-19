@@ -28,59 +28,67 @@ if __name__=='__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
 
 	# CONTROL
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=3)
+	type1 = 'random_MCMC'
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC.pkl', 'wb'))
 
 	# FEATURE EXTRACTION AGNOSTIC
+	type1 = 'random_MCMC_VGG'
 	pipeline['feature_extraction'] = ['VGG']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_VGG.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_VGG.pkl', 'wb'))
 
+	type1 = 'random_MCMC_inception'
 	pipeline['feature_extraction'] = ['inception']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_inception.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_inception.pkl', 'wb'))
 
+	type1 = 'random_MCMC_haralick'
 	pipeline['feature_extraction'] = ['haralick']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_haralick.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_haralick.pkl', 'wb'))
 
 	# DIMENSIONALITY REDUCTION AGNOSTIC
+	type1 = 'random_MCMC_PCA'
 	pipeline['dimensionality_reduction'] = ['PCA']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_PCA.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_PCA.pkl', 'wb'))
 
+	type1 = 'random_MCMC_ISOMAP'
 	pipeline['dimensionality_reduction'] = ['ISOMAP']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_ISOMAP.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_ISOMAP.pkl', 'wb'))
 
 	# LEARNING ALGORITHM AGNOSTIC
+	type1 = 'random_MCMC_RF'
 	pipeline['learning_algorithm'] = ['RF']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_RF.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_RF.pkl', 'wb'))
 
+	type1 = 'random_MCMC_SVM'
 	pipeline['learning_algorithm'] = ['SVM']
-	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-				 iters=3)
+	rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20,
+				 iters=50)
 	rm.populate_paths()
-	best_pipeline, best_error = rm.rlMcmc()
-	pickle.dump([rm, best_pipeline, best_error], open(results_home + 'intermediate/random_MCMC/random_MCMC_SVM.pkl', 'wb'))
+	best_pipeline, best_error, times = rm.rlMcmc()
+	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/random_MCMC/random_MCMC_SVM.pkl', 'wb'))
