@@ -1,8 +1,10 @@
 import pickle
 import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 home = os.path.expanduser('~')
-dataset = 'breast'
+dataset = 'matsc_dataset2'
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -52,17 +54,78 @@ import matplotlib.pyplot as plt
 max_iters = 21
 errors = []
 errors1 = []
-for i in range(2, max_iters):
-	[_, _, err] = pickle.load(open(results_home + 'intermediate/RL_MCMC/RL_MCMC_' + dataset + '_iter_' + str(i) + '.pkl', 'rb'))
+errors2 = []
+for i in range(max_iters):
+	[_, _, err, _] = pickle.load(open(results_home + 'intermediate/RL_MCMC/RL_MCMC_' + dataset + '_iter_' + str(i) + '.pkl', 'rb'))
 	errors.append(err)
-	[_, _, err] = pickle.load(open(results_home + 'intermediate/random_MCMC/random_MCMC_' + dataset + '_iter_' + str(i) + '.pkl', 'rb'))
+	[_, _, err, _] = pickle.load(open(results_home + 'intermediate/random_MCMC/random_MCMC_' + dataset + '_iter_' + str(i) + '.pkl', 'rb'))
 	errors1.append(err)
+	[_, _, err, _] = pickle.load(open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + dataset + '_iter_' + str(i) + '.pkl', 'rb'))
+	errors2.append(err)
 
-plt.plot(range(1, max_iters-1), errors)
-plt.plot(range(1, max_iters-1), errors1, 'r')
+plt.plot(range(max_iters), errors, label='RL')
+plt.plot(range(max_iters), errors1, 'r', label='random')
+plt.plot(range(max_iters), errors2, 'g', label='bayesian')
 plt.xlabel('Iterations')
 plt.ylabel('Errors')
-plt.savefig(results_home + 'figures/MCMC_error.jpg')
+plt.legend()
+plt.savefig(results_home + 'figures/RL_random_MCMC_bayesian_error_' + dataset +'.jpg')
+plt.close()
 
+# ERROR BARS
+errors = pickle.load(open(results_home + 'intermediate/RL_MCMC/errors' + dataset +'.pkl', 'rb'))
+err = errors[-1, :]
 
+error = []
+for i in range(len(err)-1):
+	error.append(err[i] - err[-1])
+m = min(error)
+error /= m
+error = np.asarray(error)
+error = error.astype('int8')
+error = error.tolist()
+x = ['FE', 'DR', 'LA']
+plt.figure(1, figsize=(12, 4))
 
+# fig, ax = plt.subplots()
+plt.subplot(131)
+plt.bar(range(1, 4), error)
+plt.title('RL')
+plt.xlabel('Agnostic Step')
+plt.ylabel('Relative errors')
+plt.xticks(range(1, 4), x)
+errors = pickle.load(open(results_home + 'intermediate/random_MCMC/errors' + dataset + '.pkl', 'rb'))
+err = errors[-1, :]
+error = []
+for i in range(len(err)-1):
+	error.append(err[i] - err[-1])
+m = min(error)
+error /= m
+error = np.asarray(error)
+error = error.astype('int8')
+error = error.tolist()
+plt.subplot(132)
+plt.bar(range(1, 4), error)
+plt.title('Random')
+plt.xlabel('Agnostic Step')
+plt.ylabel('Relative errors')
+plt.xticks(range(1, 4), x)
+
+errors = pickle.load(open(results_home + 'intermediate/bayesian_MCMC/errors' + dataset + '.pkl', 'rb'))
+err = errors[-1, :]
+error = []
+for i in range(len(err)-1):
+	error.append(err[i] - err[-1])
+m = min(error)
+error /= m
+error = np.asarray(error)
+error = error.astype('int8')
+error = error.tolist()
+plt.subplot(133)
+plt.bar(range(1, 4), error)
+plt.title('Bayesian')
+plt.xlabel('Agnostic Step')
+plt.ylabel('Relative errors')
+plt.xticks(range(1, 4), x)
+plt.savefig(results_home + 'figures/RL_random_bayesian_MCMC_error_bars_' + dataset + '.jpg')
+plt.close()

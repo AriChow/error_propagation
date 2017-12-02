@@ -5,7 +5,7 @@ import pickle
 import time
 
 class RL_MCMC():
-	def __init__(self, data_name, data_loc, results_loc, type1, pipeline, path_resources, hyper_resources, iters):
+	def __init__(self, data_name=None, data_loc=None, results_loc=None, type1=None, pipeline=None, path_resources=None, hyper_resources=None, iters=None):
 		self.pipeline = pipeline
 		self.paths = []
 		self.pipelines = []
@@ -133,7 +133,7 @@ class RL_MCMC():
 		# 			r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
 		# 			hyper['svm_gamma'] = r[0]
 		# 		g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-		# 										  data_loc=self.data_loc, fe=path[0], dr=path[1], la=path[2],
+		# 										  data_loc=self.data_loc, type1='RL', fe=path[0], dr=path[1], la=path[2],
 		# 										  val_splits=3, test_size=0.2)
 		# 		g.run()
 		#
@@ -159,6 +159,8 @@ class RL_MCMC():
 		# pickle.dump(pipelines, open('/home/aritra/Documents/research/EP_project/results/intermediate/rl_mcmc_initial_pipeline.pkl', 'wb'))
 		pipelines = pickle.load(open('/home/aritra/Documents/research/EP_project/results/intermediate/rl_mcmc_initial_pipeline.pkl', 'rb'))
 
+		times = []
+		t0 = time.time()
 		for i in range(len(pipelines)):
 			p = pipelines[i]
 			err = []
@@ -168,15 +170,22 @@ class RL_MCMC():
 			err_argmin = np.argmin(err)
 			self.best_pipelines.append(p[err_argmin])
 			self.potential.append(err[err_argmin])
+		t1 = time.time()
+		err_argmin = np.argmin(self.potential)
+		best_pipeline = self.best_pipelines[err_argmin]
+		best_error = self.potential[err_argmin]
+		# if (t1-t0) > (1200 * (t-1)):
+		pickle.dump([self, best_pipeline, best_error, t1 - t0], open(
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(0) + '.pkl',
+			'wb'))
+		times.append(t1 - t0)
 
-		times = []
-		t0 = time.time()
-		for t in range(2, self.iters):
+		for t in range(1, self.iters):
 			for i in range(resources):
 				path, ind = self.pick_path(pipelines, eps, t)
 				hyper = self.pick_hyper(pipelines[ind], eps, t)
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-												  data_loc=self.data_loc, fe=path[0], dr=path[1], la=path[2],
+												  data_loc=self.data_loc, type1='RL', fe=path[0], dr=path[1], la=path[2],
 												  val_splits=3, test_size=0.2)
 				g.run()
 				pipelines[ind].append(g)
@@ -195,7 +204,7 @@ class RL_MCMC():
 			best_pipeline = self.best_pipelines[err_argmin]
 			best_error = self.potential[err_argmin]
 			# if (t1-t0) > (1200 * (t-1)):
-			pickle.dump([self, best_pipeline, best_error], open(self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
+			pickle.dump([self, best_pipeline, best_error, t1-t0], open(self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
 			# if (t1-t0) > max_time:
 			# 	break
 			times.append(t1-t0)

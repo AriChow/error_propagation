@@ -90,31 +90,22 @@ class bayesian_MCMC():
 
 		def VGG_all_features(names, X):
 			home = os.path.expanduser('~')
-			if os.path.exists(home + '/Documents/research/EP_project/data/features/VGG_' + self.data_name + '.npz'):
-				f = np.load(
-					open(home + '/Documents/research/EP_project/data/features/VGG_' + self.data_name + '.npz', 'rb'))
+			if os.path.exists(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz'):
+				f = np.load(open(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz', 'rb'))
 				return f.f.arr_0[X, :]
 			else:
 				f = CNN_all_features(names, 'VGG')
-				np.savez(
-					open(home + '/Documents/research/EP_project/data/features/VGG_' + self.data_name + '.npz', 'wb'),
-					f)
+				np.savez(open(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz', 'wb'), f)
 				return f[X, :]
 
 		def inception_all_features(names, X):
 			home = os.path.expanduser('~')
-			if os.path.exists(
-											home + '/Documents/research/EP_project/data/features/inception_' + self.data_name + '.npz'):
-				f = np.load(
-					open(home + '/Documents/research/EP_project/data/features/inception_' + self.data_name + '.npz',
-						 'rb'))
+			if os.path.exists(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz'):
+				f = np.load(open(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz', 'rb'))
 				return f.f.arr_0[X, :]
 			else:
 				f = CNN_all_features(names, 'inception')
-				np.savez(
-					open(home + '/Documents/research/EP_project/data/features/inception_' + self.data_name + '.npz',
-						 'wb'),
-					f)
+				np.savez(open(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz', 'wb'), f)
 				return f[X, :]
 
 		def principal_components(X, whiten=True):
@@ -201,7 +192,7 @@ class bayesian_MCMC():
 				elif path[0] == "VGG":
 					f_val = VGG_all_features(names, ids2)
 					f_train = VGG_all_features(names, ids1)
-				elif path[0] == "Inception":
+				elif path[0] == "inception":
 					f_val = inception_all_features(names, ids2)
 					f_train = inception_all_features(names, ids1)
 
@@ -240,7 +231,7 @@ class bayesian_MCMC():
 		for t in range(self.iters):
 			self.potential = []
 			self.best_pipelines = []
-			for i_path in range(4, len(self.paths)):
+			for i_path in range(len(self.paths)):
 				path = self.paths[i_path]
 				cs = ConfigurationSpace()
 				if path[0] == 'haralick':
@@ -264,9 +255,11 @@ class bayesian_MCMC():
 					cs.add_hyperparameters([rf_max_features, rf_n_estimators])
 
 				scenario = Scenario({"run_obj": "quality",
-									 "run_count_limit": self.hyper_resources * (t + 1),
+									 "cutoff_time": 600 * (t + 1),
+									 "runcount_limit": self.hyper_resources * (t + 1),
 									 "cs": cs,
-									 "wallclock_limit" : 3600,
+									 "maxR": 100 * (t + 1),
+									 "wallclock_limit" : 600* (t + 1),
 									 "deterministic": "true"})
 
 				smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
@@ -279,5 +272,5 @@ class bayesian_MCMC():
 			err_argmin = np.argmin(self.potential)
 			best_pipeline = self.best_pipelines[err_argmin]
 			best_error = self.potential[err_argmin]
-			pickle.dump([self, best_pipeline, best_error], open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
+			pickle.dump([self, best_pipeline, best_error, t1-t0], open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
 		return best_pipeline, best_error, times
