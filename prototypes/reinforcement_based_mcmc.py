@@ -183,6 +183,7 @@ class RL_MCMC():
 		best_error = 0
 		best_error1 = 0
 		# for t in range(1, self.iters):
+		t = 0
 		while(True):
 			for i in range(resources):
 				path, ind = self.pick_path(pipelines, eps, t)
@@ -213,6 +214,7 @@ class RL_MCMC():
 				cnt = 0
 			if cnt >= self.iters:
 				break
+			t += 1
 			# if (t1-t0) > (1200 * (t-1)):
 			pickle.dump([self, best_pipeline, best_error, t1-t0], open(self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
 			# if (t1-t0) > max_time:
