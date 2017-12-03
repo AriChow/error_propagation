@@ -5,7 +5,7 @@ import pickle
 
 if __name__=='__main__':
 	home = os.path.expanduser('~')
-	dataset = 'matsc_dataset2'
+	dataset = 'breast'
 	data_home = home + '/Documents/research/EP_project/data/'
 	results_home = home + '/Documents/research/EP_project/results/'
 	num_iters = 21

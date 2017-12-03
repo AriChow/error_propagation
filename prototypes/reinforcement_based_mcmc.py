@@ -179,8 +179,11 @@ class RL_MCMC():
 			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(0) + '.pkl',
 			'wb'))
 		times.append(t1 - t0)
-
-		for t in range(1, self.iters):
+		cnt = 0
+		best_error = 0
+		best_error1 = 0
+		# for t in range(1, self.iters):
+		while(True)
 			for i in range(resources):
 				path, ind = self.pick_path(pipelines, eps, t)
 				hyper = self.pick_hyper(pipelines[ind], eps, t)
@@ -200,9 +203,16 @@ class RL_MCMC():
 				self.potential[i] = err[err_argmin]
 			t1 = time.time()
 			self.pipelines = pipelines
+			best_error1 = best_error
 			err_argmin = np.argmin(self.potential)
 			best_pipeline = self.best_pipelines[err_argmin]
 			best_error = self.potential[err_argmin]
+			if best_error1 == best_error:
+				cnt += 1
+			else:
+				cnt = 0
+			if cnt >= self.iters:
+				break
 			# if (t1-t0) > (1200 * (t-1)):
 			pickle.dump([self, best_pipeline, best_error, t1-t0], open(self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
 			# if (t1-t0) > max_time:
@@ -213,8 +223,3 @@ class RL_MCMC():
 		best_pipeline = self.best_pipelines[err_argmin]
 		best_error = self.potential[err_argmin]
 		return best_pipeline, best_error, times
-
-
-
-
-
