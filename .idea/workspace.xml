@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/error_propagation_regression.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script1.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script2.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" afterPath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/mcmc_error_analysis.py" afterPath="$PROJECT_DIR$/prototypes/mcmc_error_analysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/random_mcmc_main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/script.sh" afterPath="$PROJECT_DIR$/prototypes/script.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +28,8 @@
       <file leaf-file-name="random_based_mcmc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="186" column="32" lean-forward="true" selection-start-line="186" selection-start-column="32" selection-end-line="186" selection-end-column="32" />
+            <state relative-caret-position="69">
+              <caret line="208" column="59" lean-forward="true" selection-start-line="208" selection-start-column="59" selection-end-line="208" selection-end-column="59" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
               </folding>
@@ -44,9 +40,77 @@
       <file leaf-file-name="script.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prototypes/script.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="156">
+              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script1.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/script1.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script2.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/script2.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reinforcement_mcmc_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-23">
+              <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid_mcmc_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/grid_mcmc_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid_based_mcmc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#75#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>intermediate/</find>
       <find>'_.pkl'</find>
       <find>run_co</find>
       <find>deter</find>
@@ -92,9 +155,9 @@
       <find>random</find>
       <find>RL</find>
       <find>maxR</find>
+      <find>Documents/research</find>
     </findStrings>
     <replaceStrings>
-      <replace>{}</replace>
       <replace>self.edge_probabilities</replace>
       <replace>list(np.</replace>
       <replace>path2</replace>
@@ -124,6 +187,7 @@
       <replace>random</replace>
       <replace>RL</replace>
       <replace>bayesian</replace>
+      <replace>barn</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -153,26 +217,28 @@
         <option value="$PROJECT_DIR$/prototypes/gradient_search.py" />
         <option value="$PROJECT_DIR$/prototypes/gradient_main.py" />
         <option value="$PROJECT_DIR$/prototypes/mcmc_runs.sh" />
-        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
         <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py" />
         <option value="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc.py" />
         <option value="$PROJECT_DIR$/prototypes/mcmc_error_analysis.py" />
         <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
         <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_regression.py" />
+        <option value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py" />
         <option value="$PROJECT_DIR$/prototypes/random_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/prototypes/script2.sh" />
+        <option value="$PROJECT_DIR$/prototypes/script1.sh" />
         <option value="$PROJECT_DIR$/prototypes/script.sh" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1217" />
-    <option name="height" value="1036" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1215" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -419,7 +485,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1217" height="1036" extended-state="6" />
+    <frame x="65" y="-4" width="1215" height="1028" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978614" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -546,7 +612,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/prototypes/random_based_mcmc.py</url>
-          <line>185</line>
+          <line>190</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -556,7 +622,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/prototypes/grid_based_mcmc.py</url>
-          <line>106</line>
+          <line>107</line>
           <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
@@ -575,20 +641,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/tensorflow/python/client/session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="1034" column="0" lean-forward="false" selection-start-line="1034" selection-start-column="0" selection-end-line="1034" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/sklearn/model_selection/_split.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="508" column="6" lean-forward="false" selection-start-line="508" selection-start-column="6" selection-end-line="508" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/mahotas/features/texture.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2003">
@@ -859,16 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-365">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/smac/scenario/scenario.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -934,16 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/grid_main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-283">
@@ -960,20 +992,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/script2.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="131" column="49" lean-forward="true" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+        <state relative-caret-position="26">
+          <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
-            <element signature="e#0#75#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/grid_mcmc_main.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="-23">
+          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -982,18 +1030,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="186" column="32" lean-forward="true" selection-start-line="186" selection-start-column="32" selection-end-line="186" selection-end-column="32" />
+        <state relative-caret-position="69">
+          <caret line="208" column="59" lean-forward="true" selection-start-line="208" selection-start-column="59" selection-end-line="208" selection-end-column="59" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/script.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="156">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -6,8 +6,8 @@ import pickle
 if __name__ == '__main__':
 	home = os.path.expanduser('~')
 	dataset = 'breast'
-	data_home = home + '/barn/EP_project/data/'
-	results_home = home + '/barn/EP_project/results/'
+	data_home = home + '/Documents/research/EP_project/data/'
+	results_home = home + '/Documents/research/EP_project/results/'
 	num_iters = 21
 	# Empty features directory
 	import glob

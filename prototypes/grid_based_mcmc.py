@@ -100,9 +100,10 @@ class grid_MCMC():
 		return hypers2
 	def gridMcmc(self):
 		paths = self.paths
-		pipelines = []
+		pipelines = {}
 		t0 = time.time()
 		for i in range(len(paths)):
+			pipelines[i] = []
 			path = paths[i]
 			hypers = self.populate_path(path)
 			for j in range(len(hypers)):
