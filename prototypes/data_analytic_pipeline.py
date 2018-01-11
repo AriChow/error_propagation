@@ -8,7 +8,7 @@ from mahotas.features import haralick
 import cv2
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn import metrics
-from sklearn.preprocessing import Normalizer
+from sklearn.preprocessing import StandardScaler
 import glob
 
 class image_classification_pipeline(object):
@@ -133,12 +133,12 @@ class image_classification_pipeline(object):
 			f_val = dr.transform(f_val)
 
 		# Pre-processing
-		normalizer = Normalizer().fit(f_train)
+		normalizer = StandardScaler().fit(f_train)
 		f_train = normalizer.transform(f_train)
 		f_val = normalizer.transform(f_val)
 
 		# Learning algorithms
-		clf =[]
+		clf = []
 		if self.learning_algorithm == "RF":
 			clf = self.random_forests(f_train, y_train, int(self.n_estimators), self.max_features)
 		elif self.learning_algorithm == "SVM":
@@ -223,10 +223,13 @@ class image_classification_pipeline(object):
 		data = X
 		X1 = pca.fit(X)
 		var = pca.explained_variance_ratio_
+		s1 = 0
+		for i in range(len(var)):
+			s1 += var[i]
 		s = 0
 		for i in range(len(var)):
 			s += var[i]
-			if s >= maxvar:
+			if (s * 1.0 / s1) >= maxvar:
 				break
 		pca = PCA(n_components=i + 1)
 		pca.fit(data)

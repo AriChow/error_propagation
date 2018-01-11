@@ -1,0 +1,6 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000228, 1, 0.000228, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='10'
+102.924138, 0.988426, 102.967869, 1, 0.043731, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='10'
+206.363017, 0.851316, 206.590146, 2, 0.227129, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''false'', svm_C='54.10582404072731', svm_gamma='5.627505745726167'
+210.554652, 0.706687, 211.037596, 3, 0.482944, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''true'', rf_max_features='0.5249461832010445', rf_n_estimators='134'
+2088.136003, 0.698818, 2093.341238, 4, 5.205235, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.525676519105071', rf_n_estimators='107'

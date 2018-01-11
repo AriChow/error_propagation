@@ -1,0 +1,33 @@
+import numpy as np
+import os
+from prototypes.bayesian_based_mcmc import bayesian_MCMC
+import pickle
+
+if __name__=='__main__':
+	home = os.path.expanduser('~')
+	dataset = 'breast'
+	data_home = home + '/Documents/research/EP_project/data/'
+	results_home = home + '/Documents/research/EP_project/results/'
+	# Empty features directory
+	import glob
+	files = glob.glob(data_home + 'features/bayesian/*.npz')
+	for f in files:
+		os.remove(f)
+	pipeline = {}
+	pipeline['feature_extraction'] = ["VGG", "haralick", "inception"]
+	pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP"]
+	pipeline['learning_algorithm'] = ["SVM", "RF"]
+	pipeline['haralick_distance'] = range(1, 4)
+	pipeline['pca_whiten'] = [True, False]
+	pipeline['n_neighbors'] = range(3, 8)
+	pipeline['n_components'] = range(2, 5)
+	pipeline['n_estimators'] = np.round(np.linspace(8, 300, 10))
+	pipeline['max_features'] = np.arange(0.3, 0.8, 0.1)
+	pipeline['svm_gamma'] = np.linspace(0.01, 8, 10)
+	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
+
+	# CONTROL
+	for i in range(5):
+		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
+		rm.populate_paths()
+		rm.bayesianmcmc()

@@ -8,8 +8,6 @@ if __name__=='__main__':
 	dataset = 'breast'
 	data_home = home + '/Documents/research/EP_project/data/'
 	results_home = home + '/Documents/research/EP_project/results/'
-	num_iters = 21
-	# Gradient calculation
 	# Empty features directory
 	import glob
 	files = glob.glob(data_home + 'features/bayesian/*.npz')
@@ -29,59 +27,7 @@ if __name__=='__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
 
 	# CONTROL
-	rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=num_iters)
-	rm.populate_paths()
-	best_pipeline, best_error, times = rm.bayesianmcmc()
-	pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC.pkl', 'wb'))
-
-	# # FEATURE EXTRACTION AGNOSTIC
-	# pipeline['feature_extraction'] = ['VGG']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_VGG.pkl', 'wb'))
-	#
-	# pipeline['feature_extraction'] = ['inception']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_inception.pkl', 'wb'))
-	#
-	# pipeline['feature_extraction'] = ['haralick']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_haralick.pkl', 'wb'))
-	#
-	# # DIMENSIONALITY REDUCTION AGNOSTIC
-	# pipeline['dimensionality_reduction'] = ['PCA']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_PCA.pkl', 'wb'))
-	#
-	# pipeline['dimensionality_reduction'] = ['ISOMAP']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_ISOMAP.pkl', 'wb'))
-	#
-	# # LEARNING ALGORITHM AGNOSTIC
-	# pipeline['learning_algorithm'] = ['RF']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_RF.pkl', 'wb'))
-	#
-	# pipeline['learning_algorithm'] = ['SVM']
-	# rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, pipeline=pipeline, path_resources=12, hyper_resources=20,
-	# 			 iters=num_iters)
-	# rm.populate_paths()
-	# best_pipeline, best_error, times = rm.bayesianmcmc()
-	# pickle.dump([rm, best_pipeline, best_error, times], open(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_SVM.pkl', 'wb'))
+	for i in range(5):
+		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
+		rm.populate_paths()
+		rm.bayesianmcmc()

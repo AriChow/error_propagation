@@ -1,0 +1,4 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000507, 1, 0.000507, C='1.0', degree='3', kernel=''poly'', shrinking=''true'', coef0='0.0', gamma=''auto''
+0.356690, 0.030065, 0.382284, 1, 0.025594, C='1.0', degree='3', kernel=''poly'', shrinking=''true'', coef0='0.0', gamma=''auto''
+10.824020, 0.028404, 11.488929, 2, 0.664909, C='454.44951063098483', degree='4', kernel=''poly'', shrinking=''true'', coef0='5.734914977578212', gamma=''auto''

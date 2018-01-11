@@ -5,17 +5,14 @@ import pickle
 import time
 
 class grid_MCMC():
-	def __init__(self, data_name=None, data_loc=None, results_loc=None, type1=None, pipeline=None, path_resources=None, hyper_resources=None, iters=None):
+	def __init__(self, data_name=None, data_loc=None, results_loc=None, run=None, type1=None, pipeline=None):
 		self.pipeline = pipeline
 		self.paths = []
 		self.pipelines = []
-		self.best_pipelines = []
-		self.potential = []
-		self.path_resources = path_resources
-		self.hyper_resources = hyper_resources
+		self.times = []
+		self.run = run
 		self.data_name = data_name
 		self.data_loc = data_loc
-		self.iters = iters
 		self.results_loc = results_loc
 		self.type1 = type1
 
@@ -101,37 +98,27 @@ class grid_MCMC():
 	def gridMcmc(self):
 		paths = self.paths
 		pipelines = {}
-		t0 = time.time()
+		times = {}
 		for i in range(len(paths)):
 			pipelines[i] = []
+			times[i] = []
 			path = paths[i]
 			hypers = self.populate_path(path)
 			for j in range(len(hypers)):
 				hyper = hypers[j]
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-												  data_loc=self.data_loc, type1='random', fe=path[0], dr=path[1],
+												  data_loc=self.data_loc, type1='grid', fe=path[0], dr=path[1],
 												  la=path[2],
 												  val_splits=3, test_size=0.2)
+				t0 = time.time()
 				g.run()
+				t1 = time.time()
 				pipelines[i].append(g)
-		for i in range(len(pipelines)):
-			p = pipelines[i]
-			err = []
-			for j in range(len(p)):
-				err.append(p[j].get_error())
-			err_argmin = np.argmin(err)
-			self.best_pipelines[i] = p[err_argmin]
-			self.potential[i] = err[err_argmin]
-		t1 = time.time()
+				times[i].append(t1-t0)
+		self.times = times
 		self.pipelines = pipelines
-		err_argmin = np.argmin(self.potential)
-		best_pipeline = self.best_pipelines[err_argmin]
-		best_error = self.potential[err_argmin]
-		# if (t1-t0) > (1200 * (t-1)):
-		pickle.dump([self, best_pipeline, best_error, t1 - t0], open(
-			self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '.pkl', 'wb'))
-		return best_pipeline, best_error, (t1-t0)
-
+		pickle.dump(self, open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name +
+							   '_run_' + str(self.run) + '.pkl', 'wb'))
 
 
 

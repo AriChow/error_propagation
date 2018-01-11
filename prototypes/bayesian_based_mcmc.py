@@ -10,16 +10,17 @@ from smac.scenario.scenario import Scenario
 from smac.facade.smac_facade import SMAC
 
 class bayesian_MCMC():
-	def __init__(self, data_name, data_loc, results_loc, pipeline, path_resources, hyper_resources, iters):
+	def __init__(self, data_name, data_loc, results_loc, run, pipeline):
 		self.pipeline = pipeline
 		self.paths = []
-		self.best_pipelines = []
-		self.potential = []
+		self.times = []
+		self.error_curves = []
 		self.data_name = data_name
 		self.data_loc = data_loc
+		self.best_pipelines = []
+		self.potential = []
+		self.run = run
 		self.results_loc = results_loc
-		self.iters = iters
-		self.hyper_resources = hyper_resources
 
 	def populate_paths(self):
 		pipeline = self.pipeline
@@ -45,7 +46,7 @@ class bayesian_MCMC():
 		import os
 		from sklearn.model_selection import StratifiedKFold, train_test_split
 		from sklearn import metrics
-		from sklearn.preprocessing import Normalizer
+		from sklearn.preprocessing import StandardScaler
 		import cv2
 
 		def haralick_all_features(X, distance=1):
@@ -90,22 +91,22 @@ class bayesian_MCMC():
 
 		def VGG_all_features(names, X):
 			home = os.path.expanduser('~')
-			if os.path.exists(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz'):
-				f = np.load(open(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz', 'rb'))
+			if os.path.exists(self.data_loc + 'features/bayesian/VGG_' + self.data_name + '.npz'):
+				f = np.load(open(self.data_loc + 'features/bayesian/VGG_' + self.data_name + '.npz', 'rb'))
 				return f.f.arr_0[X, :]
 			else:
 				f = CNN_all_features(names, 'VGG')
-				np.savez(open(home + '/Documents/research/EP_project/data/features/bayesian/VGG_' + self.data_name + '.npz', 'wb'), f)
+				np.savez(open(self.data_loc + 'features/bayesian/VGG_' + self.data_name + '.npz', 'wb'), f)
 				return f[X, :]
 
 		def inception_all_features(names, X):
 			home = os.path.expanduser('~')
-			if os.path.exists(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz'):
-				f = np.load(open(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz', 'rb'))
+			if os.path.exists(self.data_loc + 'features/bayesian/inception_' + self.data_name + '.npz'):
+				f = np.load(open(self.data_loc + 'features/bayesian/inception_' + self.data_name + '.npz', 'rb'))
 				return f.f.arr_0[X, :]
 			else:
 				f = CNN_all_features(names, 'inception')
-				np.savez(open(home + '/Documents/research/EP_project/data/features/bayesian/inception_' + self.data_name + '.npz', 'wb'), f)
+				np.savez(open(self.data_loc + 'features/bayesian/inception_' + self.data_name + '.npz', 'wb'), f)
 				return f[X, :]
 
 		def principal_components(X, whiten=True):
@@ -114,10 +115,13 @@ class bayesian_MCMC():
 			data = X
 			X1 = pca.fit(X)
 			var = pca.explained_variance_ratio_
+			s1 = 0
+			for i in range(len(var)):
+				s1 += var[i]
 			s = 0
 			for i in range(len(var)):
 				s += var[i]
-				if s >= maxvar:
+				if (s * 1.0 / s1) >= maxvar:
 					break
 			pca = PCA(n_components=i + 1)
 			pca.fit(data)
@@ -209,7 +213,7 @@ class bayesian_MCMC():
 					f_val = dr.transform(f_val)
 
 				# Pre-processing
-				normalizer = Normalizer().fit(f_train)
+				normalizer = StandardScaler().fit(f_train)
 				f_train = normalizer.transform(f_train)
 				f_val = normalizer.transform(f_val)
 
@@ -224,53 +228,46 @@ class bayesian_MCMC():
 			return np.mean(f11)
 
 
-		best_error = 0
-		best_pipeline = []
-		t0 = time.time()
-		times = []
-		for t in range(self.iters):
-			self.potential = []
-			self.best_pipelines = []
-			for i_path in range(len(self.paths)):
-				path = self.paths[i_path]
-				cs = ConfigurationSpace()
-				if path[0] == 'haralick':
-					haralick_distance = UniformIntegerHyperparameter("haralick_distance", 1, 3, default=1)
-					cs.add_hyperparameter(haralick_distance)
-				if path[1] == 'PCA':
-					pca_whiten = CategoricalHyperparameter("pca_whiten", ["true", "false"], default="true")
-					cs.add_hyperparameter(pca_whiten)
-				elif path[1] == 'ISOMAP':
-					isomap_n_neighbors = UniformIntegerHyperparameter("isomap_n_neighbors", 3, 7, default=5)
-					isomap_n_components = UniformIntegerHyperparameter("isomap_n_components", 2, 4, default=2)
-					cs.add_hyperparameters([isomap_n_neighbors, isomap_n_components])
-				if path[2] == 'SVM':
-					svm_C = UniformFloatHyperparameter("svm_C", 0.1, 100.0, default=1.0)
-					cs.add_hyperparameter(svm_C)
-					svm_gamma = UniformFloatHyperparameter("svm_gamma", 0.01, 8, default=1)
-					cs.add_hyperparameter(svm_gamma)
-				elif path[2] == 'RF':
-					rf_n_estimators = UniformIntegerHyperparameter("rf_n_estimators", 8, 300, default=10)
-					rf_max_features = UniformFloatHyperparameter("rf_max_features", 0.3, 0.8, default=0.5)
-					cs.add_hyperparameters([rf_max_features, rf_n_estimators])
+		self.times = []
+		self.error_curves = []
+		for i_path in range(len(self.paths)):
+			path = self.paths[i_path]
+			cs = ConfigurationSpace()
+			if path[0] == 'haralick':
+				haralick_distance = UniformIntegerHyperparameter("haralick_distance", 1, 3, default=1)
+				cs.add_hyperparameter(haralick_distance)
+			if path[1] == 'PCA':
+				pca_whiten = CategoricalHyperparameter("pca_whiten", ["true", "false"], default="true")
+				cs.add_hyperparameter(pca_whiten)
+			elif path[1] == 'ISOMAP':
+				isomap_n_neighbors = UniformIntegerHyperparameter("isomap_n_neighbors", 3, 7, default=5)
+				isomap_n_components = UniformIntegerHyperparameter("isomap_n_components", 2, 4, default=2)
+				cs.add_hyperparameters([isomap_n_neighbors, isomap_n_components])
+			if path[2] == 'SVM':
+				svm_C = UniformFloatHyperparameter("svm_C", 0.1, 100.0, default=1.0)
+				cs.add_hyperparameter(svm_C)
+				svm_gamma = UniformFloatHyperparameter("svm_gamma", 0.01, 8, default=1)
+				cs.add_hyperparameter(svm_gamma)
+			elif path[2] == 'RF':
+				rf_n_estimators = UniformIntegerHyperparameter("rf_n_estimators", 8, 300, default=10)
+				rf_max_features = UniformFloatHyperparameter("rf_max_features", 0.3, 0.8, default=0.5)
+				cs.add_hyperparameters([rf_max_features, rf_n_estimators])
 
-				scenario = Scenario({"run_obj": "quality",
-									 "cutoff_time": 600 * (t + 1),
-									 "runcount_limit": self.hyper_resources * (t + 1),
-									 "cs": cs,
-									 "maxR": 100 * (t + 1),
-									 "wallclock_limit" : 600* (t + 1),
-									 "deterministic": "true"})
-
-				smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
-				incumbent = smac.optimize()
-				inc_value = pipeline_from_cfg(incumbent)
-				self.best_pipelines.append(incumbent)
-				self.potential.append(inc_value)
+			scenario = Scenario({"run_obj": "quality",
+								 "cutoff_time": 100000,
+								 "runcount_limit": 1000 * 10,
+								 "cs": cs,
+								 "maxR": 10000,
+								 "wallclock_limit" : 100000,
+								 "deterministic": "true"})
+			t0 = time.time()
+			smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
+			incumbent, incs = smac.optimize()
+			inc_value = pipeline_from_cfg(incumbent)
+			self.best_pipelines.append(incumbent)
+			self.potential.append(inc_value)
+			self.error_curves.append(incs)
+			# self.objects.append(smac)
 			t1 = time.time()
-			times.append(t1-t0)
-			err_argmin = np.argmin(self.potential)
-			best_pipeline = self.best_pipelines[err_argmin]
-			best_error = self.potential[err_argmin]
-			pickle.dump([self, best_pipeline, best_error, t1-t0], open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_iter_' + str(t) + '.pkl', 'wb'))
-		return best_pipeline, best_error, times
+			self.times.append(t1-t0)
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '.pkl', 'wb'))
