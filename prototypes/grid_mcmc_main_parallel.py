@@ -1,15 +1,17 @@
 import numpy as np
 import os
 from prototypes.grid_based_mcmc_parallel import grid_MCMC
+import sys
 
 if __name__ == '__main__':
 	home = os.path.expanduser('~')
-	dataset = 'breast'
-	data_home = home + '/Documents/research/EP_project/data/'
-	results_home = home + '/Documents/research/EP_project/results/'
+	dataset = sys.argv[1]
+	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
+	data_home = home + '/' + place + '/EP_project/data/'
+	results_home = home + '/' + place + '/EP_project/results/'
 	# Empty features directory
 	import glob
-	files = glob.glob(data_home + 'features/grid/*.npz')
+	files = glob.glob(data_home + 'features/grid_parallel/*.npz')
 	for f in files:
 		os.remove(f)
 	pipeline = {}

@@ -2,9 +2,10 @@ import pickle
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 home = os.path.expanduser('~')
-data_name = 'breast'
+data_name = sys.argv[1]
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 

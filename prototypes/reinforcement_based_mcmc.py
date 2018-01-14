@@ -16,6 +16,7 @@ class RL_MCMC():
 		self.data_name = data_name
 		self.data_loc = data_loc
 		self.iters = iters
+		self.best_pipelines = []
 		self.results_loc = results_loc
 		self.type1 = type1
 		self.error_curve = []
@@ -86,49 +87,49 @@ class RL_MCMC():
 
 	def  rlMcmc(self):
 		eps = 1
-		# paths = self.paths
-		# pipeline = self.pipeline
-		# # Obtain coarse potentials
-		# pipelines = []
-		# for path in paths:
-		# 	objects = []
-		# 	cnt = 0
-		# 	while True:
-		# 		hyper = {}
-		# 		if path[0] == 'haralick':
-		# 			r = np.random.choice(pipeline['haralick_distance'], 1)
-		# 			hyper['haralick_distance'] = r[0]
-		# 		if path[1] == 'PCA':
-		# 			r = np.random.choice(pipeline['pca_whiten'], 1)
-		# 			hyper['pca_whiten'] = r[0]
-		# 		elif path[1] == 'ISOMAP':
-		# 			r = np.random.choice(pipeline['n_neighbors'], 1)
-		# 			hyper['n_neighbors'] = r[0]
-		# 			r = np.random.choice(pipeline['n_components'], 1)
-		# 			hyper['n_components'] = r[0]
-		# 		if path[2] == 'RF':
-		# 			r = np.random.choice(pipeline['n_estimators'], 1)
-		# 			hyper['n_estimators'] = r[0]
-		# 			r = np.random.uniform(pipeline['max_features'], 1)
-		# 			hyper['max_features'] = r[0]
-		# 		elif path[2] == 'SVM':
-		# 			r = np.random.uniform(pipeline['svm_C'][0], pipeline['svm_C'][-1], 1)
-		# 			hyper['svm_C'] = r[0]
-		# 			r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
-		# 			hyper['svm_gamma'] = r[0]
-		# 		g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-		# 										  data_loc=self.data_loc, type1='RL', fe=path[0], dr=path[1], la=path[2],
-		# 										  val_splits=3, test_size=0.2)
-		# 		g.run()
-		#
-		# 		cnt += 1
-		# 		if cnt >= self.hyper_resources:
-		# 			break
-		# 		objects.append(g)
-		# 	pipelines.append(objects)
-		#
+		paths = self.paths
+		pipeline = self.pipeline
+		# Obtain coarse potentials
+		pipelines = []
+		for path in paths:
+			objects = []
+			cnt = 0
+			while True:
+				hyper = {}
+				if path[0] == 'haralick':
+					r = np.random.choice(pipeline['haralick_distance'], 1)
+					hyper['haralick_distance'] = r[0]
+				if path[1] == 'PCA':
+					r = np.random.choice(pipeline['pca_whiten'], 1)
+					hyper['pca_whiten'] = r[0]
+				elif path[1] == 'ISOMAP':
+					r = np.random.choice(pipeline['n_neighbors'], 1)
+					hyper['n_neighbors'] = r[0]
+					r = np.random.choice(pipeline['n_components'], 1)
+					hyper['n_components'] = r[0]
+				if path[2] == 'RF':
+					r = np.random.choice(pipeline['n_estimators'], 1)
+					hyper['n_estimators'] = r[0]
+					r = np.random.uniform(pipeline['max_features'], 1)
+					hyper['max_features'] = r[0]
+				elif path[2] == 'SVM':
+					r = np.random.uniform(pipeline['svm_C'][0], pipeline['svm_C'][-1], 1)
+					hyper['svm_C'] = r[0]
+					r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
+					hyper['svm_gamma'] = r[0]
+				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
+												  data_loc=self.data_loc, type1='RL', fe=path[0], dr=path[1], la=path[2],
+												  val_splits=3, test_size=0.2)
+				g.run()
+
+				cnt += 1
+				if cnt >= self.hyper_resources:
+					break
+				objects.append(g)
+			pipelines.append(objects)
+
 		# pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline.pkl', 'wb'))
-		pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline.pkl', 'rb'))
+		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline.pkl', 'rb'))
 
 		times = []
 		t0 = time.time()
@@ -137,6 +138,7 @@ class RL_MCMC():
 			t = 0
 			cnt = 0
 			error_curves = []
+			best_pipelines = []
 			path = [pipelines[ind][0].feature_extraction, pipelines[ind][0].dimensionality_reduction,
 					pipelines[ind][0].learning_algorithm]
 			while (True):
@@ -158,11 +160,13 @@ class RL_MCMC():
 					cnt = 0
 				if best_error1 > best_error:
 					best_error1 = best_error
+					best_pipelines.append(g)
 				error_curves.append(best_error1)
 				if cnt >= self.iters or t > 10000:
 					break
 			t1 = time.time()
 			times.append(t1-t0)
+			self.best_pipelines.append(best_pipelines)
 			self.error_curve.append(error_curves)
 		self.pipelines = pipelines
 		self.times = times

@@ -18,6 +18,7 @@ class bayesian_MCMC():
 		self.data_name = data_name
 		self.data_loc = data_loc
 		self.best_pipelines = []
+		self.best_pipelines_incumbents = []
 		self.potential = []
 		self.run = run
 		self.results_loc = results_loc
@@ -262,11 +263,12 @@ class bayesian_MCMC():
 								 "deterministic": "true"})
 			t0 = time.time()
 			smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
-			incumbent, incs = smac.optimize()
+			incumbent, incs, incumbents = smac.optimize()
 			inc_value = pipeline_from_cfg(incumbent)
 			self.best_pipelines.append(incumbent)
 			self.potential.append(inc_value)
 			self.error_curves.append(incs)
+			self.best_pipelines_incumbents.append(incumbents)
 			# self.objects.append(smac)
 			t1 = time.time()
 			self.times.append(t1-t0)

@@ -8,3 +8,4 @@
 964.763899, 0.277506, 968.416492, 6, 3.652594, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''true'', rf_max_features='0.327861375135628', rf_n_estimators='160'
 1022.702125, 0.276570, 1026.847439, 7, 4.145313, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.3449706304562468', rf_n_estimators='193'
 1408.724294, 0.275550, 1415.853313, 8, 7.129019, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.3238527494514039', rf_n_estimators='274'
+2737.675529, 0.274727, 2752.449308, 9, 14.773779, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.3529142251376804', rf_n_estimators='257'

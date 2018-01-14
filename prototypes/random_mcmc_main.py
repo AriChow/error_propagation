@@ -1,12 +1,14 @@
 import numpy as np
 import os
 from prototypes.random_based_mcmc import random_MCMC
+import sys
 
 if __name__ == '__main__':
 	home = os.path.expanduser('~')
-	dataset = 'breast'
-	data_home = home + '/Documents/research/EP_project/data/'
-	results_home = home + '/Documents/research/EP_project/results/'
+	dataset = sys.argv[1]
+	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
+	data_home = home + '/' + place + '/EP_project/data/'
+	results_home = home + '/' + place + '/EP_project/results/'
 	num_iters = 51
 	# Gradient calculation
 	# Empty features directory

@@ -104,7 +104,7 @@ class grid_MCMC():
 		for j in range(len(hypers)):
 			hyper = hypers[j]
 			g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-											  data_loc=self.data_loc, type1='grid', fe=path[0], dr=path[1],
+											  data_loc=self.data_loc, type1='grid_parallel', fe=path[0], dr=path[1],
 											  la=path[2],
 											  val_splits=3, test_size=0.2)
 			t0 = time.time()
@@ -118,17 +118,17 @@ class grid_MCMC():
 		results = []
 		pipelines = []
 		times = []
-		for z in range(4):
-			output = mp.Queue()
-			processes = [mp.Process(target=self.grid_parallel, args=(i, output)) for i in range(z*3, (z+1)*3)]
+		# for z in range(4):
+		output = mp.Queue()
+		processes = [mp.Process(target=self.grid_parallel, args=(i, output)) for i in range(len(self.paths))]
 
-			for p in processes:
-				p.start()
+		for p in processes:
+			p.start()
 
-			for p in processes:
-				p.join()
+		for p in processes:
+			p.join()
 
-			results += [output.get() for p in processes]
+		results += [output.get() for p in processes]
 
 		results.sort()
 		for r in results:

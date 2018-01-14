@@ -2,9 +2,10 @@ import pickle
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 home = os.path.expanduser('~')
-data_name = 'breast'
+data_name = sys.argv[1]
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 pipeline = {}
@@ -13,7 +14,7 @@ pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP"]
 pipeline['learning_algorithm'] = ["SVM", "RF"]
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
 # Bayesian
-types = ['RL_MCMC']
+types = [sys.argv[2]]
 step_error = np.zeros((5, 1, 3))
 alg_error = np.zeros((5, 1, 7))
 for run in range(1, 6):
@@ -40,7 +41,7 @@ for run in range(1, 6):
 		for i in range(len(error_curves)):
 			err = error_curves[i]
 			if np.amin(err) < min_err:
-				min_err = np.amin(err) 
+				min_err = np.amin(err)
 			p = pipeline['feature_extraction']
 			for j in range(len(p)):
 				alg = p[j]
@@ -53,7 +54,7 @@ for run in range(1, 6):
 				alg = p[j]
 				if obj.paths[i][1] == alg:
 					if np.amin(err) < min_dr[j]:
-						min_dr[j] = np.amin(err) 
+						min_dr[j] = np.amin(err)
 
 			p = pipeline['learning_algorithm']
 			for j in range(len(p)):
@@ -90,6 +91,7 @@ plt.figure(1, figsize=(12, 4))
 
 plt.subplot(121)
 plt.errorbar(range(1, 4), error[0, :], std_error[0, :], linestyle='None', marker='^', capsize=3)
+plt.axhline(y=0)
 plt.title('MCMC_step_errors')
 plt.xlabel('Agnostic step')
 plt.ylabel('Errors')
@@ -102,6 +104,7 @@ std_error = std_error.astype('float32')
 x = pipeline['all']
 plt.subplot(122)
 plt.errorbar(range(1, 8), error[0, :], std_error[0, :], linestyle='None', marker='^', capsize=3)
+plt.axhline(y=0)
 plt.title('MCMC_algorithm_errors')
 plt.xlabel('Agnostic algorithm')
 plt.ylabel('Errors')
@@ -113,7 +116,7 @@ plt.xticks(range(1, 8), x)
 # plt.ylabel('Errors')
 # plt.xticks(range(1, 4), x)
 
-plt.savefig(results_home + 'figures/agnostic_errors_MCMC_' + data_name + '.jpg')
+plt.savefig(results_home + 'figures/agnostic_errors_' + types[0] + '_' + data_name + '.jpg')
 plt.close()
 
 

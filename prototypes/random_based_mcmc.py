@@ -16,6 +16,7 @@ class random_MCMC():
 		self.iters = iters
 		self.results_loc = results_loc
 		self.type1 = type1
+		self.best_pipelines = []
 		self.error_curve = []
 
 	def populate_paths(self):
@@ -43,6 +44,7 @@ class random_MCMC():
 			last_error = 1000000
 			objects = []
 			error_curves = []
+			best_pipelines = []
 			t = 0
 			while True:
 				t += 1
@@ -79,6 +81,7 @@ class random_MCMC():
 					cnt = 0
 				if err < last_error:
 					last_error = err
+					best_pipelines.append(g)
 				objects.append(g)
 				error_curves.append(last_error)
 				if cnt > self.iters or t > 10000:
@@ -86,6 +89,7 @@ class random_MCMC():
 			t1 = time.time()
 			times.append(t1-t0)
 			self.error_curve.append(error_curves)
+			self.best_pipelines.append(best_pipelines)
 			pipelines.append(objects)
 		self.pipelines = pipelines
 		self.times = times
