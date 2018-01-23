@@ -39,54 +39,84 @@ class RL_MCMC():
 		errs = []
 		hypers = []
 		for p1 in pipeline:
-			errs.append(p1.get_error())
+			errs.append(1.0 / p1.get_error())
 			hypers.append(p1.kwargs)
-		# errs /= np.sum(errs)
+		errs = np.asarray(errs)
+		errs /= np.sum(errs)
 		hyper = {}
-		p = eps * 1.0 / (t ** (1/8))
 		p1 = pipeline[0]
-		hyper1 = p1.kwargs
+		hyper1 = p1.kwargs  # Hyper-parameters we are updating for this path
 		discrete = ['haralick_distance', 'pca_whiten', 'n_neighbors', 'n_estimators', 'n_components']
-		for h in hyper1.keys():
-			r = np.random.uniform(0, 1, 1)
-			if r[0] < p:  # pick hyper-parameters randomly
+
+		p = eps * 1.0 / (t ** (1/4))  # probability of exploitation vs exploration
+		r = np.random.uniform(0, 1, 1)
+
+		if r[0] < p:
+			# Pick hyper-parameters randomly (Exploration)
+			for h in hyper1.keys():
 				if h in discrete:
 					r1 = np.random.choice(self.pipeline[h], 1)
 					hyper[h] = r1[0]
 				else:
 					r1 = np.random.uniform(self.pipeline[h][0], self.pipeline[h][-1], 1)
 					hyper[h] = r1[0]
-			else:  # pick hyper-parameters based on potentials
-				H = []
-				for i in range(len(hypers)):
-					H.append(hypers[i][h])
-				if h in discrete:
-					err = {}
-					for j in self.pipeline[h]:
-						err[j] = 0
-					for j in range(len(H)):
-						err[H[j]] += errs[j]
-					errs1 = []
-					h_choice = []
-					for key, val in err.items():
-						errs1.append(val)
-						h_choice.append(key)
-					errs1 /= np.sum(errs1)
-					r1 = np.random.choice(h_choice, size=1, p=errs1)
-					hyper[h] = r1[0]
-				else:
-					mu = np.mean(H)
-					std = np.std(H)
-					r1 = np.random.normal(mu, std, 1)
-					if r1[0] <= self.pipeline[h][0]:
-						r1[0] = self.pipeline[h][0]
-					if r1[0] >= self.pipeline[h][-1]:
-						r1[0] = self.pipeline[h][-1]
-					hyper[h] = r1[0]
+		else:
+			# Pick the hyper-parameters using probabilistic greedy search (Exploitation)
+			# Pick the parameter point
+			h_vals = []  # For checking whether the new perturbed hyper-parameter is already explored
+			for h in hypers:
+				hh = []
+				for key in h.keys():
+					hh.append(h[key])
+				h_vals.append(hh)
+
+			# Choosing a random hyper-parameter that is already explored perturbing it
+			h1 = np.random.choice(hypers, size=1, p=errs)
+			h1 = h1[0]
+			while True:
+				final_hyper = []  # Suggested hyper-parameter values
+				for ind_h, h in enumerate(h1.keys()):
+					pipeline_values = self.pipeline[h]
+					if h in discrete:
+						lenh = len(pipeline_values)
+						sample_space = 5
+						if lenh < 5:
+							sample_space = lenh
+						ind = pipeline_values.index(h1[h])
+						possible_values = []
+						for i1 in range(ind, -1, -1):
+							if len(possible_values) > 2:
+								break
+							possible_values.append(pipeline_values[i1])
+						if ind < lenh - 1:
+							for i1 in range(ind+1, lenh):
+								if len(possible_values) >= sample_space:
+									break
+								possible_values.append(pipeline_values[i1])
+						r = np.random.choice(possible_values, 1)
+						final_hyper.append(r[0])
+					else:
+						s = []
+						for hh in hypers:
+							s.append(hh[h])
+						std = 3.0 * np.std(s) / len(s)
+						h_low = h1[h] - std
+						h_high = h1[h] + std
+						if h_low < 0:
+							h_low = self.pipeline[h][0]
+						if h_high > self.pipeline[h][-1]:
+							h_high = self.pipeline[h][-1]
+						r = np.random.uniform(h_low, h_high, 1)
+						final_hyper.append(r[0])
+				if final_hyper not in h_vals:
+					break
+
+			for i, h in enumerate(h1.keys()):
+				hyper[h] = final_hyper[i]
+
 		return hyper
 
-	def  rlMcmc(self):
-		eps = 1
+	def rlMcmc(self):
 		paths = self.paths
 		pipeline = self.pipeline
 		# Obtain coarse potentials
@@ -128,9 +158,12 @@ class RL_MCMC():
 				objects.append(g)
 			pipelines.append(objects)
 
-		# pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline.pkl', 'wb'))
-		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline.pkl', 'rb'))
+		pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_' +
+									self.data_name + '_' + str(self.run) + '.pkl', 'wb'))
+		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_' +
+		# 							self.data_name + '_' + str(self.run) + '.pkl', 'rb'))
 
+		eps = 1
 		times = []
 		t0 = time.time()
 		for ind in range(len(self.paths)):
@@ -173,26 +206,3 @@ class RL_MCMC():
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '.pkl',
 			'wb'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

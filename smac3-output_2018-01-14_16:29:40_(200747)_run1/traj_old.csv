@@ -5,3 +5,7 @@
 740.292724, 0.827482, 741.008587, 3, 0.715863, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='5.278391019922376', svm_gamma='0.36072239072526907'
 830.260304, 0.813280, 831.105281, 4, 0.844977, haralick_distance='3', isomap_n_components='3', isomap_n_neighbors='7', svm_C='52.97966685285732', svm_gamma='0.26470622218519896'
 920.704793, 0.811030, 921.671622, 5, 0.966830, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='5', svm_C='0.6442231793390646', svm_gamma='0.45072422581951266'
+2097.777483, 0.762288, 2100.346075, 6, 2.568592, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='71.03837541847803', svm_gamma='0.21227135040347644'
+3626.791065, 0.762276, 3631.365708, 7, 4.574643, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='80.52881818677578', svm_gamma='0.21227135040347644'
+3896.196266, 0.760180, 3901.087497, 8, 4.891231, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='77.9407027289824', svm_gamma='0.21227135040347644'
+6115.802858, 0.756837, 6123.759535, 9, 7.956678, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='49.9223260569722', svm_gamma='0.2420215082323859'

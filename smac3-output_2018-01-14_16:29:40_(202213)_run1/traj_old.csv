@@ -5,3 +5,4 @@
 156.224323, 1.321106, 156.325932, 3, 0.101609, haralick_distance='2', isomap_n_components='2', isomap_n_neighbors='6', rf_max_features='0.6948449041611862', rf_n_estimators='249'
 226.799040, 0.911332, 226.986484, 4, 0.187444, haralick_distance='1', isomap_n_components='3', isomap_n_neighbors='4', rf_max_features='0.6018881743545409', rf_n_estimators='155'
 883.620316, 0.865898, 884.479888, 5, 0.859573, haralick_distance='3', isomap_n_components='4', isomap_n_neighbors='6', rf_max_features='0.3908563055255074', rf_n_estimators='252'
+4475.772518, 0.847256, 4481.692838, 6, 5.920320, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='7', rf_max_features='0.4219578873946533', rf_n_estimators='223'

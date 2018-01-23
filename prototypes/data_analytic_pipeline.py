@@ -153,25 +153,25 @@ class image_classification_pipeline(object):
 		return acc, f1, conf
 
 	def haralick_all_features(self, names, idx, distance=1):
-		if os.path.exists(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz'):
-			f = np.load(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'rb'))
-			return f.f.arr_0[idx, :]
-		else:
-			f = []
-			for i in range(len(names)):
-				I = cv2.imread(names[i])
-				if I is None or I.size == 0 or np.sum(I[:]) == 0 or I.shape[0] == 0 or I.shape[1] == 0:
-					h = np.zeros((1, 13))
-				else:
-					I = cv2.cvtColor(I, cv2.COLOR_BGR2GRAY)
-					h = haralick(I, distance=distance, return_mean=True, ignore_zeros=False)
-					h = np.expand_dims(h, 0)
-				if i == 0:
-					f = h
-				else:
-					f = np.vstack((f, h))
-			np.savez(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'wb'), f)
-			return f[idx, :]
+		# if os.path.exists(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz'):
+		# 	f = np.load(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'rb'))
+		# 	return f.f.arr_0[idx, :]
+		# else:
+		f = []
+		for i in range(len(names)):
+			I = cv2.imread(names[i])
+			if I is None or I.size == 0 or np.sum(I[:]) == 0 or I.shape[0] == 0 or I.shape[1] == 0:
+				h = np.zeros((1, 13))
+			else:
+				I = cv2.cvtColor(I, cv2.COLOR_BGR2GRAY)
+				h = haralick(I, distance=distance, return_mean=True, ignore_zeros=False)
+				h = np.expand_dims(h, 0)
+			if i == 0:
+				f = h
+			else:
+				f = np.vstack((f, h))
+		np.savez(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'wb'), f)
+		return f[idx, :]
 
 	def CNN_all_features(self, names, cnn):
 		from keras.applications.vgg19 import VGG19

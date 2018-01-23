@@ -10,6 +10,8 @@ if __name__ == '__main__':
 	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
+	# start = int(sys.argv[3])
+	# end = int(sys.argv[4])
 	# Empty features directory
 	import glob
 	files = glob.glob(data_home + 'features/bayesian_parallel/*.npz')

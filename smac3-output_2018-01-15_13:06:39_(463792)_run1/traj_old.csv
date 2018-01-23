@@ -1,0 +1,12 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000132, 1, 0.000132, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
+57.377988, 0.832356, 57.415461, 1, 0.037473, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
+689.346740, 0.817299, 690.065446, 2, 0.718706, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='7', svm_C='37.262079225326886', svm_gamma='0.6225054093583803'
+1518.671202, 0.794755, 1520.435621, 3, 1.764419, haralick_distance='3', isomap_n_components='3', isomap_n_neighbors='4', svm_C='19.15147299827923', svm_gamma='0.7404993762802541'
+2926.926605, 0.772135, 2930.526778, 4, 3.600173, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='4', svm_C='34.805855725285745', svm_gamma='0.6453543066741897'
+3756.463017, 0.770425, 3761.178542, 5, 4.715524, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='4', svm_C='19.15147299827923', svm_gamma='0.7404993762802541'
+3922.725103, 0.759280, 3927.675173, 6, 4.950070, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='6', svm_C='34.805855725285745', svm_gamma='0.6453543066741897'
+4754.123385, 0.758300, 4760.330942, 7, 6.207557, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='12.766722196615918', svm_gamma='0.4283323747680212'
+6086.900182, 0.758116, 6094.902297, 8, 8.002115, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='13.702370280202535', svm_gamma='0.4541570855685032'
+7166.924701, 0.757910, 7176.417068, 9, 9.492368, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='5', svm_C='8.877079801244104', svm_gamma='0.45288145452403517'
+7706.702236, 0.757216, 7716.928961, 10, 10.226725, haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='6', svm_C='40.8826686186494', svm_gamma='0.4541570855685032'

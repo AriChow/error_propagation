@@ -10,6 +10,8 @@ if __name__=='__main__':
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
 	num_iters = 51
+	start = int(sys.argv[3])
+	end = int(sys.argv[4])
 	# Empty features directory
 	import glob
 	files = glob.glob(data_home + 'features/RL1/*.npz')
@@ -23,14 +25,14 @@ if __name__=='__main__':
 	pipeline['pca_whiten'] = [True, False]
 	pipeline['n_neighbors'] = range(3, 8)
 	pipeline['n_components'] = range(2, 5)
-	pipeline['n_estimators'] = np.round(np.linspace(8, 300, 10))
-	pipeline['max_features'] = np.arange(0.3, 0.8, 0.1)
-	pipeline['svm_gamma'] = np.linspace(0.01, 8, 10)
-	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
+	pipeline['n_estimators'] = np.round(np.linspace(8, 300, 10)).tolist()
+	pipeline['max_features'] = np.arange(0.3, 0.8, 0.1).tolist()
+	pipeline['svm_gamma'] = np.linspace(0.01, 8, 10).tolist()
+	pipeline['svm_C'] = np.linspace(0.1, 100, 10).tolist()
 
 	# CONTROL
 	type1 = 'RL_MCMC'
-	for i in range(5):
+	for i in range(start, end):
 		rm = RL_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=num_iters)
 		rm.populate_paths()
 		rm.rlMcmc()
