@@ -1,8 +1,11 @@
 import pickle
 import os
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib
 import sys
+matplotlib.use('TkAgg')
+from matplotlib import pyplot as plt
+
 
 home = os.path.expanduser('~')
 data_name = sys.argv[1]
@@ -13,14 +16,17 @@ pipeline['feature_extraction'] = ["VGG", "haralick", "inception"]
 pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP"]
 pipeline['learning_algorithm'] = ["SVM", "RF"]
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
+start = int(sys.argv[3])
+stop = int(sys.argv[4])
+
 # Bayesian
 types = [sys.argv[2]]
-step_error = np.zeros((5, 1, 3))
-alg_error = np.zeros((5, 1, 7))
-for run in range(1, 6):
+step_error = np.zeros((stop-1, 1, 3))
+alg_error = np.zeros((stop-1, 1, 7))
+for run in range(start, stop):
 	for z, type1 in enumerate(types):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '.pkl','rb'))
+							   str(run) + '.pkl','rb'), encoding='latin1')
 
 		min_err = 100000000
 		min_fe = [1000000] * len(pipeline['feature_extraction'])

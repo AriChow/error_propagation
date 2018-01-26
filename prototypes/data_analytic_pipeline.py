@@ -69,6 +69,7 @@ class image_classification_pipeline(object):
 				names1.append((names[id1[i]]))
 			f1 = []
 			acc = []
+			res1 = []
 			for idx1, idx2 in kf.split(X1, y1):
 				X_train = []
 				y_train = []
@@ -84,11 +85,12 @@ class image_classification_pipeline(object):
 					X_val.append(names1[i])
 					y_val.append(y1[i])
 					ids2.append(id1[i])
-				a, f, _ = self.run_pipeline(names, y_train, y_val, ids1, ids2)
+				a, r, f, _ = self.run_pipeline(names, y_train, y_val, ids1, ids2)
+				res1.append(r)
 				f1.append(f)
 				acc.append(a)
-			res = np.mean(f1)
-			self.f1_score = np.mean(s)
+			res = np.mean(res1)
+			self.f1_score = np.mean(f1)
 			self.accuracy = np.mean(acc)
 		elif self.ml_type == 'testing':
 			# Train val split
@@ -96,8 +98,8 @@ class image_classification_pipeline(object):
 			indices = np.arange(len(y))
 			_, _, y_train, y_val, idx1, idx2 = train_test_split(X, y, indices, test_size=self.test_size, random_state=42,
 																shuffle=True)
-			a, f, _ = self.run_pipeline(names, y_train, y_val, idx1, idx2)
-			res = f
+			a, r, f, _ = self.run_pipeline(names, y_train, y_val, idx1, idx2)
+			res = r
 			self.f1_score = f
 			self.accuracy = a
 		# import glob
@@ -148,9 +150,10 @@ class image_classification_pipeline(object):
 		y_pred = clf.predict(f_val)
 		p_pred = clf.predict_proba(f_val)
 		conf = metrics.confusion_matrix(y_val, y_pred)
-		f1 = metrics.log_loss(y_val, p_pred)
+		err = metrics.log_loss(y_val, p_pred)
+		f1 = metrics.f1_score(y_val, y_pred, average='weighted')
 		acc = metrics.accuracy_score(y_val, y_pred)
-		return acc, f1, conf
+		return acc, err, f1, conf
 
 	def haralick_all_features(self, names, idx, distance=1):
 		# if os.path.exists(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz'):

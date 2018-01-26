@@ -51,7 +51,7 @@ class RL_MCMC():
 		hyper = {}
 		discrete = ['haralick_distance', 'pca_whiten', 'n_neighbors', 'n_estimators', 'n_components']
 
-		p = eps * 1.0 / (t ** (1 / 4))  # probability of exploitation vs exploration
+		p = eps * 1.0 / (t ** (1 / 8))  # probability of exploitation vs exploration
 		r = np.random.uniform(0, 1, 1)
 		pipeline = self.pipeline
 		if r[0] < p:
@@ -221,5 +221,5 @@ class RL_MCMC():
 		self.times = times
 		self.best_pipelines = best_pipelines
 		pickle.dump(self, open(
-			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full.pkl',
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full_test_1.pkl',
 			'wb'))

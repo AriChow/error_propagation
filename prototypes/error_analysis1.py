@@ -27,13 +27,13 @@ for run in range(1, 6):
 	bayesian_times.append(bayesian_obj.times[-1])
 
 	type1 = 'random_MCMC'
-	random_obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-						   str(run) + '_full.pkl', 'rb'))
+	random_obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+						   str(run) + '_full.pkl', 'rb'), encoding='latin1')
 	random_errors.append(random_obj.error_curve[-1])
 	random_times.append(random_obj.times[-1])
 	type1 = 'RL_MCMC'
-	mcmc_obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-						   str(run) + '_full.pkl', 'rb'))
+	mcmc_obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+						   str(run) + '_full_test.pkl', 'rb'), encoding='latin1')
 	mcmc_errors.append(mcmc_obj.error_curve[-1])
 	mcmc_times.append(mcmc_obj.times[-1])
 

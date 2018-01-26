@@ -8,6 +8,8 @@ if __name__ == '__main__':
 	home = os.path.expanduser('~')
 	dataset = sys.argv[1]
 	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
+	start = int(sys.argv[3])
+	stop = int(sys.argv[4])
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
 	# start = int(sys.argv[3])
@@ -31,7 +33,7 @@ if __name__ == '__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
 
 	# CONTROL
-	for i in range(5):
+	for i in range(start, stop):
 		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
 		rm.populate_paths()
 		rm.bayesianmcmc()

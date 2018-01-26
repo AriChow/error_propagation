@@ -48,7 +48,7 @@ class RL_MCMC():
 		hyper1 = p1.kwargs  # Hyper-parameters we are updating for this path
 		discrete = ['haralick_distance', 'pca_whiten', 'n_neighbors', 'n_estimators', 'n_components']
 
-		p = eps * 1.0 / (t ** (1/4))  # probability of exploitation vs exploration
+		p = eps * 1.0 / (t ** (1/8))  # probability of exploitation vs exploration
 		r = np.random.uniform(0, 1, 1)
 
 		if r[0] < p:
@@ -204,5 +204,5 @@ class RL_MCMC():
 		self.pipelines = pipelines
 		self.times = times
 		pickle.dump(self, open(
-			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '.pkl',
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_test.pkl',
 			'wb'))
