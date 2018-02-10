@@ -32,8 +32,8 @@ for run in range(1, 6):
 	random_errors.append(random_obj.error_curve[-1])
 	random_times.append(random_obj.times[-1])
 	type1 = 'RL_MCMC'
-	mcmc_obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-						   str(run) + '_full_test.pkl', 'rb'), encoding='latin1')
+	mcmc_obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+						   str(run) + '_full_univariate.pkl', 'rb'), encoding='latin1')
 	mcmc_errors.append(mcmc_obj.error_curve[-1])
 	mcmc_times.append(mcmc_obj.times[-1])
 
@@ -45,7 +45,7 @@ for run in range(1, 6):
 	axs[(run - 1) // 3, (run - 1) % 3].legend()
 	axs[(run - 1) // 3, (run - 1) % 3].set_title('Run ' + str(run))
 
-plt.savefig(results_home + 'figures/error_curves_' + data_name + '.jpg')
+plt.savefig(results_home + 'figures/error_curves_univariate_' + data_name + '.jpg')
 plt.close()
 
 mean_errors = [np.mean(random_errors), np.mean(bayesian_errors), np.mean(mcmc_errors)]
@@ -74,5 +74,5 @@ plt.title('Times')
 plt.xlabel('Algorithm')
 plt.ylabel('Runtime(s)')
 plt.xticks(range(1, 4), x)
-plt.savefig(results_home + 'figures/error_time_' + data_name + '.jpg')
+plt.savefig(results_home + 'figures/error_time_univariate' + data_name + '.jpg')
 plt.close()

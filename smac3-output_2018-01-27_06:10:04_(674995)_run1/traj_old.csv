@@ -1,0 +1,13 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000125, 1, 0.000125, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
+45.994987, 0.476626, 46.058749, 1, 0.063762, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
+104.343836, 0.468298, 104.704581, 2, 0.360745, haralick_distance='2', isomap_n_components='2', isomap_n_neighbors='6', svm_C='78.990011851405', svm_gamma='6.602930247746782'
+421.091880, 0.466374, 423.986203, 3, 2.894323, haralick_distance='1', isomap_n_components='3', isomap_n_neighbors='5', svm_C='61.98915050720065', svm_gamma='1.6708997913006134'
+558.269238, 0.464298, 562.358735, 4, 4.089498, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='5', svm_C='79.48215224191043', svm_gamma='0.6778602826210846'
+856.467219, 0.452248, 862.691965, 5, 6.224747, haralick_distance='2', isomap_n_components='2', isomap_n_neighbors='5', svm_C='68.84716082050046', svm_gamma='2.1087808232323737'
+1703.627945, 0.451842, 1716.628716, 6, 13.000771, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='3', svm_C='52.378769619828454', svm_gamma='5.30713932906386'
+2715.554912, 0.437949, 2737.147167, 7, 21.592254, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='6', svm_C='51.242994046026396', svm_gamma='0.6340563287213186'
+3205.400126, 0.432074, 3231.151402, 8, 25.751276, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='6', svm_C='58.134580403227915', svm_gamma='1.1272458499713487'
+3411.121104, 0.429672, 3438.686350, 9, 27.565245, haralick_distance='3', isomap_n_components='4', isomap_n_neighbors='6', svm_C='41.1331905538658', svm_gamma='0.3494321524592424'
+4955.642752, 0.429463, 4997.552590, 10, 41.909838, haralick_distance='3', isomap_n_components='4', isomap_n_neighbors='6', svm_C='39.32352696251048', svm_gamma='0.3620955891800201'
+5711.804868, 0.424498, 5761.808758, 11, 50.003891, haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='6', svm_C='1.4018886834064135', svm_gamma='1.0906967799190874'

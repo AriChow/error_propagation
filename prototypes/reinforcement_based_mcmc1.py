@@ -81,62 +81,52 @@ class RL_MCMC():
 				hyper['svm_gamma'] = r[0]
 		else:
 			# Pick the hyper-parameters using probabilistic greedy search (Exploitation)
-			# Pick the parameter point
-			h_vals = []  # For checking whether the new perturbed hyper-parameter is already explored
-			for h in hypers:
-				hh = []
-				for key in h.keys():
-					hh.append(h[key])
-				h_vals.append(hh)
-
-			# Choosing a random hyper-parameter that is already explored perturbing it
 			r1 = np.random.choice(range(len(hypers)), size=1, p=errs)
 			path = paths[r1[0]]
 			h1 = hypers[r1[0]]
-			while True:
-				final_hyper = []  # Suggested hyper-parameter values
-				for ind_h, h in enumerate(h1.keys()):
-					pipeline_values = self.pipeline[h]
-					if h in discrete:
-						lenh = len(pipeline_values)
-						sample_space = 5
-						if lenh < 5:
-							sample_space = lenh
-						ind = pipeline_values.index(h1[h])
-						possible_values = []
-						for i1 in range(ind, -1, -1):
-							if len(possible_values) > 2:
+
+			hyper = {}  # Suggested hyper-parameter values
+			for ind_h, h in enumerate(h1.keys()):
+				pipeline_values = self.pipeline[h]
+				if h in discrete:
+					lenh = len(pipeline_values)
+					sample_space = 5
+					if lenh < 5:
+						sample_space = lenh
+					ind = pipeline_values.index(h1[h])
+					possible_values = []
+					for i1 in range(ind, -1, -1):
+						if len(possible_values) > 2:
+							break
+						possible_values.append(pipeline_values[i1])
+					if ind < lenh - 1:
+						for i1 in range(ind + 1, lenh):
+							if len(possible_values) >= sample_space:
 								break
 							possible_values.append(pipeline_values[i1])
-						if ind < lenh - 1:
-							for i1 in range(ind + 1, lenh):
-								if len(possible_values) >= sample_space:
-									break
-								possible_values.append(pipeline_values[i1])
-						r = np.random.choice(possible_values, 1)
-						final_hyper.append(r[0])
-					else:
-						s = []
-						for hh in hypers:
-							if h in hh.keys():
-								s.append(hh[h])
-						if len(s) < 3:
-							std = (self.pipeline[h][-1] - self.pipeline[h][0]) / len(s)
-						else:
-							std = 3.0 * np.std(s) / len(s)
-						h_low = h1[h] - std
-						h_high = h1[h] + std
-						if h_low < 0:
-							h_low = self.pipeline[h][0]
-						if h_high > self.pipeline[h][-1]:
-							h_high = self.pipeline[h][-1]
-						r = np.random.uniform(h_low, h_high, 1)
-						final_hyper.append(r[0])
-				if final_hyper not in h_vals:
-					break
+					r1 = np.random.choice(possible_values, 1)
+					hyper[h] = r1[0]
+				else:
+					s = []
+					for hh in hypers:
+						if h in hh.keys():
+							s.append(hh[h])
 
-			for i, h in enumerate(h1.keys()):
-				hyper[h] = final_hyper[i]
+					std = 3.0 * np.mean(s) / len(s)
+					# h_low = h1[h] - std
+					# h_high = h1[h] + std
+					# if h_low < 0:
+					# 	h_low = self.pipeline[h][0]
+					# if h_high > self.pipeline[h][-1]:
+					# 	h_high = self.pipeline[h][-1]
+					r1 = np.random.normal(h1[h], std, 1)
+					# r = np.random.uniform(h_low, h_high, 1)
+					hn = r1[0]
+					if hn < self.pipeline[h][0]:
+						hn = self.pipeline[h][0]
+					elif hn > self.pipeline[h][-1]:
+						hn = self.pipeline[h][-1]
+					hyper[h] = hn
 		return hyper, path
 
 	def rlMcmc(self):
@@ -181,9 +171,9 @@ class RL_MCMC():
 				break
 			pipelines.append((g, path))
 
-		pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_' +
+		pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_univariate_' +
 									self.data_name + '_' + str(self.run) + '.pkl', 'wb'))
-		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_' +
+		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_univariate_' +
 		# 							self.data_name + '_' + str(self.run) + '.pkl', 'rb'))
 		times = []
 		best_pipelines = []
@@ -221,5 +211,5 @@ class RL_MCMC():
 		self.times = times
 		self.best_pipelines = best_pipelines
 		pickle.dump(self, open(
-			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full_test_1.pkl',
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full_univariate.pkl',
 			'wb'))

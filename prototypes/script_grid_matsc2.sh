@@ -4,4 +4,4 @@
 #SBATCH -D /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
 
 cd /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
-python grid_mcmc_main.py matsc_dataset2 barn 0 5
+python grid_mcmc_main_parallel.py matsc_dataset2 barn 0 1

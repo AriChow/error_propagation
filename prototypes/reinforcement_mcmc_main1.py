@@ -33,6 +33,6 @@ if __name__=='__main__':
 	# CONTROL
 	type1 = 'RL_MCMC'
 	for i in range(start, end):
-		rm = RL_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=20, iters=num_iters)
+		rm = RL_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, path_resources=12, hyper_resources=40, iters=num_iters)
 		rm.populate_paths()
 		rm.rlMcmc()

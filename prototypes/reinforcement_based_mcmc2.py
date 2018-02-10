@@ -93,50 +93,70 @@ class RL_MCMC():
 			r1 = np.random.choice(range(len(hypers)), size=1, p=errs)
 			path = paths[r1[0]]
 			h1 = hypers[r1[0]]
-			while True:
-				final_hyper = []  # Suggested hyper-parameter values
-				for ind_h, h in enumerate(h1.keys()):
-					pipeline_values = self.pipeline[h]
-					if h in discrete:
-						lenh = len(pipeline_values)
-						sample_space = 5
-						if lenh < 5:
-							sample_space = lenh
-						ind = pipeline_values.index(h1[h])
-						possible_values = []
-						for i1 in range(ind, -1, -1):
-							if len(possible_values) > 2:
-								break
-							possible_values.append(pipeline_values[i1])
-						if ind < lenh - 1:
-							for i1 in range(ind + 1, lenh):
-								if len(possible_values) >= sample_space:
-									break
-								possible_values.append(pipeline_values[i1])
-						r = np.random.choice(possible_values, 1)
-						final_hyper.append(r[0])
-					else:
-						s = []
-						for hh in hypers:
-							if h in hh.keys():
-								s.append(hh[h])
-						if len(s) < 3:
-							std = (self.pipeline[h][-1] - self.pipeline[h][0]) / len(s)
-						else:
-							std = 3.0 * np.std(s) / len(s)
-						h_low = h1[h] - std
-						h_high = h1[h] + std
-						if h_low < 0:
-							h_low = self.pipeline[h][0]
-						if h_high > self.pipeline[h][-1]:
-							h_high = self.pipeline[h][-1]
-						r = np.random.uniform(h_low, h_high, 1)
-						final_hyper.append(r[0])
-				if final_hyper not in h_vals:
-					break
+			# Batch the discrete and continuous hyperparameters together and perturb
+			hyper_names = h1.keys()
+			hyper_discrete = []
+			hyper_continuous = []
+			for h in hyper_names:
+				if h in discrete:
+					hyper_discrete.append(h)
+				else:
+					hyper_continuous.append(h)
 
-			for i, h in enumerate(h1.keys()):
-				hyper[h] = final_hyper[i]
+			# Sample new discrete hyperparameters
+			hyper_discrete_value = []
+			for h in hyper_discrete:
+				hyper_discrete_value.append(h1[h])
+
+			hd = []
+			for i, h in enumerate(hyper_discrete):
+				pipeline_values = self.pipeline[h]
+				lenh = len(pipeline_values)
+				sample_space = 5
+				if lenh < 5:
+					sample_space = lenh
+				ind = pipeline_values.index(hyper_discrete_value[i])
+				possible_values = []
+				for i1 in range(ind, -1, -1):
+					if len(possible_values) > 2:
+						break
+					possible_values.append(pipeline_values[i1])
+				if ind < lenh - 1:
+					for i1 in range(ind + 1, lenh):
+						if len(possible_values) >= sample_space:
+							break
+						possible_values.append(pipeline_values[i1])
+				hd.append(possible_values)
+			import itertools
+			hyper_discrete_values = list(itertools.product(*hd))
+			for i, h in enumerate(hyper_discrete_values):
+				hyper_discrete_values[i] = list(h)
+			r1 = np.random.choice(range(len(hyper_discrete_values)), 1)
+			hd_new = hyper_discrete_values[r1[0]]
+
+			# Sample new continuous hyperparameters
+			hyper_continuous_value = []
+			for h in hyper_continuous:
+				hyper_continuous_value.append(h1[h])
+			hyper_continuous_values = []
+			for h1 in hyper_continuous:
+				hc = []
+				for h in hypers:
+					if h1 in h.keys():
+						hc.append(h[h1])
+				hyper_continuous_values.append(3 * np.mean(hc) / len(hc))
+			cov = np.diag(hyper_continuous_values)
+			hc_new = np.random.multivariate_normal(hyper_continuous_value, cov, 1)
+			hyper = {}
+			for i, h in enumerate(hyper_discrete):
+				hyper[h] = hd_new[i]
+			for i, h in enumerate(hyper_continuous):
+				hn = hc_new[0][i]
+				if hn < self.pipeline[h][0]:
+					hn = self.pipeline[h][0]
+				elif hn > self.pipeline[h][-1]:
+					hn = self.pipeline[h][-1]
+				hyper[h] = hn
 		return hyper, path
 
 	def rlMcmc(self):
@@ -181,9 +201,9 @@ class RL_MCMC():
 				break
 			pipelines.append((g, path))
 
-		pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_' +
+		pickle.dump(pipelines, open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_multivariate_' +
 									self.data_name + '_' + str(self.run) + '.pkl', 'wb'))
-		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_' +
+		# pipelines = pickle.load(open(self.results_loc + 'intermediate/RL_MCMC/rl_mcmc_initial_pipeline_full_multivariate_' +
 		# 							self.data_name + '_' + str(self.run) + '.pkl', 'rb'))
 		times = []
 		best_pipelines = []
@@ -221,5 +241,5 @@ class RL_MCMC():
 		self.times = times
 		self.best_pipelines = best_pipelines
 		pickle.dump(self, open(
-			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full.pkl',
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_full_multivariate.pkl',
 			'wb'))
