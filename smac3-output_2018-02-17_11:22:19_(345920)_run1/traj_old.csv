@@ -1,0 +1,4 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000097, 1, 0.000097, haralick_distance='1', pca_whiten=''true''
+121.545804, 8.976280, 121.626804, 1, 0.080999, haralick_distance='1', pca_whiten=''true''
+348.900080, 5.879731, 349.166213, 2, 0.266133, haralick_distance='2', pca_whiten=''false''

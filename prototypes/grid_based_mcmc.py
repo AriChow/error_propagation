@@ -118,7 +118,7 @@ class grid_MCMC():
 		self.times = times
 		self.pipelines = pipelines
 		pickle.dump(self, open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name +
-							   '_run_' + str(self.run) + '.pkl', 'wb'))
+							   '_run_' + str(self.run) + '_naive.pkl', 'wb'))
 
 
 

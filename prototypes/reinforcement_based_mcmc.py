@@ -204,5 +204,5 @@ class RL_MCMC():
 		self.pipelines = pipelines
 		self.times = times
 		pickle.dump(self, open(
-			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_test.pkl',
+			self.results_loc + 'intermediate/RL_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run) + '_naivepkl',
 			'wb'))

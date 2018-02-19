@@ -97,4 +97,4 @@ class random_MCMC():
 		self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_full.pkl', 'wb'))
+			+ '_full_naive.pkl', 'wb'))

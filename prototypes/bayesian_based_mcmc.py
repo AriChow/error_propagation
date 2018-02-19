@@ -21,6 +21,7 @@ class bayesian_MCMC():
 		self.best_pipelines_incumbents = []
 		self.potential = []
 		self.run = run
+		self.all_incumbents = []
 		self.results_loc = results_loc
 
 	def populate_paths(self):
@@ -49,6 +50,25 @@ class bayesian_MCMC():
 		from sklearn import metrics
 		from sklearn.preprocessing import StandardScaler
 		import cv2
+		from sklearn.neighbors import KNeighborsClassifier
+
+		def naive_all_features(names):
+			f = []
+			for i in range(len(names)):
+				I = cv2.imread(names[i])
+				l = I.shape
+				f1 = []
+				if I is None or I.size == 0 or np.sum(I[:]) == 0 or I.shape[0] == 0 or I.shape[1] == 0:
+					if len(l) == 3:
+						f1 = np.zeros((1, l[0] * l[1] * l[2]))
+				else:
+					f1 = I.flatten()
+				f1 = np.expand_dims(f1, 0)
+				if i == 0:
+					f = f1
+				else:
+					f = np.vstack((f, f1))
+			return f
 
 		def haralick_all_features(X, distance=1):
 			f = []
@@ -139,6 +159,11 @@ class bayesian_MCMC():
 			clf.fit(X, y)
 			return clf
 
+		def knn(X, y, neighbors=1):
+			clf = KNeighborsClassifier(n_neighbors=neighbors)
+			clf.fit(X, y)
+			return clf
+
 		def support_vector_machines(X, y, C, gamma):
 			clf = svm.SVC(C=C, gamma=gamma, class_weight='balanced', probability=True)
 			clf.fit(X, y)
@@ -200,6 +225,9 @@ class bayesian_MCMC():
 				elif path[0] == "inception":
 					f_val = inception_all_features(names, ids2)
 					f_train = inception_all_features(names, ids1)
+				elif path[0] == "naive_feature_extraction":
+					f_val = naive_all_features(X_val)
+					f_train = naive_all_features(X_train)
 
 				# Dimensionality reduction
 				if path[1] == "PCA":
@@ -213,6 +241,10 @@ class bayesian_MCMC():
 					f_train = dr.transform(f_train)
 					f_val = dr.transform(f_val)
 
+				elif path[1] == "naive_dimensionality_reduction":
+					f_train = f_train
+					f_val = f_val
+
 				# Pre-processing
 				normalizer = StandardScaler().fit(f_train)
 				f_train = normalizer.transform(f_train)
@@ -223,13 +255,15 @@ class bayesian_MCMC():
 					clf = random_forests(f_train, y_train, cfg["rf_n_estimators"], cfg["rf_max_features"])
 				elif path[2] == "SVM":
 					clf = support_vector_machines(f_train, y_train, cfg["svm_C"], cfg["svm_gamma"])
+				elif path[2] == "naive_learning_algorithm":
+					clf = knn(f_train, y_train)
+
 				p_pred = clf.predict_proba(f_val)
 				f11.append(metrics.log_loss(y_val, p_pred))
 				s.append(clf.score(f_val, y_val))
 			return np.mean(f11)
 
 
-		self.times = []
 		self.error_curves = []
 		for i_path in range(len(self.paths)):
 			path = self.paths[i_path]
@@ -261,15 +295,14 @@ class bayesian_MCMC():
 								 "maxR": 10000,
 								 "wallclock_limit" : 100000,
 								 "deterministic": "true"})
-			t0 = time.time()
 			smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
-			incumbent, incs, incumbents = smac.optimize()
+			incumbent, incs, incumbents, incumbents1, times = smac.optimize()
 			inc_value = pipeline_from_cfg(incumbent)
 			self.best_pipelines.append(incumbent)
 			self.potential.append(inc_value)
 			self.error_curves.append(incs)
 			self.best_pipelines_incumbents.append(incumbents)
+			self.all_incumbents = incumbents1
 			# self.objects.append(smac)
-			t1 = time.time()
-			self.times.append(t1-t0)
-		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '.pkl', 'wb'))
+			self.times = times
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_naive.pkl', 'wb'))

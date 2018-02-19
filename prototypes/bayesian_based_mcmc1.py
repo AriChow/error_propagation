@@ -49,6 +49,25 @@ class bayesian_MCMC():
 		from sklearn import metrics
 		from sklearn.preprocessing import StandardScaler
 		import cv2
+		from sklearn.neighbors import KNeighborsClassifier
+
+		def naive_all_features(names):
+			f = []
+			for i in range(len(names)):
+				I = cv2.imread(names[i])
+				l = I.shape
+				f1 = []
+				if I is None or I.size == 0 or np.sum(I[:]) == 0 or I.shape[0] == 0 or I.shape[1] == 0:
+					if len(l) == 3:
+						f1 = np.zeros((1, l[0] * l[1] * l[2]))
+				else:
+					f1 = I.flatten()
+				f1 = np.expand_dims(f1, 0)
+				if i == 0:
+					f = f1
+				else:
+					f = np.vstack((f, f1))
+			return f
 
 		def haralick_all_features(X, distance=1):
 			f = []
@@ -150,6 +169,11 @@ class bayesian_MCMC():
 			clf.fit(X, y)
 			return clf
 
+		def knn(X, y, neighbors=1):
+			clf = KNeighborsClassifier(n_neighbors=neighbors)
+			clf.fit(X, y)
+			return clf
+
 		def pipeline_from_cfg(cfg):
 			cfg = {k: cfg[k] for k in cfg if cfg[k]}
 			# Load the data
@@ -206,6 +230,9 @@ class bayesian_MCMC():
 				elif cfg['feature_extraction'] == "inception":
 					f_val = inception_all_features(names, ids2)
 					f_train = inception_all_features(names, ids1)
+				elif cfg['feature_extraction'] == "naive_feature_extraction":
+					f_val = naive_all_features(X_val)
+					f_train = naive_all_features(X_train)
 
 				# Dimensionality reduction
 				if cfg['dimensionality_reduction'] == "PCA":
@@ -219,6 +246,10 @@ class bayesian_MCMC():
 					f_train = dr.transform(f_train)
 					f_val = dr.transform(f_val)
 
+				elif cfg['dimensionality_reduction'] == 'naive_dimensionality_reduction':
+					f_train = f_train
+					f_val = f_val
+
 				# Pre-processing
 				normalizer = StandardScaler().fit(f_train)
 				f_train = normalizer.transform(f_train)
@@ -229,6 +260,8 @@ class bayesian_MCMC():
 					clf = random_forests(f_train, y_train, cfg["rf_n_estimators"], cfg["rf_max_features"])
 				elif cfg['learning_algorithm'] == "SVM":
 					clf = support_vector_machines(f_train, y_train, cfg["svm_C"], cfg["svm_gamma"])
+				elif cfg['learning_algorithm'] == 'naive_learning_algorithm':
+					clf = knn(f_train, y_train)
 				p_pred = clf.predict_proba(f_val)
 				f11.append(metrics.log_loss(y_val, p_pred))
 				s.append(clf.score(f_val, y_val))
@@ -236,21 +269,20 @@ class bayesian_MCMC():
 
 
 
-		times = []
 		self.potential = []
 		self.best_pipelines = []
 		self.times = []
 		self.error_curves = []
 		cs = ConfigurationSpace()
-		feature_extraction = CategoricalHyperparameter("feature_extraction", ["haralick", "VGG", "inception"],
+		feature_extraction = CategoricalHyperparameter("feature_extraction", ["haralick", "VGG", "inception", "naive_feature_extraction"],
 													  default="haralick")
 		cs.add_hyperparameter(feature_extraction)
 
-		dimensionality_reduction = CategoricalHyperparameter("dimensionality_reduction", ["PCA", "ISOMAP"],
+		dimensionality_reduction = CategoricalHyperparameter("dimensionality_reduction", ["PCA", "ISOMAP", "naive_dimensionality_reduction"],
 															 default="PCA")
 		cs.add_hyperparameter(dimensionality_reduction)
 
-		learning_algorithm = CategoricalHyperparameter("learning_algorithm", ["SVM", "RF"], default="RF")
+		learning_algorithm = CategoricalHyperparameter("learning_algorithm", ["SVM", "RF", "naive_learning_algorithm"], default="RF")
 		cs.add_hyperparameter(learning_algorithm)
 
 
@@ -291,15 +323,13 @@ class bayesian_MCMC():
 							 "maxR": 100000,
 							 "wallclock_limit" : 1000000,
 							 "deterministic": "true"})
-		t0 = time.time()
 		smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
-		incumbent, incs, incumbents, incumbents1 = smac.optimize()
+		incumbent, incs, incumbents, incumbents1, times = smac.optimize()
 		inc_value = pipeline_from_cfg(incumbent)
 		self.best_pipelines.append(incumbent)
 		self.potential.append(inc_value)
 		self.incumbents = incumbents
 		self.all_incumbents = incumbents1
 		self.error_curves.append(incs)
-		t1 = time.time()
-		self.times.append(t1-t0)
-		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_full.pkl', 'wb'))
+		self.times = times
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_full_naive.pkl', 'wb'))

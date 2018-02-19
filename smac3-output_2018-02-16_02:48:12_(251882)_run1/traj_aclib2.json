@@ -1,0 +1,10 @@
+{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 0.00012111663818359375, "evaluations": 0, "cost": 2147483648, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='10'"]}
+{"cpu_time": 2.425652265548706, "total_cpu_time": null, "wallclock_time": 2.475630521774292, "evaluations": 1, "cost": 1.236995423287552, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='10'"]}
+{"cpu_time": 34.8277804851532, "total_cpu_time": null, "wallclock_time": 34.9488685131073, "evaluations": 2, "cost": 0.5520565102298546, "incumbent": ["rf_max_features='0.3066124236873286'", "rf_n_estimators='269'"]}
+{"cpu_time": 109.40943431854248, "total_cpu_time": null, "wallclock_time": 109.63763451576233, "evaluations": 4, "cost": 0.5426825028946843, "incumbent": ["rf_max_features='0.5304593760783073'", "rf_n_estimators='160'"]}
+{"cpu_time": 132.1791536808014, "total_cpu_time": null, "wallclock_time": 132.50872421264648, "evaluations": 6, "cost": 0.5416670305079313, "incumbent": ["rf_max_features='0.4037466328474999'", "rf_n_estimators='96'"]}
+{"cpu_time": 463.6930434703827, "total_cpu_time": null, "wallclock_time": 464.8911967277527, "evaluations": 22, "cost": 0.5415573997757727, "incumbent": ["rf_max_features='0.5690351325012935'", "rf_n_estimators='86'"]}
+{"cpu_time": 754.4531044960022, "total_cpu_time": null, "wallclock_time": 756.7745680809021, "evaluations": 43, "cost": 0.539706315694318, "incumbent": ["rf_max_features='0.7238864987193799'", "rf_n_estimators='299'"]}
+{"cpu_time": 1006.7797691822052, "total_cpu_time": null, "wallclock_time": 1009.8615400791168, "evaluations": 62, "cost": 0.5346925342779886, "incumbent": ["rf_max_features='0.6738169225259627'", "rf_n_estimators='188'"]}
+{"cpu_time": 1209.5949692726135, "total_cpu_time": null, "wallclock_time": 1213.156662940979, "evaluations": 77, "cost": 0.533853308500906, "incumbent": ["rf_max_features='0.6145270253677999'", "rf_n_estimators='82'"]}
+{"cpu_time": 2323.1323335170746, "total_cpu_time": null, "wallclock_time": 2329.4604363441467, "evaluations": 150, "cost": 0.5316088707411387, "incumbent": ["rf_max_features='0.5048700923867333'", "rf_n_estimators='43'"]}

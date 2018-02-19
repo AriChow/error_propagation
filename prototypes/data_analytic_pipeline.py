@@ -4,6 +4,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import Isomap
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from mahotas.features import haralick
 import cv2
 from sklearn.model_selection import StratifiedKFold, train_test_split
@@ -122,6 +123,9 @@ class image_classification_pipeline(object):
 		elif self.feature_extraction == "inception":
 			f_val = self.inception_all_features(names, idx2)
 			f_train = self.inception_all_features(names, idx1)
+		if self.feature_extraction == "naive_feature_extraction":
+			f_val = self.naive_all_features(names, idx2)
+			f_train = self.naive_all_features(names, idx1)
 
 		# Dimensionality reduction
 		if self.dimensionality_reduction == "PCA":
@@ -134,6 +138,11 @@ class image_classification_pipeline(object):
 			f_train = dr.transform(f_train)
 			f_val = dr.transform(f_val)
 
+		elif self.dimensionality_reduction == "naive_dimensionality_reduction":
+			dr = self.naive_transform(f_train)
+			f_train = f_train
+			f_val = f_val
+
 		# Pre-processing
 		normalizer = StandardScaler().fit(f_train)
 		f_train = normalizer.transform(f_train)
@@ -145,7 +154,8 @@ class image_classification_pipeline(object):
 			clf = self.random_forests(f_train, y_train, int(self.n_estimators), self.max_features)
 		elif self.learning_algorithm == "SVM":
 			clf = self.support_vector_machines(f_train, y_train, self.svm_C, self.svm_gamma)
-
+		elif self.learning_algorithm == "naive_learning_algorithm":
+			clf = self.knn(f_train, y_train)
 		# Metrics
 		y_pred = clf.predict(f_val)
 		p_pred = clf.predict_proba(f_val)
@@ -154,6 +164,25 @@ class image_classification_pipeline(object):
 		f1 = metrics.f1_score(y_val, y_pred, average='weighted')
 		acc = metrics.accuracy_score(y_val, y_pred)
 		return acc, err, f1, conf
+
+	def naive_all_features(self, names, idx):
+		f = []
+		for i in range(len(names)):
+			I = cv2.imread(names[i])
+			l = I.shape
+			f1 = []
+			if I is None or I.size == 0 or np.sum(I[:]) == 0 or I.shape[0] == 0 or I.shape[1] == 0:
+				if len(l) == 3:
+					f1 = np.zeros((1, l[0] * l[1] * l[2]))
+			else:
+				f1 = I.flatten()
+			f1 = np.expand_dims(f1, 0)
+			if i == 0:
+				f = f1
+			else:
+				f = np.vstack((f, f1))
+		return f[idx, :]
+
 
 	def haralick_all_features(self, names, idx, distance=1):
 		# if os.path.exists(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz'):
@@ -173,7 +202,7 @@ class image_classification_pipeline(object):
 				f = h
 			else:
 				f = np.vstack((f, h))
-		np.savez(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'wb'), f)
+		# np.savez(open(self.data_location + 'features/' + self.type1 + '/haralick_' + self.data_name + '.npz', 'wb'), f)
 		return f[idx, :]
 
 	def CNN_all_features(self, names, cnn):
@@ -220,6 +249,9 @@ class image_classification_pipeline(object):
 			return f[X, :]
 
 
+	def naive_transform(self, X):
+		return X
+
 	def principal_components(self, X, whiten=False):
 		pca = PCA(whiten=whiten)
 		maxvar = 0.95
@@ -237,6 +269,11 @@ class image_classification_pipeline(object):
 		pca = PCA(n_components=i + 1)
 		pca.fit(data)
 		return pca
+
+	def knn(self, X, y, neighbors=1):
+		clf = KNeighborsClassifier(n_neighbors=neighbors)
+		clf.fit(X, y)
+		return clf
 
 	def isomap(self, X, n_neighbors, n_components):
 		iso = Isomap(n_components=n_components, n_neighbors=n_neighbors)

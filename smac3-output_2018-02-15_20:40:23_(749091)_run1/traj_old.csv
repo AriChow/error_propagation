@@ -1,0 +1,4 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000122, 1, 0.000122, isomap_n_components='2', isomap_n_neighbors='5'
+2.127913, 17.555585, 2.172342, 1, 0.044429, isomap_n_components='2', isomap_n_neighbors='5'
+11.066947, 16.401040, 11.609769, 2, 0.542822, isomap_n_components='4', isomap_n_neighbors='4'

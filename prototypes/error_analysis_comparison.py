@@ -224,7 +224,7 @@ stop = 6
 type1 = 'random_MCMC'
 step_error = np.zeros((stop-1, 3))
 alg_error = np.zeros((stop-1, 7))
-alg_error = np.zeros((stop-1, 7))
+alg1_error = np.zeros((stop-1, 7))
 for run in range(start, stop):
 	obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
 						   str(run) + '_full.pkl', 'rb'), encoding='latin1')
