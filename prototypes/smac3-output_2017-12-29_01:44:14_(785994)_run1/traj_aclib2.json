@@ -1,2 +1,0 @@
-{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 0.00010800361633300781, "evaluations": 0, "cost": 2147483648, "incumbent": ["haralick_distance='1'", "pca_whiten=''true''", "rf_max_features='0.5'", "rf_n_estimators='10'"]}
-{"cpu_time": 6000.102233409882, "total_cpu_time": null, "wallclock_time": 6000.1044244766235, "evaluations": 1, "cost": 2147483647.0, "incumbent": ["haralick_distance='1'", "pca_whiten=''true''", "rf_max_features='0.5'", "rf_n_estimators='10'"]}

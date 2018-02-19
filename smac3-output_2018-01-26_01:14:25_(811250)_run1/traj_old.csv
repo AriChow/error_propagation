@@ -1,6 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000128, 1, 0.000128, isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
-3.708992, 0.506422, 3.775691, 1, 0.066700, isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
-55.766257, 0.490822, 57.761615, 2, 1.995359, isomap_n_components='2', isomap_n_neighbors='5', svm_C='39.401547414046505', svm_gamma='0.24657720949339437'
-84.206673, 0.427228, 87.161636, 3, 2.954963, isomap_n_components='4', isomap_n_neighbors='7', svm_C='44.945391696396634', svm_gamma='0.0872451846879349'
-143.043672, 0.421357, 148.002114, 4, 4.958442, isomap_n_components='4', isomap_n_neighbors='7', svm_C='25.75686368927117', svm_gamma='0.07373373773268432'

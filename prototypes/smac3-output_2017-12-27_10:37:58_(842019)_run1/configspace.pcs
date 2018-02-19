@@ -1,4 +1,0 @@
-isomap_n_components integer [2, 4] [2]
-isomap_n_neighbors integer [3, 7] [5]
-rf_max_features real [0.3, 0.8] [0.5]
-rf_n_estimators integer [8, 300] [10]

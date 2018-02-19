@@ -1,3 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000114, 1, 0.000114, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
-6000.100399, 2147483647.000000, 6000.102671, 1, 0.002272, haralick_distance='1', isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'

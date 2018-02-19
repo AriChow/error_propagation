@@ -1,9 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000169, 1, 0.000169, haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='10'
-30.000323, 4.131614, 30.024293, 1, 0.023970, haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='10'
-60.851587, 2.193327, 61.046330, 2, 0.194743, haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5914675755540864', rf_n_estimators='259'
-90.343204, 2.070601, 90.583762, 3, 0.240557, haralick_distance='2', pca_whiten=''true'', rf_max_features='0.49829813910866494', rf_n_estimators='39'
-156.509693, 1.645638, 157.006506, 4, 0.496813, haralick_distance='2', pca_whiten=''true'', rf_max_features='0.36113899979178665', rf_n_estimators='248'
-190.619437, 0.347439, 191.301921, 5, 0.682485, haralick_distance='3', pca_whiten=''true'', rf_max_features='0.5831730167358328', rf_n_estimators='256'
-432.146655, 0.347102, 433.580046, 6, 1.433391, haralick_distance='3', pca_whiten=''true'', rf_max_features='0.7353863744728925', rf_n_estimators='264'
-628.554904, 0.321795, 630.885927, 7, 2.331023, haralick_distance='3', pca_whiten=''true'', rf_max_features='0.7878433775098695', rf_n_estimators='51'

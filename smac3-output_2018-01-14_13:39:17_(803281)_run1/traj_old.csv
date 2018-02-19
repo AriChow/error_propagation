@@ -1,7 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000137, 1, 0.000137, haralick_distance='1', pca_whiten=''true'', svm_C='1.0', svm_gamma='1.0'
-47.636867, 0.920981, 47.654590, 1, 0.017723, haralick_distance='1', pca_whiten=''true'', svm_C='1.0', svm_gamma='1.0'
-145.344715, 0.797521, 145.438078, 2, 0.093363, haralick_distance='2', pca_whiten=''true'', svm_C='39.719968193911264', svm_gamma='0.8615789437416754'
-667.398067, 0.773272, 667.978843, 3, 0.580776, haralick_distance='2', pca_whiten=''true'', svm_C='63.348137061638326', svm_gamma='0.14837670746229692'
-757.877491, 0.746219, 758.536303, 4, 0.658811, haralick_distance='3', pca_whiten=''true'', svm_C='8.066509633641726', svm_gamma='0.4627448917623896'
-2637.447358, 0.745870, 2639.830984, 5, 2.383625, haralick_distance='3', pca_whiten=''true'', svm_C='89.23542883868417', svm_gamma='0.27664962321662456'

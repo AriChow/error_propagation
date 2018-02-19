@@ -1,9 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000130, 1, 0.000130, isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
-3.063367, 0.506422, 3.119482, 1, 0.056115, isomap_n_components='2', isomap_n_neighbors='5', svm_C='1.0', svm_gamma='1.0'
-47.498196, 0.464346, 49.030243, 2, 1.532047, isomap_n_components='4', isomap_n_neighbors='7', svm_C='69.60358905684629', svm_gamma='0.468344155952727'
-121.805133, 0.425026, 126.242965, 3, 4.437831, isomap_n_components='4', isomap_n_neighbors='7', svm_C='67.52423337649896', svm_gamma='0.03707148111581722'
-320.061701, 0.423982, 333.543084, 4, 13.481383, isomap_n_components='4', isomap_n_neighbors='7', svm_C='25.61047704126865', svm_gamma='0.07152696385076526'
-454.935627, 0.423757, 474.253496, 5, 19.317869, isomap_n_components='4', isomap_n_neighbors='7', svm_C='45.60788605914033', svm_gamma='0.07152696385076526'
-471.068047, 0.422454, 491.141560, 6, 20.073513, isomap_n_components='4', isomap_n_neighbors='7', svm_C='28.44735010482225', svm_gamma='0.07152696385076526'
-481.883248, 0.421965, 502.454513, 7, 20.571265, isomap_n_components='4', isomap_n_neighbors='7', svm_C='26.828292506695934', svm_gamma='0.07152696385076526'

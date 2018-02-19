@@ -1,1 +1,0 @@
-{"data": [[[1, null, 0], [2147483647.0, 6000.099727392197, {"__enum__": "StatusType.TIMEOUT"}, {}]]], "configs": {"1": {"haralick_distance": 1, "isomap_n_components": 2, "isomap_n_neighbors": 5, "rf_max_features": 0.5, "rf_n_estimators": 10}}}

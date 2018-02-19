@@ -1,2 +1,0 @@
-{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 1.2463743686676025, "evaluations": 0, "cost": 2147483648, "incumbent": ["pca_whiten=''true''", "svm_C='1.0'", "svm_gamma='1.0'"]}
-{"cpu_time": 40.863173961639404, "total_cpu_time": null, "wallclock_time": 42.203460454940796, "evaluations": 1, "cost": 0.787139245618704, "incumbent": ["pca_whiten=''true''", "svm_C='1.0'", "svm_gamma='1.0'"]}
