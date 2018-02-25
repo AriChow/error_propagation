@@ -1,14 +1,13 @@
 import pickle
 import os
 import numpy as np
-import sys
 import copy
 from matplotlib import pyplot as plt
 
 
 home = os.path.expanduser('~')
-datasets = ['breast', 'matsc_dataset1', 'matsc_dataset2', 'brain', 'bone']
-colors = ['b', 'k', 'y', 'r', 'g']
+datasets = ['breast', 'matsc_dataset1', 'matsc_dataset2', 'brain']
+colors = ['b', 'k', 'y', 'r']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 pipeline = {}
