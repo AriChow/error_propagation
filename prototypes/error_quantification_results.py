@@ -89,7 +89,10 @@ for run in range(start, stop):
 					s[j] += 1
 
 		for j in range(len(s)):
-			min_alls[j] /= s[j]
+			if s[j] == 0:
+				min_alls[j] = min_all1[j]
+			else:
+				min_alls[j] /= s[j]
 		errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
 		errors = np.asarray(errors)
 		step_error[run-1, z, :] = errors
@@ -97,7 +100,7 @@ for run in range(start, stop):
 		min_all1 = np.asarray(min_all1)
 		min_alls = np.asarray(min_alls)
 		alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-		alg1_error[run - 1, z, :] = min_alls - np.asarray([min_err] * 7)
+		alg1_error[run - 1, z, :] = min_alls - min_all1
 std_error = np.std(step_error, 0)
 step_error = np.mean(step_error, 0)
 grid_step_error = step_error.astype('float32')
@@ -182,7 +185,10 @@ for run in range(start, stop):
 					s[j] += 1
 
 		for j in range(len(s)):
-			min_alls[j] /= s[j]
+			if s[j] == 0:
+				min_alls[j] = min_all1[j]
+			else:
+				min_alls[j] /= s[j]
 		errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
 		errors = np.asarray(errors)
 		step_error[run-1, z, :] = errors
@@ -190,7 +196,7 @@ for run in range(start, stop):
 		min_all1 = np.asarray(min_all1)
 		min_alls = np.asarray(min_alls)
 		alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-		alg1_error[run - 1, z, :] = min_alls - np.asarray([min_err] * 7)
+		alg1_error[run - 1, z, :] = min_alls - min_all1
 std_error = np.std(step_error, 0)
 step_error = np.mean(step_error, 0)
 random_step_error = step_error.astype('float32')
@@ -263,7 +269,10 @@ for run in range(start, stop):
 					if pie < min_all[j]:
 						min_all[j] = pie
 		for j in range(len(s)):
-			min_alls[j] /= s[j]
+			if s[j] == 0:
+				min_alls[j] = min_all1[j]
+			else:
+				min_alls[j] /= s[j]
 		errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
 		errors = np.asarray(errors)
 		step_error[run-1, z, :] = errors
@@ -271,7 +280,7 @@ for run in range(start, stop):
 		min_all1 = np.asarray(min_all1)
 		min_alls = np.asarray(min_alls)
 		alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-		alg1_error[run - 1, z, :] = min_alls - np.asarray([min_err] * 7)
+		alg1_error[run - 1, z, :] = min_alls - min_all1
 std_error = np.std(step_error, 0)
 step_error = np.mean(step_error, 0)
 random1_step_error = step_error.astype('float32')
@@ -354,7 +363,10 @@ for run in range(start, stop):
 					s[j] += 1
 
 		for j in range(len(s)):
-			min_alls[j] /= s[j]
+			if s[j] == 0:
+				min_alls[j] = min_all1[j]
+			else:
+				min_alls[j] /= s[j]
 		errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
 		errors = np.asarray(errors)
 		step_error[run-1, z, :] = errors
@@ -362,7 +374,7 @@ for run in range(start, stop):
 		min_all1 = np.asarray(min_all1)
 		min_alls = np.asarray(min_alls)
 		alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-		alg1_error[run - 1, z, :] = min_alls - np.asarray([min_err] * 7)
+		alg1_error[run - 1, z, :] = min_alls - min_all1
 std_error = np.std(step_error, 0)
 step_error = np.mean(step_error, 0)
 bayesian_step_error = step_error.astype('float32')
@@ -453,7 +465,7 @@ for run in range(start, stop):
 						min_all[j] = pie
 		for j in range(len(s)):
 			if s[j] == 0:
-				min_alls[j] = min_err
+				min_alls[j] = min_all1[j]
 			else:
 				min_alls[j] /= s[j]
 		min_fe1 = []
@@ -475,7 +487,7 @@ for run in range(start, stop):
 		min_all1 = np.asarray(min_all1)
 		min_alls = np.asarray(min_alls)
 		alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-		alg1_error[run - 1, z, :] = min_alls - np.asarray([min_err] * 7)
+		alg1_error[run - 1, z, :] = min_alls - min_all1
 std_error = np.std(step_error, 0)
 step_error = np.mean(step_error, 0)
 bayesian1_step_error = step_error.astype('float32')
