@@ -4,4 +4,4 @@
 #SBATCH -D /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
 
 cd /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
-python random_mcmc_main.py matsc_dataset1 barn 0 5
+python random_mcmc_main1.py bone barn 0 5

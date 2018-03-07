@@ -4,4 +4,4 @@
 #SBATCH -D /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
 
 cd /gpfs/u/home/CGHI/CGHIarch/barn/EP_project/error_propagation
-python random_mcmc_main.py breast Documents/research 2 5
+python random_mcmc_main1.py breast Documents/research 1 5
