@@ -7,7 +7,6 @@ from matplotlib import pyplot as plt
 
 home = os.path.expanduser('~')
 datasets = ['breast', 'matsc_dataset1', 'matsc_dataset2', 'brain']
-colors = ['b', 'k', 'y', 'r', 'g']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 pipeline = {}
@@ -98,34 +97,34 @@ for data_name in datasets:
 step = np.zeros((len(datasets), 5))
 step_std = np.zeros((len(datasets), 5))
 
+colors = ['b', 'k', 'y', 'r', 'g']
 for i in range(len(datasets)):
-	step[i, :] = np.asarray([np.mean(grid_times[i]), np.mean(random_times[i]), np.mean(random1_times[i]), \
+	step[i, :] = np.asarray([np.mean(grid_times[i]), np.mean(random_times[i]), np.mean(random1_times[i]),
 							 np.mean(bayesian_times[i]), np.mean(bayesian1_times[i])])
-	step_std[i, :] = np.asarray([np.std(grid_times[i]), np.std(random_times[i]), np.std(random1_times[i]), \
-							 np.std(bayesian_times[i]), np.std(bayesian1_times[i])])
+	step_std[i, :] = np.asarray([np.std(grid_times[i]), np.std(random_times[i]), np.std(random1_times[i]),
+							 np.std(bayesian_times[i]), np.mean(bayesian1_times[i])])
 
-x = ['Grid', 'Random(path)', 'Random(pipeline)']
+x = ['Grid search ', 'Random search(HPO)', 'Random search(CASH)', 'SMAC (HPO)', 'SMAC(CASH)']
 plt.figure(figsize=(10, 5))
-x1 = range(1, 4)
+x1 = range(1, 6)
 for i, data_name in enumerate(datasets):
-	plt.errorbar(x1, step[i, :3], step_std[i, :3], linestyle='None', marker='*', color=colors[i], capsize=3)
-	plt.plot(x1, step[i, :3], colors[i] + '*-', label=data_name)
+	plt.errorbar(x1, step[i, :], step_std[i, :], linestyle='None', marker='*', color=colors[i], capsize=3)
+	plt.plot(x1, step[i, :], colors[i] + '*-', label=data_name)
 plt.legend()
 plt.title('Time comparison of algorithms')
 plt.xlabel('Algorithms')
 plt.ylabel('Time(s)')
 plt.xticks(x1, x)
-plt.savefig(results_home + 'figures/times_datasets_no_bayesian.jpg')
+plt.savefig(results_home + 'figures/times_datasets.jpg')
 plt.close()
 
-x = ['Grid', 'Random(path)', 'Random(pipeline)']
 plt.figure(figsize=(10, 5))
-x1 = range(1, 4)
-plt.errorbar(x1, np.mean(step[:, :3], axis=0), np.std(step[:, :3], axis=0), linestyle='None', marker='*', capsize=3)
-plt.plot(x1, np.mean(step[:, :3], axis=0))
+x1 = range(1, 6)
+plt.errorbar(x1, np.mean(step[:, :], axis=0), np.std(step[:, :], axis=0), linestyle='None', marker='*', capsize=3)
+plt.plot(x1, np.mean(step[:, :], axis=0))
 plt.title('Time comparison of algorithms')
 plt.xlabel('Algorithms')
 plt.ylabel('Time(s)')
 plt.xticks(x1, x)
-plt.savefig(results_home + 'figures/times_algorithms_no_bayesian.jpg')
+plt.savefig(results_home + 'figures/times_algorithms.jpg')
 plt.close()

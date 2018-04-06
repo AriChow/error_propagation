@@ -27,6 +27,11 @@ E1 = np.zeros((stop - 1, 3))
 E2 = np.zeros((stop - 1, 3))
 E3 = np.zeros((stop - 1, 3))
 
+if data_name == 'breast':
+	stop = 2
+if data_name == 'brain':
+	stop = 4
+
 for run in range(start, stop):
 	obj = pickle.load(
 		open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
@@ -230,7 +235,7 @@ gamma_std = np.std(gamma, 0)
 from matplotlib import pyplot as plt
 
 colors = ['b', 'g', 'y']
-steps = ['FE', 'FT', 'LA']
+steps = ['Feature extraction', 'Feature transformation', 'Learning algorithms']
 x1 = np.asarray([1, 2, 3])
 w = 0.2
 d = w * np.ones(3)

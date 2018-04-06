@@ -1,6 +1,6 @@
 import os
 import numpy as np
-from sklearn.decomposition import PCA, TruncatedSVD
+from sklearn.decomposition import PCA
 from sklearn.manifold import Isomap
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
@@ -11,7 +11,7 @@ from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn import metrics
 from sklearn.preprocessing import StandardScaler
 import glob
-import pdb
+import copy
 
 class image_classification_pipeline(object):
 	def __init__(self, kwargs, ml_type=None, data_name=None, data_loc=None, type1=None, val_splits=None, test_size=None, fe=None, dr=None, la=None):
@@ -25,6 +25,18 @@ class image_classification_pipeline(object):
 		self.test_size = test_size
 		self.f1_score = 0
 		self.accuracy = 0
+		self.model = None
+		self.confusion_matrix = None
+		self.y_train = None
+		self.y_test = None
+		self.y_pred = None
+		self.p_pred = None
+		self.fe_train = None
+		self.fe_test = None
+		self.ft_train = None
+		self.ft_test = None
+		self.train_names = None
+		self.test_names = None
 		self.result = None
 		self.type1 = type1
 		r = glob.glob(self.data_location + 'features/' + self.type1 + '/*.npz')
@@ -87,7 +99,7 @@ class image_classification_pipeline(object):
 					X_val.append(names1[i])
 					y_val.append(y1[i])
 					ids2.append(id1[i])
-				a, r, f, _ = self.run_pipeline(names, y_train, y_val, ids1, ids2)
+				clf, a, r, f, conf, y_train,  y_val, y_pred, p_pred, f_train, f_val, f_train1, f_val1 = self.run_pipeline(names, y_train, y_val, ids1, ids2)
 				res1.append(r)
 				f1.append(f)
 				acc.append(a)
@@ -100,10 +112,28 @@ class image_classification_pipeline(object):
 			indices = np.arange(len(y))
 			_, _, y_train, y_val, idx1, idx2 = train_test_split(X, y, indices, test_size=self.test_size, random_state=42,
 																shuffle=True)
-			a, r, f, _ = self.run_pipeline(names, y_train, y_val, idx1, idx2)
+			names1 = []
+			for i in range(len(idx1)):
+				names1.append((names[idx1[i]]))
+			names2 = []
+			for i in range(len(idx2)):
+				names2.append((names[idx2[i]]))
+			clf, a, r, f, conf, y_train, y_val, y_pred, p_pred, f_train, f_val, f_train1, f_val1 = self.run_pipeline(names, y_train, y_val, idx1, idx2)
 			res = r
+			self.model = clf
 			self.f1_score = f
 			self.accuracy = a
+			self.confusion_matrix = conf
+			self.y_train = y_train
+			self.y_test = y_val
+			self.y_pred = p_pred
+			self.p_pred = p_pred
+			self.fe_train = f_train
+			self.fe_test = f_val
+			self.ft_train = f_train1
+			self.ft_test = f_val1
+			self.train_names = names1
+			self.test_names = names2
 		# import glob
 		# files = glob.glob(self.data_location + 'features/*.npz')
 		# for f in files:
@@ -115,6 +145,8 @@ class image_classification_pipeline(object):
 		f_train = []
 		# f_test = []
 		f_val = []
+		f_train1 = []
+		f_val1 = []
 		if self.feature_extraction == "haralick":
 			f_val = self.haralick_all_features(names, idx2, self.haralick_distance)
 			f_train = self.haralick_all_features(names, idx1, self.haralick_distance)
@@ -133,16 +165,22 @@ class image_classification_pipeline(object):
 			dr = self.principal_components(f_train, self.pca_whiten)
 			f_train = dr.transform(f_train)
 			f_val = dr.transform(f_val)
+			f_train1 = copy.deepcopy(f_train)
+			f_val1 = copy.deepcopy(f_val)
 
 		elif self.dimensionality_reduction == "ISOMAP":
 			dr = self.isomap(f_train, self.n_neighbors, self.n_components)
 			f_train = dr.transform(f_train)
 			f_val = dr.transform(f_val)
+			f_train1 = copy.deepcopy(f_train)
+			f_val1 = copy.deepcopy(f_val)
 
 		elif self.dimensionality_reduction == "naive_dimensionality_reduction":
 			dr = self.naive_transform(f_train)
 			f_train = f_train
 			f_val = f_val
+			f_train1 = copy.deepcopy(f_train)
+			f_val1 = copy.deepcopy(f_val)
 
 		# Pre-processing
 		normalizer = StandardScaler().fit(f_train)
@@ -164,7 +202,7 @@ class image_classification_pipeline(object):
 		err = metrics.log_loss(y_val, p_pred)
 		f1 = metrics.f1_score(y_val, y_pred, average='weighted')
 		acc = metrics.accuracy_score(y_val, y_pred)
-		return acc, err, f1, conf
+		return clf, acc, err, f1, conf, y_train, y_val, y_pred, p_pred, f_train, f_val, f_train1, f_val1
 
 	def naive_all_features(self, names, idx):
 		f = []
@@ -254,11 +292,10 @@ class image_classification_pipeline(object):
 		return X
 
 	def principal_components(self, X, whiten=False):
-		c = int(np.min(X.shape))
 		pca = PCA(whiten=whiten)
 		maxvar = 0.95
 		data = X
-		pca.fit(X)
+		X1 = pca.fit(X)
 		var = pca.explained_variance_ratio_
 		s1 = 0
 		for i in range(len(var)):

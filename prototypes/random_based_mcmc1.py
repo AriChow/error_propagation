@@ -73,7 +73,7 @@ class random_MCMC():
 				hyper['svm_C'] = r[0]
 				r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
 				hyper['svm_gamma'] = r[0]
-			g = image_classification_pipeline(hyper, data_name=self.data_name,
+			g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
 											  data_loc=self.data_loc, type1='random1', fe=path[0], dr=path[1], la=path[2],
 											  val_splits=3, test_size=0.2)
 			g.run()

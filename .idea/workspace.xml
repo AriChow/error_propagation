@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script_test_contributions.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script_test_contributions.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_correlation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_propagation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_propagation1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_sample.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_test.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" afterPath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" afterPath="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" afterPath="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_quantification_results.py" afterPath="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/test_analysis.py" afterPath="$PROJECT_DIR$/prototypes/test_analysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_random1.sh" afterPath="$PROJECT_DIR$/script_random1.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,12 +32,12 @@
     <favorites_list name="error_propagation" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="test_analysis.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prototypes/test_analysis.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="test_analysis_correlation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_correlation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="442">
+              <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="e#65#83#0" expanded="true" />
               </folding>
@@ -31,14 +45,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_based_mcmc1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py">
+      <file leaf-file-name="error_quantification_algorithms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_algorithms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="98" column="44" lean-forward="false" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#75#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,68 +66,68 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mean</find>
-      <find>enumerate(</find>
-      <find>axs[1]</find>
-      <find>testing</find>
-      <find>- -</find>
-      <find>axs[0]</find>
-      <find>fig,</find>
-      <find>alg</find>
-      <find>^-</find>
-      <find>5</find>
-      <find>/gpfs/u/home/CGHI/CGHIarch/barn</find>
-      <find>barn</find>
-      <find>steps</find>
-      <find>direct</find>
-      <find>np.amin(err)</find>
-      <find>obj.paths[i]</find>
-      <find>((E1.shape))</find>
-      <find>dr</find>
+      <find>erro_</find>
+      <find>best_pi</find>
+      <find>pi[pie_arg]</find>
+      <find>random_mcmc_main1</find>
+      <find>grid_mcmc_main</find>
+      <find>0 1</find>
+      <find>, encoding='latin1'</find>
+      <find>_CCNI</find>
+      <find>pickle.load</find>
+      <find>pipeline-based</find>
+      <find>path-ba</find>
+      <find>[0]</find>
+      <find>np.tile</find>
+      <find>test</find>
+      <find>random1</find>
       <find>.decode('latin1')</find>
-      <find>paths</find>
-      <find>_naive</find>
-      <find>min_alls</find>
-      <find>e.values()</find>
-      <find>append(err, path)</find>
-      <find>3</find>
-      <find>pipeline['all1']</find>
-      <find>_algorithms</find>
-      <find>.ravel()</find>
-      <find>pipeline['all']</find>
-      <find>algorithm</find>
+      <find>min_la_pi[j]</find>
+      <find>min_la_pi</find>
+      <find>hypers</find>
+      <find>data_home1</find>
+      <find>image_c</find>
+      <find>np.amax(y_test) + 1</find>
+      <find>c1</find>
+      <find>bayesian optimization</find>
+      <find>_all_</find>
+      <find>ncol=2</find>
+      <find>title</find>
+      <find>y_test</find>
+      <find>y1[0, y_val] = 1</find>
+      <find>p_pred =</find>
     </findStrings>
     <replaceStrings>
-      <replace>/gpfs/u/home/CGHI/CGHIarch/barn</replace>
+      <replace>None</replace>
+      <replace>naive_naive_val</replace>
+      <replace>naive_opt_val</replace>
+      <replace>agnostic_opt_val</replace>
+      <replace>opt_naive_val</replace>
+      <replace>opt_opt_val</replace>
+      <replace>test</replace>
+      <replace>naive_naive</replace>
+      <replace>best_pi</replace>
+      <replace>min_all_pi[j]</replace>
+      <replace>metrics.log_loss(labels=np.asarray([y_val]), y_pred=p_pred)</replace>
+      <replace>metrics.log_loss(y_true=y1, y_pred=p_pred)</replace>
+      <replace>error_</replace>
+      <replace>min_fe_pi[j]</replace>
+      <replace>min_dr_pi[j]</replace>
+      <replace>min_la_pi[j]</replace>
+      <replace>min_all1_pi[j]</replace>
+      <replace>test_analysis_samp</replace>
+      <replace>test_analysis_sample</replace>
+      <replace>CASH</replace>
+      <replace>val</replace>
+      <replace>tests</replace>
       <replace>random</replace>
-      <replace>x1</replace>
-      <replace>barn</replace>
-      <replace>multivariate</replace>
-      <replace>random1</replace>
-      <replace>alg</replace>
+      <replace>grid</replace>
+      <replace>bayesian1</replace>
       <replace>bayesian</replace>
-      <replace>std</replace>
-      <replace>axs[0]</replace>
-      <replace>min_alls - - np.asarray([min_err] * 7)</replace>
-      <replace>-</replace>
-      <replace>axs</replace>
-      <replace>_,</replace>
-      <replace>alg1</replace>
-      <replace>^</replace>
-      <replace>$PROJECT_DIR$/../..</replace>
-      <replace>Documents/research</replace>
-      <replace>algorithms</replace>
-      <replace>len(pipeline['all'])</replace>
-      <replace>propagation</replace>
-      <replace>err</replace>
-      <replace>path</replace>
-      <replace>(E1.shape)</replace>
-      <replace>la</replace>
-      <replace>lenp</replace>
-      <replace>agnostic_opt_algorithms</replace>
-      <replace>e</replace>
-      <replace>append((err, path))</replace>
-      <replace>pipeline['all']</replace>
+      <replace>SMAC</replace>
+      <replace>_</replace>
+      <replace>ncol=3</replace>
+      <replace>classes[c1]</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -124,16 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/prototypes/script_MCMC2.sh" />
-        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc2.py" />
-        <option value="$PROJECT_DIR$/prototypes/script_bayesian_parallel.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_grid.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_grid_matsc1.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_grid_breast.sh" />
-        <option value="$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/smac/optimizer/smbo.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py" />
         <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
         <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc_parallel.py" />
         <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
@@ -154,11 +156,9 @@
         <option value="$PROJECT_DIR$/prototypes/TPE.py" />
         <option value="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" />
         <option value="$PROJECT_DIR$/prototypes/error_analysis_rough2.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
         <option value="$PROJECT_DIR$/prototypes/error_analysis_dataset_comparison.py" />
         <option value="$PROJECT_DIR$/prototypes/script_random1.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random.sh" />
-        <option value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
         <option value="$PROJECT_DIR$/prototypes/script_random_matsc2.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random_breast.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random1_matsc1.sh" />
@@ -170,11 +170,23 @@
         <option value="$PROJECT_DIR$/prototypes/script_random_bone.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random_brain.sh" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis2.py" />
-        <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
+        <option value="$PROJECT_DIR$/script_random1.sh" />
+        <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py" />
         <option value="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" />
+        <option value="$PROJECT_DIR$/prototypes/test_analysis_propagation.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis.py" />
+        <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
+        <option value="$PROJECT_DIR$/script_test.sh" />
+        <option value="$PROJECT_DIR$/prototypes/script_test_contributions.py" />
+        <option value="$PROJECT_DIR$/prototypes/script_test_contributions.sh" />
+        <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
+        <option value="$PROJECT_DIR$/prototypes/test_analysis_propagation1.py" />
+        <option value="$PROJECT_DIR$/prototypes/test_analysis_sample.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
+        <option value="$PROJECT_DIR$/prototypes/test_analysis_correlation.py" />
       </list>
     </option>
   </component>
@@ -183,6 +195,25 @@
     <option name="y" value="-4" />
     <option name="width" value="1215" />
     <option name="height" value="1028" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyRedeclarationInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -220,25 +251,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_analysis">
-    <configuration default="false" name="error_analysis1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="error_propagation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_analysis1.py" />
-      <option name="PARAMETERS" value="bone" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.test_analysis_correlation">
     <configuration default="false" name="error_analysis_dataset_comparison" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -307,6 +320,24 @@
       <module name="error_propagation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/test_analysis.py" />
       <option name="PARAMETERS" value="breast" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_analysis_propagation1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/test_analysis_propagation1.py" />
+      <option name="PARAMETERS" value="Documents/research" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
@@ -621,24 +652,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="error_quantification_results" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="error_propagation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
-      <option name="PARAMETERS" value="matsc_dataset2" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="error_propagation_analysis" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -653,24 +666,6 @@
       <module name="error_propagation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_propagation_analysis.py" />
       <option name="PARAMETERS" value="breast" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="error_propagation_analysis1" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="error_propagation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
-      <option name="PARAMETERS" value="matsc_dataset2" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
@@ -693,7 +688,115 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <list size="22">
+    <configuration default="false" name="error_analysis1" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_analysis1.py" />
+      <option name="PARAMETERS" value="bone" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="random_mcmc_main1" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" />
+      <option name="PARAMETERS" value="breast Documents/research 0 5" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_analysis_sample" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/test_analysis_sample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_analysis_correlation" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/test_analysis_correlation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="error_propagation_analysis1" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
+      <option name="PARAMETERS" value="matsc_dataset2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="error_quantification_results" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
+      <option name="PARAMETERS" value="breast" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="26">
       <item index="0" class="java.lang.String" itemvalue="Python.bayesian_mcmc_main1" />
       <item index="1" class="java.lang.String" itemvalue="Python.reinforcement_based_mcmc" />
       <item index="2" class="java.lang.String" itemvalue="Python.reinforcement_mcmc_main" />
@@ -707,23 +810,27 @@
       <item index="10" class="java.lang.String" itemvalue="Python.grid_mcmc_main" />
       <item index="11" class="java.lang.String" itemvalue="Python.naive_error_analysis" />
       <item index="12" class="java.lang.String" itemvalue="Python.TPE" />
-      <item index="13" class="java.lang.String" itemvalue="Python.error_quantification_results" />
-      <item index="14" class="java.lang.String" itemvalue="Python.error_propagation_analysis" />
-      <item index="15" class="java.lang.String" itemvalue="Python.error_propagation_analysis1" />
-      <item index="16" class="java.lang.String" itemvalue="Python.error_propagation_analysis2" />
-      <item index="17" class="java.lang.String" itemvalue="Python.error_analysis1" />
-      <item index="18" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
-      <item index="19" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
-      <item index="20" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
-      <item index="21" class="java.lang.String" itemvalue="Python.test_analysis" />
+      <item index="13" class="java.lang.String" itemvalue="Python.error_propagation_analysis" />
+      <item index="14" class="java.lang.String" itemvalue="Python.error_propagation_analysis2" />
+      <item index="15" class="java.lang.String" itemvalue="Python.error_analysis1" />
+      <item index="16" class="java.lang.String" itemvalue="Python.random_mcmc_main1" />
+      <item index="17" class="java.lang.String" itemvalue="Python.test_analysis_sample" />
+      <item index="18" class="java.lang.String" itemvalue="Python.test_analysis_correlation" />
+      <item index="19" class="java.lang.String" itemvalue="Python.error_propagation_analysis1" />
+      <item index="20" class="java.lang.String" itemvalue="Python.error_quantification_results" />
+      <item index="21" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
+      <item index="22" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
+      <item index="23" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
+      <item index="24" class="java.lang.String" itemvalue="Python.test_analysis" />
+      <item index="25" class="java.lang.String" itemvalue="Python.test_analysis_propagation1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_analysis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
-        <item index="2" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
-        <item index="3" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
-        <item index="4" class="java.lang.String" itemvalue="Python.error_analysis1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_analysis_propagation1" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_analysis" />
+        <item index="3" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
+        <item index="4" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
       </list>
     </recent_temporary>
   </component>
@@ -753,18 +860,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1215" height="1028" extended-state="7" />
+    <frame x="65" y="-4" width="1215" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978614" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3580931" sideWeight="0.5064157" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28935698" sideWeight="0.49358425" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2849224" sideWeight="0.49358425" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33924612" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25831485" sideWeight="0.49358425" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31374723" sideWeight="0.49358425" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -959,7 +1066,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/prototypes/error_propagation_analysis1.py</url>
-          <line>195</line>
+          <line>200</line>
           <option name="timeStamp" value="429" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -968,9 +1075,24 @@
           <option name="timeStamp" value="440" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/prototypes/test_analysis.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="444" />
+          <url>file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="470" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/prototypes/test_analysis_propagation.py</url>
+          <line>219</line>
+          <option name="timeStamp" value="471" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/prototypes/test_analysis_sample.py</url>
+          <line>262</line>
+          <option name="timeStamp" value="522" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/prototypes/test_analysis_correlation.py</url>
+          <line>486</line>
+          <option name="timeStamp" value="570" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -983,149 +1105,15 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="445" />
+      <option name="time" value="571" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main_parallel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/naive_error_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="137" column="40" lean-forward="false" selection-start-line="137" selection-start-column="40" selection-end-line="137" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3304" column="4" lean-forward="false" selection-start-line="3304" selection-start-column="4" selection-end-line="3304" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_bayesian1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/TPE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="322" column="16" lean-forward="true" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_mcmc_main1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_paths_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-659">
-          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_based_mcmc2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="237" column="33" lean-forward="false" selection-start-line="237" selection-start-column="33" selection-end-line="237" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis1.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_agnostic.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis2.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_rough2.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_rough.py" />
-    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc_parallel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="113" column="31" lean-forward="true" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/colors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-342">
           <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="111" column="4" lean-forward="true" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1136,14 +1124,6 @@
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="91" column="28" lean-forward="true" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,46 +1228,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_results.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="263" column="12" lean-forward="true" selection-start-line="263" selection-start-column="12" selection-end-line="263" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1159">
-          <caret line="290" column="8" lean-forward="true" selection-start-line="290" selection-start-column="8" selection-end-line="290" selection-end-column="8" />
-          <folding>
-            <element signature="e#153#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="3" />
-          <folding>
-            <element signature="e#118#136#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,59 +1245,275 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1.sh">
+    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_based_mcmc1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="335">
+          <caret line="214" column="18" lean-forward="true" selection-start-line="212" selection-start-column="8" selection-end-line="214" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1289" column="19" lean-forward="false" selection-start-line="1289" selection-start-column="19" selection-end-line="1290" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/axes/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="3018" column="0" lean-forward="false" selection-start-line="3018" selection-start-column="0" selection-end-line="3018" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="323">
+          <caret line="37" column="44" lean-forward="true" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="788">
-          <caret line="109" column="16" lean-forward="true" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="44" lean-forward="false" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-          <folding>
-            <element signature="e#122#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="98" column="44" lean-forward="false" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+        <state relative-caret-position="-6">
+          <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="231" column="39" lean-forward="true" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
+          <folding>
+            <element signature="e#153#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/scipy/linalg/decomp_svd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2756">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/pca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7384">
+          <caret line="301" column="8" lean-forward="false" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+          <folding>
+            <element signature="e#122#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/incremental_pca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3588">
+          <caret line="143" column="8" lean-forward="false" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/test_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+        <state relative-caret-position="167">
+          <caret line="179" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="483" selection-end-column="91" />
+          <folding>
+            <element signature="e#65#83#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/truncated_svd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2444">
+          <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_propagation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_random_grid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_test_contributions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_grid.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_MCMC.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_random1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_test_contributions.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_test.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="335" column="0" lean-forward="false" selection-start-line="334" selection-start-column="8" selection-end-line="335" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding>
+            <element signature="e#118#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="162" column="34" lean-forward="true" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_propagation1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1947">
+          <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="1575" column="16" lean-forward="false" selection-start-line="1575" selection-start-column="16" selection-end-line="1575" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="102" column="85" lean-forward="false" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="286" column="17" lean-forward="false" selection-start-line="286" selection-start-column="12" selection-end-line="286" selection-end-column="17" />
+          <folding>
+            <element signature="e#75#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="581" column="0" lean-forward="false" selection-start-line="581" selection-start-column="0" selection-end-line="581" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_correlation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
           <folding>
             <element signature="e#65#83#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

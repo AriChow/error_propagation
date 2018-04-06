@@ -417,12 +417,12 @@ for run in range(start, stop):
 		for i in range(len(pipelines)):
 			pi = pipelines[i]
 			pipeline1 = pi._values
-			# hyper = {}
-			# for v in pipeline1.keys():
-			# 	for h in hypers:
-			# 		s1 = v.find(h)
-			# 		if s1 != -1:
-			# 			hyper[h] = pipeline1[v]
+			hyper = {}
+			for v in pipeline1.keys():
+				for h in hypers:
+					s1 = v.find(h)
+					if s1 != -1:
+						hyper[h] = pipeline1[v]
 			# g = image_classification_pipeline(hyper, ml_type='validation', data_name=data_name,
 			# 								  data_loc=data_home, type1='bayesian1', fe=pipeline1['feature_extraction'],
 			# 								  dr=pipeline1['dimensionality_reduction'],
@@ -463,6 +463,14 @@ for run in range(start, stop):
 				else:
 					if pie < min_all[j]:
 						min_all[j] = pie
+		for j in range(len(min_all1)):
+			if min_all1[j] == 100000:
+				min_all1[j] = 0
+
+		for j in range(len(min_all)):
+			if min_all[j] == 100000:
+				min_all[j] = 0
+
 		for j in range(len(s)):
 			if s[j] == 0:
 				min_alls[j] = min_all1[j]
@@ -479,6 +487,12 @@ for run in range(start, stop):
 			if f < 2:
 				min_fe1.append(f)
 		min_dr = min_fe1
+
+		min_fe1 = []
+		for f in min_la:
+			if f < 2:
+				min_fe1.append(f)
+		min_la = min_fe1
 			
 		errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
 		errors = np.asarray(errors)
@@ -506,21 +520,23 @@ bayesian1_alg1_std_error = std_error.astype('float32')
 
 
 import matplotlib.pyplot as plt
-x = ['Feature extraction', 'Dimensionality reduction', 'Learning algorithm']
+x = ['Feature extraction', 'Feature transformation', 'Learning algorithm']
 
 x1 = [1, 2, 3]
 _, axs = plt.subplots(nrows=1, ncols=1)
 axs.errorbar(x1, grid_step_error[0], grid_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
 axs.plot(x1, grid_step_error[0], color='r')
-axs.errorbar(x1, random_step_error[0], random_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (path-based)')
+axs.errorbar(x1, random_step_error[0], random_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
 axs.plot(x1, random_step_error[0], color='b')
-axs.errorbar(x1, random1_step_error[0], random1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(pipeline-based)')
+axs.errorbar(x1, random1_step_error[0], random1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
 axs.plot(x1, random1_step_error[0], color='k')
-axs.errorbar(x1, bayesian_step_error[0], bayesian_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='bayesian optimization (path-based)')
+axs.errorbar(x1, bayesian_step_error[0], bayesian_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
 axs.plot(x1, bayesian_step_error[0], color='g')
-axs.errorbar(x1, bayesian1_step_error[0], bayesian1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization (pipeline-based)')
+axs.errorbar(x1, bayesian1_step_error[0], bayesian1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
 axs.plot(x1, bayesian1_step_error[0], color='y')
-axs.legend()
+box = axs.get_position()
+axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
+axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
 axs.axhline(y=0)
 axs.set_title('Step error contributions')
 axs.set_xlabel('Agnostic step')
@@ -545,17 +561,19 @@ _, axs = plt.subplots(nrows=1, ncols=1)
 x1 = [1, 2, 3, 4, 5, 6, 7]
 axs.errorbar(x1, grid_alg_error[0], grid_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
 axs.plot(x1, grid_alg_error[0], color='r')
-axs.errorbar(x1, random_alg_error[0], random_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (path-based)')
+axs.errorbar(x1, random_alg_error[0], random_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
 axs.plot(x1, random_alg_error[0], color='b')
-axs.errorbar(x1, random1_alg_error[0], random1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(pipeline-based)')
+axs.errorbar(x1, random1_alg_error[0], random1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
 axs.plot(x1, random1_alg_error[0], color='k')
-axs.errorbar(x1, bayesian_alg_error[0], bayesian_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='bayesian optimization (path-based)')
+axs.errorbar(x1, bayesian_alg_error[0], bayesian_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
 axs.plot(x1, bayesian_alg_error[0], color='g')
-axs.errorbar(x1, bayesian1_alg_error[0], bayesian1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization (pipeline-based)')
+axs.errorbar(x1, bayesian1_alg_error[0], bayesian1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
 axs.plot(x1, bayesian1_alg_error[0], color='y')
-axs.legend()
+box = axs.get_position()
+axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
+axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
 axs.axhline(y=0)
-axs.set_title('Algorithm error contributions (type 1)')
+axs.set_title('Algorithm error contributions (method 1)')
 axs.set_xlabel('Agnostic algorithm')
 axs.set_ylabel('Error contributions')
 labels = []
@@ -578,17 +596,19 @@ _, axs = plt.subplots(nrows=1, ncols=1)
 x = pipeline['all']
 axs.errorbar(x1, grid_alg1_error[0], grid_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
 axs.plot(x1, grid_alg1_error[0], color='r')
-axs.errorbar(x1, random_alg1_error[0], random_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (path-based)')
+axs.errorbar(x1, random_alg1_error[0], random_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
 axs.plot(x1, random_alg1_error[0], color='b')
-axs.errorbar(x1, random1_alg1_error[0], random1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(pipeline-based)')
+axs.errorbar(x1, random1_alg1_error[0], random1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
 axs.plot(x1, random1_alg1_error[0], color='k')
-axs.errorbar(x1, bayesian_alg1_error[0], bayesian_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='bayesian optimization (path-based)')
+axs.errorbar(x1, bayesian_alg1_error[0], bayesian_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
 axs.plot(x1, bayesian_alg1_error[0], color='g')
-axs.errorbar(x1, bayesian1_alg1_error[0], bayesian1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization (pipeline-based)')
+axs.errorbar(x1, bayesian1_alg1_error[0], bayesian1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
 axs.plot(x1, bayesian1_alg1_error[0], color='y')
-axs.legend()
+box = axs.get_position()
+axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
+axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
 axs.axhline(y=0)
-axs.set_title('Algorithm error contributions (type 2)')
+axs.set_title('Algorithm error contributions (method 2)')
 axs.set_xlabel('Agnostic algorithm')
 axs.set_ylabel('Error contributions')
 axs.set_xticklabels(labels)
