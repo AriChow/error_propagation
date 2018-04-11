@@ -279,13 +279,22 @@ class bayesian_MCMC():
 				isomap_n_components = UniformIntegerHyperparameter("isomap_n_components", 2, 4, default=2)
 				cs.add_hyperparameters([isomap_n_neighbors, isomap_n_components])
 			if path[2] == 'SVM':
-				svm_C = UniformFloatHyperparameter("svm_C", 0.1, 100.0, default=1.0)
+				h = np.linspace(0.1, 100, 5)
+				h = h.tolist()
+				svm_C = CategoricalHyperparameter("svm_C", h, default=0.1)
 				cs.add_hyperparameter(svm_C)
-				svm_gamma = UniformFloatHyperparameter("svm_gamma", 0.01, 8, default=1)
+				h = np.linspace(0.01, 8, 5)
+				h = h.tolist()
+				svm_gamma = CategoricalHyperparameter("svm_gamma", h, default=4.005)
 				cs.add_hyperparameter(svm_gamma)
 			elif path[2] == 'RF':
-				rf_n_estimators = UniformIntegerHyperparameter("rf_n_estimators", 8, 300, default=10)
-				rf_max_features = UniformFloatHyperparameter("rf_max_features", 0.3, 0.8, default=0.5)
+				h = np.round(np.linspace(8, 300, 5))
+				h = h.astype('int')
+				h = h.tolist()
+				rf_n_estimators = CategoricalHyperparameter("rf_n_estimators", h, default=81)
+				h = np.arange(0.3, 0.8, 0.2)
+				h = h.tolist()
+				rf_max_features = CategoricalHyperparameter("rf_max_features", h, default=0.5)
 				cs.add_hyperparameters([rf_max_features, rf_n_estimators])
 
 			scenario = Scenario({"run_obj": "quality",
@@ -305,4 +314,4 @@ class bayesian_MCMC():
 			self.all_incumbents = incumbents1
 			# self.objects.append(smac)
 			self.times = times
-		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_naive.pkl', 'wb'))
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_final.pkl', 'wb'))

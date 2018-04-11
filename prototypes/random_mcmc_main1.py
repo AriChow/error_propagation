@@ -10,8 +10,8 @@ if __name__ == '__main__':
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
 	num_iters = 51
-	start = int(sys.argv[3])
-	end = int(sys.argv[4])
+	start = 1
+	end = 6
 	# Gradient calculation
 	# Empty features directory
 	import glob

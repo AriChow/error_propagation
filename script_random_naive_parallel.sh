@@ -1,0 +1,5 @@
+#!/bin/sh
+python random_mcmc_main_naive_parallel.py breast Documents/research
+python random_mcmc_main_naive_parallel.py matsc_dataset1 Documents/research
+python random_mcmc_main_naive_parallel.py matsc_dataset2 Documents/research
+python random_mcmc_main_naive_parallel.py brain Documents/research

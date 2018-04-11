@@ -66,12 +66,12 @@ class random_MCMC():
 			if path[2] == 'RF':
 				r = np.random.choice(pipeline['n_estimators'], 1)
 				hyper['n_estimators'] = r[0]
-				r = np.random.uniform(pipeline['max_features'], 1)
+				r = np.random.choice(pipeline['max_features'], 1)
 				hyper['max_features'] = r[0]
 			elif path[2] == 'SVM':
-				r = np.random.uniform(pipeline['svm_C'][0], pipeline['svm_C'][-1], 1)
+				r = np.random.choice(pipeline['svm_C'], 1)
 				hyper['svm_C'] = r[0]
-				r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
+				r = np.random.choice(pipeline['svm_gamma'], 1)
 				hyper['svm_gamma'] = r[0]
 			g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
 											  data_loc=self.data_loc, type1='random1', fe=path[0], dr=path[1], la=path[2],
@@ -97,4 +97,4 @@ class random_MCMC():
 		self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_full_naive.pkl', 'wb'))
+			+ '_full_final.pkl', 'wb'))

@@ -2,22 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script_test_contributions.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/script_test_contributions.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_correlation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_propagation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_propagation1.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/test_analysis_sample.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_test.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/error_propagation/script_bayesian.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/error_propagation_algorithms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/grid_based_mcmc_algorithms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/grid_based_mcmc_naive.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc_naive.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/random_mcmc_main2.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/random_mcmc_main_naive_parallel.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_bayesian.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_bayesian1.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_random2.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_random_naive.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script_random_naive_parallel.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" afterPath="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" afterPath="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" afterPath="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" afterPath="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" afterPath="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/error_quantification_results.py" afterPath="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" afterPath="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/test_analysis.py" afterPath="$PROJECT_DIR$/prototypes/test_analysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc_parallel.py" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc_parallel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" afterPath="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/random_mcmc_main.py" afterPath="$PROJECT_DIR$/random_mcmc_main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/random_mcmc_main1.py" afterPath="$PROJECT_DIR$/random_mcmc_main1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_random.sh" afterPath="$PROJECT_DIR$/script_random.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_random1.sh" afterPath="$PROJECT_DIR$/script_random1.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,24 +43,100 @@
     <favorites_list name="error_propagation" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_analysis_correlation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_correlation.py">
+    <leaf>
+      <file leaf-file-name="script_random_naive.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script_random_naive.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+            <state relative-caret-position="26">
+              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_mcmc_main1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_mcmc_main1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="679">
+              <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
               <folding>
-                <element signature="e#65#83#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error_quantification_algorithms.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_algorithms.py">
+      <file leaf-file-name="random_based_mcmc1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-1020">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script_random.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script_random.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="679">
+              <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_based_mcmc.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-968">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script_random_naive_parallel.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script_random_naive_parallel.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_mcmc_main_naive_parallel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/random_mcmc_main_naive_parallel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="679">
+              <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_based_mcmc_parallel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc_parallel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="124" column="43" lean-forward="false" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -66,22 +153,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>erro_</find>
-      <find>best_pi</find>
-      <find>pi[pie_arg]</find>
-      <find>random_mcmc_main1</find>
-      <find>grid_mcmc_main</find>
-      <find>0 1</find>
-      <find>, encoding='latin1'</find>
-      <find>_CCNI</find>
       <find>pickle.load</find>
       <find>pipeline-based</find>
       <find>path-ba</find>
-      <find>[0]</find>
       <find>np.tile</find>
       <find>test</find>
-      <find>random1</find>
-      <find>.decode('latin1')</find>
       <find>min_la_pi[j]</find>
       <find>min_la_pi</find>
       <find>hypers</find>
@@ -96,10 +172,19 @@
       <find>y_test</find>
       <find>y1[0, y_val] = 1</find>
       <find>p_pred =</find>
+      <find>grid</find>
+      <find>random1</find>
+      <find># random</find>
+      <find>[0]</find>
+      <find>features/</find>
+      <find>barn</find>
+      <find>features</find>
+      <find>.decode('latin1')</find>
+      <find>_naive</find>
+      <find>type1</find>
+      <find>2</find>
     </findStrings>
     <replaceStrings>
-      <replace>None</replace>
-      <replace>naive_naive_val</replace>
       <replace>naive_opt_val</replace>
       <replace>agnostic_opt_val</replace>
       <replace>opt_naive_val</replace>
@@ -120,7 +205,6 @@
       <replace>CASH</replace>
       <replace>val</replace>
       <replace>tests</replace>
-      <replace>random</replace>
       <replace>grid</replace>
       <replace>bayesian1</replace>
       <replace>bayesian</replace>
@@ -128,6 +212,9 @@
       <replace>_</replace>
       <replace>ncol=3</replace>
       <replace>classes[c1]</replace>
+      <replace>random</replace>
+      <replace>Documents/research</replace>
+      <replace>_naive_parallel</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -136,31 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc_parallel.py" />
-        <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_based_mcmc1.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis1.py" />
-        <option value="$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/smac/facade/smac_facade.py" />
-        <option value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/random_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main_parallel.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main1.py" />
-        <option value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main2.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_comparison.py" />
-        <option value="$PROJECT_DIR$/prototypes/naive_error_analysis.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_paths_comparison.py" />
-        <option value="$PROJECT_DIR$/prototypes/TPE.py" />
-        <option value="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_rough2.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_dataset_comparison.py" />
-        <option value="$PROJECT_DIR$/prototypes/script_random1.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_random.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_random_matsc2.sh" />
-        <option value="$PROJECT_DIR$/prototypes/script_random_breast.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random1_matsc1.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random_matsc1.sh" />
         <option value="$PROJECT_DIR$/prototypes/script_random1_matsc2.sh" />
@@ -171,9 +233,7 @@
         <option value="$PROJECT_DIR$/prototypes/script_random_brain.sh" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis.py" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis2.py" />
-        <option value="$PROJECT_DIR$/script_random1.sh" />
         <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py" />
-        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis_propagation.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis.py" />
         <option value="$PROJECT_DIR$/prototypes/data_analytic_pipeline.py" />
@@ -183,10 +243,37 @@
         <option value="$PROJECT_DIR$/prototypes/error_propagation_analysis1.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis_propagation1.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis_sample.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
-        <option value="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
         <option value="$PROJECT_DIR$/prototypes/test_analysis_correlation.py" />
+        <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc_algorithms.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/script_bayesian.sh" />
+        <option value="$PROJECT_DIR$/script_bayesian1.sh" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/bayesian_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
+        <option value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/prototypes/grid_based_mcmc_naive.py" />
+        <option value="$PROJECT_DIR$/script_grid.sh" />
+        <option value="$PROJECT_DIR$/script_random2.sh" />
+        <option value="$PROJECT_DIR$/script_random1.sh" />
+        <option value="$PROJECT_DIR$/prototypes/random_mcmc_main1.py" />
+        <option value="$PROJECT_DIR$/script_random.sh" />
+        <option value="$PROJECT_DIR$/prototypes/error_propagation_validation.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
+        <option value="$PROJECT_DIR$/prototypes/error_propagation_algorithms.py" />
+        <option value="$PROJECT_DIR$/random_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/random_mcmc_main1.py" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc1.py" />
+        <option value="$PROJECT_DIR$/random_mcmc_main2.py" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc_naive.py" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc_parallel.py" />
+        <option value="$PROJECT_DIR$/script_random_naive_parallel.sh" />
+        <option value="$PROJECT_DIR$/random_mcmc_main_naive_parallel.py" />
+        <option value="$PROJECT_DIR$/script_random_naive.sh" />
+        <option value="$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py" />
       </list>
     </option>
   </component>
@@ -219,7 +306,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -232,7 +319,11 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -251,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_analysis_correlation">
+  <component name="RunManager" selected="Python.error_analysis_time_comparison">
     <configuration default="false" name="error_analysis_dataset_comparison" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -418,24 +509,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="bayesian_mcmc_main1" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="error_propagation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" />
-      <option name="PARAMETERS" value="breast Documents/research" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="reinforcement_based_mcmc" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -594,24 +667,6 @@
       <module name="error_propagation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/reinforcement_mcmc_main2.py" />
       <option name="PARAMETERS" value="breast Documents/research 0 1" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="grid_mcmc_main" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="error_propagation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
-      <option name="PARAMETERS" value="bone Documents/research 0 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
@@ -778,6 +833,42 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="bayesian_mcmc_main1" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py" />
+      <option name="PARAMETERS" value="matsc_dataset2 Documents/research" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="error_quantification_algorithms" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
+      <option name="PARAMETERS" value="matsc_dataset2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="error_quantification_results" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -791,38 +882,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="error_propagation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/error_quantification_results.py" />
-      <option name="PARAMETERS" value="breast" />
+      <option name="PARAMETERS" value="matsc_dataset2" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <list size="26">
-      <item index="0" class="java.lang.String" itemvalue="Python.bayesian_mcmc_main1" />
-      <item index="1" class="java.lang.String" itemvalue="Python.reinforcement_based_mcmc" />
-      <item index="2" class="java.lang.String" itemvalue="Python.reinforcement_mcmc_main" />
-      <item index="3" class="java.lang.String" itemvalue="Python.error_analysis" />
-      <item index="4" class="java.lang.String" itemvalue="Python.error_analysis2" />
-      <item index="5" class="java.lang.String" itemvalue="Python.error_analysis_rough" />
-      <item index="6" class="java.lang.String" itemvalue="Python.error_analysis_rough2" />
-      <item index="7" class="java.lang.String" itemvalue="Python.grid_mcmc_main_parallel" />
-      <item index="8" class="java.lang.String" itemvalue="Python.error_analysis_comparison" />
-      <item index="9" class="java.lang.String" itemvalue="Python.reinforcement_mcmc_main2" />
-      <item index="10" class="java.lang.String" itemvalue="Python.grid_mcmc_main" />
-      <item index="11" class="java.lang.String" itemvalue="Python.naive_error_analysis" />
-      <item index="12" class="java.lang.String" itemvalue="Python.TPE" />
-      <item index="13" class="java.lang.String" itemvalue="Python.error_propagation_analysis" />
-      <item index="14" class="java.lang.String" itemvalue="Python.error_propagation_analysis2" />
-      <item index="15" class="java.lang.String" itemvalue="Python.error_analysis1" />
-      <item index="16" class="java.lang.String" itemvalue="Python.random_mcmc_main1" />
-      <item index="17" class="java.lang.String" itemvalue="Python.test_analysis_sample" />
-      <item index="18" class="java.lang.String" itemvalue="Python.test_analysis_correlation" />
-      <item index="19" class="java.lang.String" itemvalue="Python.error_propagation_analysis1" />
+    <configuration default="false" name="grid_mcmc_main" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/prototypes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="error_propagation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prototypes/grid_mcmc_main.py" />
+      <option name="PARAMETERS" value="matsc_dataset2 Documents/research 0 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="27">
+      <item index="0" class="java.lang.String" itemvalue="Python.reinforcement_based_mcmc" />
+      <item index="1" class="java.lang.String" itemvalue="Python.reinforcement_mcmc_main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.error_analysis" />
+      <item index="3" class="java.lang.String" itemvalue="Python.error_analysis2" />
+      <item index="4" class="java.lang.String" itemvalue="Python.error_analysis_rough" />
+      <item index="5" class="java.lang.String" itemvalue="Python.error_analysis_rough2" />
+      <item index="6" class="java.lang.String" itemvalue="Python.grid_mcmc_main_parallel" />
+      <item index="7" class="java.lang.String" itemvalue="Python.error_analysis_comparison" />
+      <item index="8" class="java.lang.String" itemvalue="Python.reinforcement_mcmc_main2" />
+      <item index="9" class="java.lang.String" itemvalue="Python.naive_error_analysis" />
+      <item index="10" class="java.lang.String" itemvalue="Python.TPE" />
+      <item index="11" class="java.lang.String" itemvalue="Python.error_propagation_analysis" />
+      <item index="12" class="java.lang.String" itemvalue="Python.error_propagation_analysis2" />
+      <item index="13" class="java.lang.String" itemvalue="Python.error_analysis1" />
+      <item index="14" class="java.lang.String" itemvalue="Python.random_mcmc_main1" />
+      <item index="15" class="java.lang.String" itemvalue="Python.test_analysis_sample" />
+      <item index="16" class="java.lang.String" itemvalue="Python.test_analysis_correlation" />
+      <item index="17" class="java.lang.String" itemvalue="Python.error_propagation_analysis1" />
+      <item index="18" class="java.lang.String" itemvalue="Python.bayesian_mcmc_main1" />
+      <item index="19" class="java.lang.String" itemvalue="Python.error_quantification_algorithms" />
       <item index="20" class="java.lang.String" itemvalue="Python.error_quantification_results" />
-      <item index="21" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
-      <item index="22" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
-      <item index="23" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
-      <item index="24" class="java.lang.String" itemvalue="Python.test_analysis" />
-      <item index="25" class="java.lang.String" itemvalue="Python.test_analysis_propagation1" />
+      <item index="21" class="java.lang.String" itemvalue="Python.grid_mcmc_main" />
+      <item index="22" class="java.lang.String" itemvalue="Python.error_analysis_dataset_comparison" />
+      <item index="23" class="java.lang.String" itemvalue="Python.error_analysis_paths_comparison" />
+      <item index="24" class="java.lang.String" itemvalue="Python.error_analysis_time_comparison" />
+      <item index="25" class="java.lang.String" itemvalue="Python.test_analysis" />
+      <item index="26" class="java.lang.String" itemvalue="Python.test_analysis_propagation1" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1007,7 +1117,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py</url>
-          <line>36</line>
+          <line>41</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1094,6 +1204,11 @@
           <line>486</line>
           <option name="timeStamp" value="570" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/prototypes/grid_based_mcmc_algorithms.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="571" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1105,382 +1220,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="571" />
+      <option name="time" value="597" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/colors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_dataset_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="217" column="0" lean-forward="true" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_MCMC1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-968">
-          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1_breast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1_breast.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1_brain.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1_matsc2.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_bone.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1_matsc1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_breast.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_matsc1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_matsc2.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_brain.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="357" column="15" lean-forward="false" selection-start-line="357" selection-start-column="15" selection-end-line="357" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/reinforcement_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="214" column="18" lean-forward="true" selection-start-line="212" selection-start-column="8" selection-end-line="214" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/figure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="1289" column="19" lean-forward="false" selection-start-line="1289" selection-start-column="19" selection-end-line="1290" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/matplotlib/axes/_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="3018" column="0" lean-forward="false" selection-start-line="3018" selection-start-column="0" selection-end-line="3018" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="37" column="44" lean-forward="true" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="231" column="39" lean-forward="true" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
-          <folding>
-            <element signature="e#153#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/scipy/linalg/decomp_svd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2756">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/pca.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7384">
-          <caret line="301" column="8" lean-forward="false" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
-          <folding>
-            <element signature="e#122#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/incremental_pca.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3588">
-          <caret line="143" column="8" lean-forward="false" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="179" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="483" selection-end-column="91" />
-          <folding>
-            <element signature="e#65#83#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/decomposition/truncated_svd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2444">
-          <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_propagation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script_random1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random_grid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_test_contributions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_grid.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_MCMC.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_random1.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/script_test_contributions.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script_test.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="335" column="0" lean-forward="false" selection-start-line="334" selection-start-column="8" selection-end-line="335" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="125" column="46" lean-forward="false" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <element signature="e#118#136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="162" column="34" lean-forward="true" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_propagation1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1947">
-          <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/metrics/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="1575" column="16" lean-forward="false" selection-start-line="1575" selection-start-column="16" selection-end-line="1575" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="102" column="85" lean-forward="false" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/test_analysis_sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1491,11 +1235,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_results.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc_algorithms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="581" column="0" lean-forward="false" selection-start-line="581" selection-start-column="0" selection-end-line="581" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="2808">
+          <caret line="108" column="72" lean-forward="true" selection-start-line="108" selection-start-column="72" selection-end-line="108" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1509,10 +1255,383 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_algorithms.py">
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/ConfigSpace/hyperparameters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25093">
+          <caret line="68" column="19" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc_parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-780">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/error_propagation/script_bayesian.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_bayesian.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="52" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-55">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="48" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="27" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="543" column="11" lean-forward="true" selection-start-line="543" selection-start-column="11" selection-end-line="543" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/naive_error_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2184">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2421">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_grid_breast.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/multiprocessing/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-676">
+          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc_parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="103" column="4" lean-forward="false" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_mcmc_main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/data_analytic_pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="29" column="67" lean-forward="false" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5382">
+          <caret line="51" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding>
+            <element signature="e#122#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7774">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding>
+            <element signature="e#153#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_validation.py" />
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_analysis1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-702">
+          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_quantification_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="87" column="42" lean-forward="false" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_steps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_propagation_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="119" column="20" lean-forward="true" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_bayesian.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_bayesian1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="321" column="35" lean-forward="false" selection-start-line="321" selection-start-column="35" selection-end-line="321" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grid_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc_naive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5325">
+          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_grid.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_random1.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/script_RL_matsc2.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random2.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc_naive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-957">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_mcmc_main2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="39" column="19" lean-forward="false" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random_naive_parallel.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_mcmc_main_naive_parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc_parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="124" column="43" lean-forward="false" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random_naive.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_mcmc_main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_random.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="106" column="19" lean-forward="false" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
           <folding />
         </state>
       </provider>

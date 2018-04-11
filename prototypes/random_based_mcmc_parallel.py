@@ -30,6 +30,8 @@ class random_MCMC():
 				for k in pipeline['learning_algorithm']:
 					path2 = copy.deepcopy(path1)
 					path2.append(k)
+					if 'naive' in path2[0] or 'naive' in path2[1] or 'naive' in path2[2]:
+						paths.append(path2)
 					paths.append(path2)
 		self.paths = paths
 
@@ -61,12 +63,12 @@ class random_MCMC():
 			if path[2] == 'RF':
 				r = np.random.choice(pipeline['n_estimators'], 1)
 				hyper['n_estimators'] = r[0]
-				r = np.random.uniform(pipeline['max_features'], 1)
+				r = np.random.choice(pipeline['max_features'], 1)
 				hyper['max_features'] = r[0]
 			elif path[2] == 'SVM':
-				r = np.random.uniform(pipeline['svm_C'][0], pipeline['svm_C'][-1], 1)
+				r = np.random.choice(pipeline['svm_C'], 1)
 				hyper['svm_C'] = r[0]
-				r = np.random.uniform(pipeline['svm_gamma'][0], pipeline['svm_gamma'][-1], 1)
+				r = np.random.choice(pipeline['svm_gamma'], 1)
 				hyper['svm_gamma'] = r[0]
 			g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
 											  data_loc=self.data_loc, type1='random_parallel', fe=path[0], dr=path[1],
@@ -88,7 +90,7 @@ class random_MCMC():
 		t1 = time.time()
 		times = t1 - t0
 		pipelines.append(objects)
-		output.put((i, pipeline, error_curves, times, best_pipelines))
+		output.put((i, pipelines, error_curves, times, best_pipelines))
 
 	def randomMcmc(self):
 		results = []
@@ -120,4 +122,4 @@ class random_MCMC():
 		self.best_pipelines = best_pipelines
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_parallel.pkl', 'wb'))
+			+ '_naive_parallel.pkl', 'wb'))

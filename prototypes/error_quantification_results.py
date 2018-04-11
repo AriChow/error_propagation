@@ -526,13 +526,13 @@ x1 = [1, 2, 3]
 _, axs = plt.subplots(nrows=1, ncols=1)
 axs.errorbar(x1, grid_step_error[0], grid_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
 axs.plot(x1, grid_step_error[0], color='r')
-axs.errorbar(x1, random_step_error[0], random_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
-axs.plot(x1, random_step_error[0], color='b')
-axs.errorbar(x1, random1_step_error[0], random1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
+# axs.errorbar(x1, random_step_error[0], random_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search')
+# axs.plot(x1, random_step_error[0], color='b')
+axs.errorbar(x1, random1_step_error[0], random1_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search')
 axs.plot(x1, random1_step_error[0], color='k')
-axs.errorbar(x1, bayesian_step_error[0], bayesian_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
-axs.plot(x1, bayesian_step_error[0], color='g')
-axs.errorbar(x1, bayesian1_step_error[0], bayesian1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
+# axs.errorbar(x1, bayesian_step_error[0], bayesian_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
+# axs.plot(x1, bayesian_step_error[0], color='g')
+axs.errorbar(x1, bayesian1_step_error[0], bayesian1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
 axs.plot(x1, bayesian1_step_error[0], color='y')
 box = axs.get_position()
 axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
@@ -556,62 +556,62 @@ axs.set_xticklabels(labels)
 plt.savefig(results_home + 'figures/agnostic_error_step_' + data_name + '.jpg')
 plt.close()
 
-x = pipeline['all']
-_, axs = plt.subplots(nrows=1, ncols=1)
-x1 = [1, 2, 3, 4, 5, 6, 7]
-axs.errorbar(x1, grid_alg_error[0], grid_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
-axs.plot(x1, grid_alg_error[0], color='r')
-axs.errorbar(x1, random_alg_error[0], random_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
-axs.plot(x1, random_alg_error[0], color='b')
-axs.errorbar(x1, random1_alg_error[0], random1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
-axs.plot(x1, random1_alg_error[0], color='k')
-axs.errorbar(x1, bayesian_alg_error[0], bayesian_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
-axs.plot(x1, bayesian_alg_error[0], color='g')
-axs.errorbar(x1, bayesian1_alg_error[0], bayesian1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
-axs.plot(x1, bayesian1_alg_error[0], color='y')
-box = axs.get_position()
-axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
-axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
-axs.axhline(y=0)
-axs.set_title('Algorithm error contributions (method 1)')
-axs.set_xlabel('Agnostic algorithm')
-axs.set_ylabel('Error contributions')
-labels = []
-cnt = 1
-for item in axs.get_xticklabels():
-	if len(item.get_text()) == 0:
-		labels.append('')
-	elif int(float(item.get_text())) == cnt:
-		labels.append(x[cnt-1])
-		cnt += 1
-	else:
-		labels.append('')
+# x = pipeline['all']
+# _, axs = plt.subplots(nrows=1, ncols=1)
+# x1 = [1, 2, 3, 4, 5, 6, 7]
+# axs.errorbar(x1, grid_alg_error[0], grid_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
+# axs.plot(x1, grid_alg_error[0], color='r')
+# # axs.errorbar(x1, random_alg_error[0], random_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
+# # axs.plot(x1, random_alg_error[0], color='b')
+# axs.errorbar(x1, random1_alg_error[0], random1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search')
+# axs.plot(x1, random1_alg_error[0], color='k')
+# # axs.errorbar(x1, bayesian_alg_error[0], bayesian_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
+# # axs.plot(x1, bayesian_alg_error[0], color='g')
+# axs.errorbar(x1, bayesian1_alg_error[0], bayesian1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
+# axs.plot(x1, bayesian1_alg_error[0], color='y')
+# box = axs.get_position()
+# axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
+# axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
+# axs.axhline(y=0)
+# axs.set_title('Best algorithms')
+# axs.set_xlabel('Algorithm')
+# axs.set_ylabel('Contribution')
+# labels = []
+# cnt = 1
+# for item in axs.get_xticklabels():
+# 	if len(item.get_text()) == 0:
+# 		labels.append('')
+# 	elif int(float(item.get_text())) == cnt:
+# 		labels.append(x[cnt-1])
+# 		cnt += 1
+# 	else:
+# 		labels.append('')
+#
+# axs.set_xticklabels(labels)
+# plt.savefig(results_home + 'figures/agnostic_error_alg_min_' + data_name + '.jpg')
+# plt.close()
 
-axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_alg_1_' + data_name + '.jpg')
-plt.close()
 
-
-_, axs = plt.subplots(nrows=1, ncols=1)
-x = pipeline['all']
-axs.errorbar(x1, grid_alg1_error[0], grid_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
-axs.plot(x1, grid_alg1_error[0], color='r')
-axs.errorbar(x1, random_alg1_error[0], random_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
-axs.plot(x1, random_alg1_error[0], color='b')
-axs.errorbar(x1, random1_alg1_error[0], random1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
-axs.plot(x1, random1_alg1_error[0], color='k')
-axs.errorbar(x1, bayesian_alg1_error[0], bayesian_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
-axs.plot(x1, bayesian_alg1_error[0], color='g')
-axs.errorbar(x1, bayesian1_alg1_error[0], bayesian1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
-axs.plot(x1, bayesian1_alg1_error[0], color='y')
-box = axs.get_position()
-axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
-axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
-axs.axhline(y=0)
-axs.set_title('Algorithm error contributions (method 2)')
-axs.set_xlabel('Agnostic algorithm')
-axs.set_ylabel('Error contributions')
-axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_alg_2_' + data_name + '.jpg')
-plt.close()
+# _, axs = plt.subplots(nrows=1, ncols=1)
+# x = pipeline['all']
+# axs.errorbar(x1, grid_alg1_error[0], grid_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='r', label='grid search')
+# axs.plot(x1, grid_alg1_error[0], color='r')
+# axs.errorbar(x1, random_alg1_error[0], random_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='b', label='random search (HPO)')
+# axs.plot(x1, random_alg1_error[0], color='b')
+# axs.errorbar(x1, random1_alg1_error[0], random1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='k', label='random search(CASH)')
+# axs.plot(x1, random1_alg1_error[0], color='k')
+# axs.errorbar(x1, bayesian_alg1_error[0], bayesian_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='g', label='SMAC (HPO)')
+# axs.plot(x1, bayesian_alg1_error[0], color='g')
+# axs.errorbar(x1, bayesian1_alg1_error[0], bayesian1_alg1_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='SMAC (CASH)')
+# axs.plot(x1, bayesian1_alg1_error[0], color='y')
+# box = axs.get_position()
+# axs.set_position([box.x0, box.y0 + box.height * 0.15, box.width, box.height * 0.9])
+# axs.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3)
+# axs.axhline(y=0)
+# axs.set_title('Algorithm error contributions (method 2)')
+# axs.set_xlabel('Agnostic algorithm')
+# axs.set_ylabel('Error contributions')
+# axs.set_xticklabels(labels)
+# plt.savefig(results_home + 'figures/agnostic_error_alg_2_' + data_name + '.jpg')
+# plt.close()
 

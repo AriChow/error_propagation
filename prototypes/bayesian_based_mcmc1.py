@@ -4,7 +4,7 @@ import copy
 import pickle
 import time
 from smac.configspace import ConfigurationSpace
-from ConfigSpace.hyperparameters import CategoricalHyperparameter, UniformFloatHyperparameter, UniformIntegerHyperparameter
+from ConfigSpace.hyperparameters import CategoricalHyperparameter, UniformFloatHyperparameter, UniformIntegerHyperparameter, FloatHyperparameter
 from ConfigSpace.conditions import InCondition
 from smac.scenario.scenario import Scenario
 from smac.facade.smac_facade import SMAC
@@ -301,16 +301,25 @@ class bayesian_MCMC():
 		cs.add_condition(InCondition(child=isomap_n_components, parent=dimensionality_reduction, values=["ISOMAP"]))
 		cs.add_condition(InCondition(child=isomap_n_neighbors, parent=dimensionality_reduction, values=["ISOMAP"]))
 
-		svm_C = UniformFloatHyperparameter("svm_C", 0.1, 100.0, default=1.0)
+		h = np.linspace(0.1, 100, 5)
+		h = h.tolist()
+		svm_C = CategoricalHyperparameter("svm_C", h, default=0.1)
 		cs.add_hyperparameter(svm_C)
-		svm_gamma = UniformFloatHyperparameter("svm_gamma", 0.01, 8, default=1)
+		h = np.linspace(0.01, 8, 5)
+		h = h.tolist()
+		svm_gamma = CategoricalHyperparameter("svm_gamma", h, default=4.005)
 		cs.add_hyperparameter(svm_gamma)
 		cond1 = InCondition(child=svm_C, parent=learning_algorithm, values=["SVM"])
 		cond2 = InCondition(child=svm_gamma, parent=learning_algorithm, values=["SVM"])
 		cs.add_conditions([cond1, cond2])
 
-		rf_n_estimators = UniformIntegerHyperparameter("rf_n_estimators", 8, 300, default=10)
-		rf_max_features = UniformFloatHyperparameter("rf_max_features", 0.3, 0.8, default=0.5)
+		h = np.round(np.linspace(8, 300, 5))
+		h = h.astype('int')
+		h = h.tolist()
+		rf_n_estimators = CategoricalHyperparameter("rf_n_estimators", h, default=81)
+		h = np.arange(0.3, 0.8, 0.2)
+		h = h.tolist()
+		rf_max_features = CategoricalHyperparameter("rf_max_features", h, default=0.5)
 		cs.add_hyperparameters([rf_max_features, rf_n_estimators])
 		cond1 = InCondition(child=rf_n_estimators, parent=learning_algorithm, values=["RF"])
 		cond2 = InCondition(child=rf_max_features, parent=learning_algorithm, values=["RF"])
@@ -332,4 +341,4 @@ class bayesian_MCMC():
 		self.all_incumbents = incumbents1
 		self.error_curves.append(incs)
 		self.times = times
-		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_full_naive.pkl', 'wb'))
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_full_final.pkl', 'wb'))
