@@ -5,7 +5,7 @@ import pickle
 from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
-data_name = sys.argv[1]
+data_name = 'breast'
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -16,6 +16,62 @@ pipeline['dimensionality_reduction'] = ["PCA"]
 pipeline['learning_algorithm'] = ["RF"]
 
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
+
+
+# Bayesian optimization
+start = 1
+stop = 4
+type1 = 'bayesian_MCMC'
+alg_error = np.zeros((stop-1, 3))
+for run in range(start, stop):
+	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+						   str(run) + '_final.pkl','rb'), encoding='latin1')
+	path_pipelines = obj.all_incumbents
+
+	fe_params = set()
+	dr_params = set()
+	la_params = set()
+	for i in range(len(path_pipelines)):
+		p = path_pipelines[i]
+		fe_params.add(p._values['haralick_distance'])
+		dr_params.add(p._values['pca_whiten'])
+		la_params.add((p._values['rf_n_estimators'], p._values['rf_max_features']))
+
+	min_err = 1000000
+	fe_params = list(fe_params)
+	dr_params = list(dr_params)
+	la_params = list(la_params)
+	min_fe = [1000000] * len(fe_params)
+	min_dr = [1000000] * len(dr_params)
+	min_la = [1000000] * len(la_params)
+	for i in range(len(path_pipelines)):
+		p = path_pipelines[i]
+		err = obj.error_curves[0][i]
+		if err < min_err:
+			min_err = err
+		for j in range(len(fe_params)):
+			if p._values['haralick_distance'] == fe_params[j]:
+				if min_fe[j] > err:
+					min_fe[j] = err
+
+		for j in range(len(dr_params)):
+			if p._values['pca_whiten'] == dr_params[j]:
+				if min_dr[j] > err:
+					min_dr[j] = err
+
+		for j in range(len(la_params)):
+			if (p._values['rf_n_estimators'], p._values['rf_max_features']) == la_params[j]:
+				if min_la[j] > err:
+					min_la[j] = err
+	errors = [np.mean(min_fe) - min_err, np.mean(min_dr) - min_err, np.mean(min_la) - min_err]
+
+	errors = np.asarray(errors)
+	alg_error[run - 1, :] = errors
+std_error = np.std(alg_error, 0)
+step_error = np.mean(alg_error, 0)
+bayesian_alg_error = step_error.astype('float32')
+bayesian_alg_std_error = std_error.astype('float32')
+
 
 # Grid search
 start = 1
@@ -86,7 +142,7 @@ type1 = 'random_MCMC'
 alg_error = np.zeros((stop-1, 3))
 for run in range(start, stop):
 	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-						   str(run) + '._full_final.pkl','rb'), encoding='latin1')
+						   str(run) + '.pkl','rb'), encoding='latin1')
 	pipelines = obj.pipelines
 	paths = obj.paths
 	path_pipelines = []
@@ -141,6 +197,7 @@ step_error = np.mean(alg_error, 0)
 random_alg_error = step_error.astype('float32')
 random_alg_std_error = std_error.astype('float32')
 
+
 import matplotlib.pyplot as plt
 
 x = pipeline['all']
@@ -151,8 +208,8 @@ axs.errorbar(x1, grid_alg_error, grid_alg_std_error, linestyle='None', marker='^
 axs.plot(x1, grid_alg_error, color='r')
 axs.errorbar(x1, random_alg_error, random_alg_std_error, linestyle='None', marker='^', capsize=3, color='b', label='random search')
 axs.plot(x1, random_alg_error, color='b')
-axs.errorbar(x1, bayesian_alg_error[0], bayesian1_alg_std_error[0], linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
-axs.plot(x1, bayesian_alg_error[0], color='y')
+axs.errorbar(x1, bayesian_alg_error, bayesian_alg_std_error, linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
+axs.plot(x1, bayesian_alg_error, color='y')
 labels = []
 cnt = 1
 for item in axs.get_xticklabels():

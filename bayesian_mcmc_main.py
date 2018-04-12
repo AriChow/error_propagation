@@ -32,7 +32,7 @@ if __name__=='__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 10)
 
 	# CONTROL
-	for i in range(5):
+	for i in range(3, 5):
 		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
 		rm.populate_paths()
 		rm.bayesianmcmc()
