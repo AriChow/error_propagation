@@ -8,3 +8,4 @@
 284.503332, 0.861832, 285.321530, 6, 0.818198, dimensionality_reduction=''ISOMAP'', feature_extraction=''haralick'', learning_algorithm=''SVM'', haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='4', svm_C='75.025', svm_gamma='6.0024999999999995'
 381.255531, 0.712158, 382.373839, 7, 1.118308, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.7', rf_n_estimators='154'
 624.777016, 0.704849, 626.722025, 8, 1.945009, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='25.075000000000003', svm_gamma='0.01'
+1981.511843, 0.703134, 1989.685285, 9, 8.173442, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.5', rf_n_estimators='154'

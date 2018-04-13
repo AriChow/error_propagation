@@ -1,0 +1,11 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000241, 1, 0.000241, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
+28.498855, 2.678628, 28.527995, 1, 0.029140, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
+242.414561, 0.617403, 242.600234, 2, 0.185673, dimensionality_reduction=''ISOMAP'', feature_extraction=''inception'', learning_algorithm=''SVM'', isomap_n_components='4', isomap_n_neighbors='5', svm_C='25.075000000000003', svm_gamma='0.01'
+246.318384, 0.611087, 246.685674, 3, 0.367290, dimensionality_reduction=''PCA'', feature_extraction=''inception'', learning_algorithm=''SVM'', pca_whiten=''false'', svm_C='50.050000000000004', svm_gamma='2.0075'
+279.879601, 0.608317, 280.438092, 4, 0.558491, dimensionality_reduction=''PCA'', feature_extraction=''inception'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='50.050000000000004', svm_gamma='2.0075'
+311.058786, 0.552879, 311.694090, 5, 0.635304, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='75.025', svm_gamma='2.0075'
+340.800135, 0.490425, 341.536151, 6, 0.736017, dimensionality_reduction=''ISOMAP'', feature_extraction=''haralick'', learning_algorithm=''SVM'', haralick_distance='3', isomap_n_components='2', isomap_n_neighbors='4', svm_C='75.025', svm_gamma='6.0024999999999995'
+374.616005, 0.412438, 375.577551, 7, 0.961547, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''RF'', pca_whiten=''false'', rf_max_features='0.7', rf_n_estimators='154'
+474.119348, 0.355658, 475.704733, 8, 1.585385, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='25.075000000000003', svm_gamma='0.01'
+1314.588585, 0.355259, 1320.008986, 9, 5.420401, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='75.025', svm_gamma='0.01'
