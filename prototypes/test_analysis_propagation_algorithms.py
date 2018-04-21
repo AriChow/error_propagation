@@ -39,15 +39,16 @@ if data_name == 'breast':
 if data_name == 'brain':
 	stop = 4
 
-obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-						   str(2) + '_full.pkl','rb'), encoding='latin1')
+obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+						   str(2) + '.pkl','rb'), encoding='latin1')
 pipelines = obj.pipelines
+paths = obj.paths
 path_pipelines = []
 for i in range(len(pipelines)):
-	pi = pipelines[i]
-	path = (pi.feature_extraction.decode('latin1'), pi.dimensionality_reduction.decode('latin1'), pi.learning_algorithm.decode('latin1'))
+	path = paths[i]
 	if path[0] == pipeline['feature_extraction'][0] and path[1] == pipeline['dimensionality_reduction'][0] and path[2] == pipeline['learning_algorithm'][0]:
-		path_pipelines.append(pipelines[i])
+		path_pipelines = pipelines[i]
+		break
 
 fe_params = set()
 dr_params = set()
@@ -322,20 +323,20 @@ naive_naive_test = np.mean(naive_naive_all_test, 0)
 opt_naive_test = np.mean(opt_naive_all_test, 0)
 naive_opt_test = np.mean(naive_opt_all_test, 0)
 
-
-
 for run in range(start, stop):
 	obj = pickle.load(
-		open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-			 str(run) + '_full.pkl', 'rb'), encoding='latin1')
+		open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+			 str(run) + '.pkl', 'rb'), encoding='latin1')
 
 	pipelines = obj.pipelines
+	paths = obj.paths
 	path_pipelines = []
 	for i in range(len(pipelines)):
-		pi = pipelines[i]
-		path = (pi.feature_extraction.decode('latin1'), pi.dimensionality_reduction.decode('latin1'), pi.learning_algorithm.decode('latin1'))
-		if path[0] == pipeline['feature_extraction'][0] and path[1] == pipeline['dimensionality_reduction'][0] and path[2] == pipeline['learning_algorithm'][0]:
-			path_pipelines.append((path, pipelines[i]))
+		path = paths[i]
+		if path[0] == pipeline['feature_extraction'][0] and path[1] == pipeline['dimensionality_reduction'][0] and path[
+			2] == pipeline['learning_algorithm'][0]:
+			path_pipelines = pipelines[i]
+			break
 
 	opt_opt = [100000] * 3
 	agnostic_opt = [0] * 3
@@ -364,11 +365,11 @@ for run in range(start, stop):
 
 	# Step 1: Feature extraction
 	for i in range(len(path_pipelines)):
-		path = path_pipelines[i][0]
-		pi = path_pipelines[i][1]
-		fe = path[0]
-		dr = path[1]
-		la = path[2]
+		path = path_pipelines[i]
+		pi = path_pipelines[i]
+		fe = pi.feature_extraction
+		dr = pi.dimensionality_reduction
+		la = pi.learning_algorithm
 		# errs = []
 		# for j in range(len(pi)):
 		# 	errs.append(pi.get_error())
@@ -514,6 +515,12 @@ for run in range(start, stop):
 		e[i] = naive_naive_test[i] - naive_opt_test[i]
 	E3_test[run - 1, :] = np.asarray(e)
 
+test_results = [E1, E2, E3, E1_test, E2_test, E3_test]
+pickle.dump(test_results, open(results_home + 'intermediate/' + data_name + '_test_error_propagation_algorithms.pkl', 'wb'))
+# test_results = pickle.load(
+# 	open(results_home + 'intermediate/' + data_name + '_test_error_propagation_algorithms.pkl', 'rb'), encoding='latin1')
+# E1, E2, E3, E1_test, E2_test, E3_test = test_results
+
 alpha = np.zeros(E1.shape, dtype='float64')
 gamma = np.zeros(E1.shape, dtype='float64')
 E_propagation = np.zeros(E1.shape, dtype='float64')
@@ -536,58 +543,69 @@ for i in range(3):
 		alpha[j, i] = a
 		gamma[j, i] = g
 		E_propagation[j, i] = g1
+E_total = np.mean(E1, 0)
+E_total_std = np.std(E1, 0)
 
-E_total = []
-E_total_std = []
-for i in range(3):
-	e1 = E1[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_total.append(np.mean(s1))
-	E_total_std.append(np.std(s1))
-E_total = np.asarray(E_total)
-E_total_std = np.asarray(E_total_std)
+E_direct = np.mean(alpha, axis=0)
+E_direct_std = np.std(alpha, axis=0)
 
-E_direct = []
-E_direct_std = []
-for i in range(3):
-	e1 = alpha[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_direct.append(np.mean(s1))
-	E_direct_std.append(np.std(s1))
-E_direct = np.asarray(E_direct)
-E_direct_std = np.asarray(E_direct_std)
+E_propagation_mean = np.mean(E_propagation, axis=0)
+E_propagation_std = np.std(E_propagation, axis=0)
 
-E_propagation_mean = []
-E_propagation_std = []
-for i in range(3):
-	e1 = E_propagation[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_propagation_mean.append(np.mean(s1))
-	E_propagation_std.append(np.std(s1))
-E_propagation_mean = np.asarray(E_propagation_mean)
-E_propagation_std = np.asarray(E_propagation_std)
+gamma_mean = np.mean(gamma, 0)
+gamma_std = np.std(gamma, 0)
 
-gamma_mean = []
-gamma_std = []
-for i in range(3):
-	e1 = gamma[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	gamma_mean.append(np.mean(s1))
-	gamma_std.append(np.std(s1))
-gamma_mean = np.asarray(gamma_mean)
-gamma_std = np.asarray(gamma_std)
+# E_total = []
+# E_total_std = []
+# for i in range(3):
+# 	e1 = E1[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_total.append(np.mean(s1))
+# 	E_total_std.append(np.std(s1))
+# E_total = np.asarray(E_total)
+# E_total_std = np.asarray(E_total_std)
+#
+# E_direct = []
+# E_direct_std = []
+# for i in range(3):
+# 	e1 = alpha[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_direct.append(np.mean(s1))
+# 	E_direct_std.append(np.std(s1))
+# E_direct = np.asarray(E_direct)
+# E_direct_std = np.asarray(E_direct_std)
+#
+# E_propagation_mean = []
+# E_propagation_std = []
+# for i in range(3):
+# 	e1 = E_propagation[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_propagation_mean.append(np.mean(s1))
+# 	E_propagation_std.append(np.std(s1))
+# E_propagation_mean = np.asarray(E_propagation_mean)
+# E_propagation_std = np.asarray(E_propagation_std)
+#
+# gamma_mean = []
+# gamma_std = []
+# for i in range(3):
+# 	e1 = gamma[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	gamma_mean.append(np.mean(s1))
+# 	gamma_std.append(np.std(s1))
+# gamma_mean = np.asarray(gamma_mean)
+# gamma_std = np.asarray(gamma_std)
 
 
 
@@ -620,57 +638,71 @@ for i in range(3):
 		gamma[j, i] = g
 		E_propagation[j, i] = g1
 
-E_total_test = []
-E_total_std_test = []
-for i in range(3):
-	e1 = E1[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_total_test.append(np.mean(s1))
-	E_total_std_test.append(np.std(s1))
-E_total_test = np.asarray(E_total_test)
-E_total_std_test = np.asarray(E_total_std_test)
 
-E_direct_test = []
-E_direct_std_test = []
-for i in range(3):
-	e1 = alpha[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_direct_test.append(np.mean(s1))
-	E_direct_std_test.append(np.std(s1))
-E_direct_test = np.asarray(E_direct_test)
-E_direct_std_test = np.asarray(E_direct_std_test)
+E_total_test = np.mean(E1, 0)
+E_total_std_test = np.std(E1, 0)
 
-E_propagation_mean_test = []
-E_propagation_std_test = []
-for i in range(3):
-	e1 = E_propagation[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	E_propagation_mean_test.append(np.mean(s1))
-	E_propagation_std_test.append(np.std(s1))
-E_propagation_mean_test = np.asarray(E_propagation_mean_test)
-E_propagation_std_test = np.asarray(E_propagation_std_test)
+E_direct_test = np.mean(alpha, axis=0)
+E_direct_std_test = np.std(alpha, axis=0)
 
-gamma_mean_test = []
-gamma_std_test = []
-for i in range(3):
-	e1 = gamma[:, i]
-	s1 = []
-	for j in range(len(e1)):
-		if e1[j] != 0:
-			s1.append(e1[j])
-	gamma_mean_test.append(np.mean(s1))
-	gamma_std_test.append(np.std(s1))
-gamma_mean_test = np.asarray(gamma_mean_test)
-gamma_std_test = np.asarray(gamma_std_test)
+E_propagation_mean_test = np.mean(E_propagation, axis=0)
+E_propagation_std_test = np.std(E_propagation, axis=0)
+
+gamma_mean_test = np.mean(gamma, 0)
+gamma_std_test = np.std(gamma, 0)
+
+
+# E_total_test = []
+# E_total_std_test = []
+# for i in range(3):
+# 	e1 = E1[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_total_test.append(np.mean(s1))
+# 	E_total_std_test.append(np.std(s1))
+# E_total_test = np.asarray(E_total_test)
+# E_total_std_test = np.asarray(E_total_std_test)
+#
+# E_direct_test = []
+# E_direct_std_test = []
+# for i in range(3):
+# 	e1 = alpha[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_direct_test.append(np.mean(s1))
+# 	E_direct_std_test.append(np.std(s1))
+# E_direct_test = np.asarray(E_direct_test)
+# E_direct_std_test = np.asarray(E_direct_std_test)
+#
+# E_propagation_mean_test = []
+# E_propagation_std_test = []
+# for i in range(3):
+# 	e1 = E_propagation[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	E_propagation_mean_test.append(np.mean(s1))
+# 	E_propagation_std_test.append(np.std(s1))
+# E_propagation_mean_test = np.asarray(E_propagation_mean_test)
+# E_propagation_std_test = np.asarray(E_propagation_std_test)
+#
+# gamma_mean_test = []
+# gamma_std_test = []
+# for i in range(3):
+# 	e1 = gamma[:, i]
+# 	s1 = []
+# 	for j in range(len(e1)):
+# 		if e1[j] != 0:
+# 			s1.append(e1[j])
+# 	gamma_mean_test.append(np.mean(s1))
+# 	gamma_std_test.append(np.std(s1))
+# gamma_mean_test = np.asarray(gamma_mean_test)
+# gamma_std_test = np.asarray(gamma_std_test)
 
 
 from matplotlib import pyplot as plt

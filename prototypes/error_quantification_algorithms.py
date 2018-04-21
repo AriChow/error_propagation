@@ -20,27 +20,35 @@ pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_redu
 
 # Bayesian optimization
 start = 1
-stop = 4
+stop = 6
+if data_name == 'breast':
+	stop = 5
+
 type1 = 'bayesian_MCMC'
+obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_breast_run_' +
+						   str(1) + '_final.pkl','rb'), encoding='latin1')
+path_pipelines = obj.all_incumbents
+
+fe_params = set()
+dr_params = set()
+la_params = set()
+for i in range(len(path_pipelines)):
+	p = path_pipelines[i]
+	fe_params.add(p._values['haralick_distance'])
+	dr_params.add(p._values['pca_whiten'])
+	la_params.add((p._values['rf_n_estimators'], p._values['rf_max_features']))
+
+fe_params = list(fe_params)
+dr_params = list(dr_params)
+la_params = list(la_params)
+
 alg_error = np.zeros((stop-1, 3))
 for run in range(start, stop):
 	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
 						   str(run) + '_final.pkl','rb'), encoding='latin1')
 	path_pipelines = obj.all_incumbents
 
-	fe_params = set()
-	dr_params = set()
-	la_params = set()
-	for i in range(len(path_pipelines)):
-		p = path_pipelines[i]
-		fe_params.add(p._values['haralick_distance'])
-		dr_params.add(p._values['pca_whiten'])
-		la_params.add((p._values['rf_n_estimators'], p._values['rf_max_features']))
-
 	min_err = 1000000
-	fe_params = list(fe_params)
-	dr_params = list(dr_params)
-	la_params = list(la_params)
 	min_fe = [1000000] * len(fe_params)
 	min_dr = [1000000] * len(dr_params)
 	min_la = [1000000] * len(la_params)

@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from prototypes.random_based_mcmc_naive import random_MCMC
+from prototypes.random_based_mcmc_naive_path import random_MCMC
 import sys
 
 if __name__ == '__main__':
@@ -15,14 +15,14 @@ if __name__ == '__main__':
 	# Gradient calculation
 	# Empty features directory
 	import glob
-	files = glob.glob(data_home + 'features/random_naive/*_' + dataset + '.npz')
+	files = glob.glob(data_home + 'features/random_naive_path/*_' + dataset + '.npz')
 	for f in files:
 		if os.path.exists(f):
 			os.remove(f)
 	pipeline = {}
-	pipeline['feature_extraction'] = ["VGG", "haralick", "inception", "naive_feature_extraction"]
-	pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP", "naive_dimensionality_reduction"]
-	pipeline['learning_algorithm'] = ["SVM", "RF", "naive_learning_algorithm"]
+	pipeline['feature_extraction'] = ["haralick", "naive_feature_extraction"]
+	pipeline['dimensionality_reduction'] = ["PCA", "naive_dimensionality_reduction"]
+	pipeline['learning_algorithm'] = ["RF", "naive_learning_algorithm"]
 	pipeline['haralick_distance'] = range(1, 4)
 	pipeline['pca_whiten'] = [True, False]
 	pipeline['n_neighbors'] = range(3, 8)

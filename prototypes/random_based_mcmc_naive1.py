@@ -3,6 +3,7 @@ import numpy as np
 import copy
 import pickle
 import time
+import os
 
 class random_MCMC():
 	def __init__(self, data_name=None, data_loc=None, results_loc=None, run=None, type1=None, pipeline=None, iters=None):
@@ -18,6 +19,7 @@ class random_MCMC():
 		self.results_loc = results_loc
 		self.type1 = type1
 		self.error_curve = []
+		self.last_t = 0
 
 	def populate_paths(self):
 		pipeline = self.pipeline
@@ -42,7 +44,20 @@ class random_MCMC():
 		t0 = time.time()
 		cnt = 0
 		last_error = 1000000
-		t = 0
+
+		if os.path.exists(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+						self.run) + '_full_final_naive_last_object.pkl'):
+			last_object = pickle.load(open(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+						self.run) + '_full_final_naive_last_object.pkl', 'rb'))
+			t = last_object.last_t
+			self.pipelines = last_object.pipelines
+			self.times = last_object.times
+			self.run = last_object.run
+			self.best_pipelines = last_object.best_pipelines
+			self.error_curve = last_object.error_curve
+			self.last_t = last_object.last_t
+		else:
+			t = 0
 		while True:
 			t += 1
 			path = []
@@ -84,18 +99,23 @@ class random_MCMC():
 			else:
 				cnt = 0
 			t1 = time.time()
+			self.last_t = t
 			times.append(t1 - t0)
 			pipelines.append(g)
 			if err < last_error:
 				last_error = err
 				best_pipelines.append(g)
 			self.error_curve.append(last_error)
+			self.pipelines = pipelines
+			self.best_pipelines = best_pipelines
+			self.times = times
+			if t1 - t0 > 50000:
+				pickle.dump(self, open(
+					self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+						self.run)
+					+ '_full_final_naive_last_object.pkl', 'wb'))
 			if cnt > self.iters or t > 10000:
 				break
-
-		self.pipelines = pipelines
-		self.best_pipelines = best_pipelines
-		self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
 			+ '_full_final_naive.pkl', 'wb'))

@@ -3,6 +3,7 @@ import numpy as np
 import copy
 import pickle
 import time
+import os
 
 class grid_MCMC():
 	def __init__(self, data_name=None, data_loc=None, results_loc=None, run=None, type1=None, pipeline=None):
@@ -15,6 +16,8 @@ class grid_MCMC():
 		self.data_loc = data_loc
 		self.results_loc = results_loc
 		self.type1 = type1
+		self.last_hyper = 0
+		self.last_path = 0
 
 	def populate_paths(self):
 		pipeline = self.pipeline
@@ -96,28 +99,54 @@ class grid_MCMC():
 							hyper['svm_C'] = h2[k]
 							hypers2.append(copy.deepcopy(hyper))
 		return hypers2
+
 	def gridMcmc(self):
 		paths = self.paths
 		pipelines = {}
 		times = {}
-		for i in range(len(paths)):
+		t0 = time.time()
+		if os.path.exists(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+							self.run) + '_naive_last_object.pkl'):
+			last_object = pickle.load(open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+							self.run) + '_naive_last_object.pkl', 'rb'))
+			start = last_object.last_path
+			self.pipelines = last_object.pipelines
+			self.times = last_object.times
+			self.run = last_object.run
+			self.last_hyper = last_object.last_hyper
+		else:
+			start = 0
+			last_object = None
+		for i in range(start, len(paths)):
 			pipelines[i] = []
 			times[i] = []
-			path = paths[i]
+			if last_object is not None and i == last_object.last_path:
+				path = paths[last_object.last_path]
+				start1 = last_object.last_hyper
+			else:
+				path = paths[i]
+				start1 = 0
 			hypers = self.populate_path(path)
-			for j in range(len(hypers)):
+			for j in range(start1, len(hypers)):
 				hyper = hypers[j]
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
 												  data_loc=self.data_loc, type1='grid', fe=path[0], dr=path[1],
 												  la=path[2],
 												  val_splits=3, test_size=0.2)
-				t0 = time.time()
 				g.run()
 				t1 = time.time()
 				pipelines[i].append(g)
 				times[i].append(t1-t0)
-		self.times = times
-		self.pipelines = pipelines
+				self.pipelines = pipelines
+				self.times = times
+				self.last_path = i
+				self.last_hyper = j
+				t1 = time.time()
+				if t1 - t0 > 50000:
+					pickle.dump(self, open(
+						self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
+							self.run)
+						+ '_naive_last_object.pkl', 'wb'))
 		pickle.dump(self, open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name +
 							   '_run_' + str(self.run) + '_naive.pkl', 'wb'))
 

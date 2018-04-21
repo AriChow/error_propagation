@@ -27,7 +27,7 @@ class image_classification_pipeline(object):
 		self.accuracy = 0
 		self.result = None
 		self.type1 = type1
-		r = glob.glob(self.data_location + 'features/' + self.type1 + '/*.npz')
+		r = glob.glob(self.data_location + 'features/' + self.type1 + '/*_' + self.data_name + '.npz')
 		for i in range(len(r)):
 			if self.feature_extraction in r[i] and self.feature_extraction == 'haralick':
 				os.remove(r[i])

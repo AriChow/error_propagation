@@ -29,9 +29,9 @@ E2 = np.zeros((stop - 1, 3))
 E3 = np.zeros((stop - 1, 3))
 
 if data_name == 'breast':
-	stop = 2
+	stop = 3
 if data_name == 'brain':
-	stop = 4
+	stop = 5
 
 
 cnt = 0
@@ -42,7 +42,7 @@ naive_opt_all = np.zeros((1, 3))
 
 for run in range(2, 3):
 	obj = pickle.load(
-		open(results_home + 'intermediate/' + type2 + '/' + type2 + '_' + data_name + '_run_' +
+		open(results_home + 'intermediate_CCNI/' + type2 + '/' + type2 + '_' + data_name + '_run_' +
 			 str(run) + '_full_final_naive.pkl', 'rb'), encoding='latin1')
 	pipelines = obj.pipelines
 	naive_naive = [1000000] * 3

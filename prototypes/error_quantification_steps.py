@@ -11,7 +11,7 @@ import pickle
 from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
-data_name = 'brain'
+data_name = 'breast'
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 

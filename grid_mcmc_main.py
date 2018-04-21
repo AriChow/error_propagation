@@ -1,7 +1,6 @@
 import numpy as np
 import os
 from prototypes.grid_based_mcmc_naive import grid_MCMC
-import pickle
 import sys
 
 if __name__ == '__main__':

@@ -461,57 +461,70 @@ for data_name in datasets:
 			gamma[j, i] = g
 			E_propagation[j, i] = a * g
 
-	E_total_test = []
-	E_total_std_test = []
-	for i in range(3):
-		e1 = E1[:, i]
-		s1 = []
-		for j in range(len(e1)):
-			if e1[j] != 0:
-				s1.append(e1[j])
-		E_total_test.append(np.mean(s1))
-		E_total_std_test.append(np.std(s1))
-	E_total_test = np.asarray(E_total_test)
-	E_total_std_test = np.asarray(E_total_std_test)
+	E_total_test = np.mean(E1, 0)
+	E_total_std_test = np.std(E1, 0)
 
-	E_direct_test = []
-	E_direct_std_test = []
-	for i in range(3):
-		e1 = alpha[:, i]
-		s1 = []
-		for j in range(len(e1)):
-			if e1[j] != 0:
-				s1.append(e1[j])
-		E_direct_test.append(np.mean(s1))
-		E_direct_std_test.append(np.std(s1))
-	E_direct_test = np.asarray(E_direct_test)
-	E_direct_std_test = np.asarray(E_direct_std_test)
+	E_direct_test = np.mean(alpha, axis=0)
+	E_direct_std_test = np.std(alpha, axis=0)
 
-	E_propagation_mean_test = []
-	E_propagation_std_test = []
-	for i in range(3):
-		e1 = E_propagation[:, i]
-		s1 = []
-		for j in range(len(e1)):
-			if e1[j] != 0:
-				s1.append(e1[j])
-		E_propagation_mean_test.append(np.mean(s1))
-		E_propagation_std_test.append(np.std(s1))
-	E_propagation_mean_test = np.asarray(E_propagation_mean_test)
-	E_propagation_std_test = np.asarray(E_propagation_std_test)
+	E_propagation_mean_test = np.mean(E_propagation, axis=0)
+	E_propagation_std_test = np.std(E_propagation, axis=0)
 
-	gamma_mean_test = []
-	gamma_std_test = []
-	for i in range(3):
-		e1 = gamma[:, i]
-		s1 = []
-		for j in range(len(e1)):
-			if e1[j] != 0:
-				s1.append(e1[j])
-		gamma_mean_test.append(np.mean(s1))
-		gamma_std_test.append(np.std(s1))
-	gamma_mean_test = np.asarray(gamma_mean_test)
-	gamma_std_test = np.asarray(gamma_std_test)
+	gamma_mean_test = np.mean(gamma, 0)
+	gamma_std_test = np.std(gamma, 0)
+
+
+	# E_total_test = []
+	# E_total_std_test = []
+	# for i in range(3):
+	# 	e1 = E1[:, i]
+	# 	s1 = []
+	# 	for j in range(len(e1)):
+	# 		if e1[j] < 0:
+	# 			s1.append(e1[j])
+	# 	E_total_test.append(np.mean(s1))
+	# 	E_total_std_test.append(np.std(s1))
+	# E_total_test = np.asarray(E_total_test)
+	# E_total_std_test = np.asarray(E_total_std_test)
+	#
+	# E_direct_test = []
+	# E_direct_std_test = []
+	# for i in range(3):
+	# 	e1 = alpha[:, i]
+	# 	s1 = []
+	# 	for j in range(len(e1)):
+	# 		if e1[j] < 0:
+	# 			s1.append(e1[j])
+	# 	E_direct_test.append(np.mean(s1))
+	# 	E_direct_std_test.append(np.std(s1))
+	# E_direct_test = np.asarray(E_direct_test)
+	# E_direct_std_test = np.asarray(E_direct_std_test)
+	#
+	# E_propagation_mean_test = []
+	# E_propagation_std_test = []
+	# for i in range(3):
+	# 	e1 = E_propagation[:, i]
+	# 	s1 = []
+	# 	for j in range(len(e1)):
+	# 		if e1[j] < 0:
+	# 			s1.append(e1[j])
+	# 	E_propagation_mean_test.append(np.mean(s1))
+	# 	E_propagation_std_test.append(np.std(s1))
+	# E_propagation_mean_test = np.asarray(E_propagation_mean_test)
+	# E_propagation_std_test = np.asarray(E_propagation_std_test)
+	#
+	# gamma_mean_test = []
+	# gamma_std_test = []
+	# for i in range(3):
+	# 	e1 = gamma[:, i]
+	# 	s1 = []
+	# 	for j in range(len(e1)):
+	# 		if e1[j] != 0:
+	# 			s1.append(e1[j])
+	# 	gamma_mean_test.append(np.mean(s1))
+	# 	gamma_std_test.append(np.std(s1))
+	# gamma_mean_test = np.asarray(gamma_mean_test)
+	# gamma_std_test = np.asarray(gamma_std_test)
 
 	from matplotlib import pyplot as plt
 

@@ -15,7 +15,7 @@ if __name__ == '__main__':
 	# Gradient calculation
 	# Empty features directory
 	import glob
-	files = glob.glob(data_home + 'features/random_naive1/*.npz')
+	files = glob.glob(data_home + 'features/random_naive1/*_' + dataset + '.npz')
 	for f in files:
 		if os.path.exists(f):
 			os.remove(f)

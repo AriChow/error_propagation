@@ -44,9 +44,9 @@ class random_MCMC():
 		times = []
 		pipelines = []
 		if os.path.exists(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl'):
+							self.run) + '_naive_path_last_object.pkl'):
 			last_object = pickle.load(open(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl', 'rb'))
+							self.run) + '_naive_path_last_object.pkl', 'rb'))
 			start = last_object.last_iter
 			self.pipelines = last_object.pipelines
 			self.times = last_object.times
@@ -98,7 +98,7 @@ class random_MCMC():
 					r = np.random.choice(pipeline['svm_gamma'], 1)
 					hyper['svm_gamma'] = r[0]
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-												  data_loc=self.data_loc, type1='random_naive', fe=path[0], dr=path[1], la=path[2],
+												  data_loc=self.data_loc, type1='random_naive_path', fe=path[0], dr=path[1], la=path[2],
 												  val_splits=3, test_size=0.2)
 				g.run()
 				err = g.get_error()
@@ -111,7 +111,7 @@ class random_MCMC():
 					best_pipelines.append(g)
 				objects.append(g)
 				error_curves.append(last_error)
-				if cnt > self.iters or t > 10000:
+				if cnt > self.iters or t > 1000:
 					break
 				self.last_t = t
 				self.last_cnt = cnt
@@ -121,7 +121,7 @@ class random_MCMC():
 					pickle.dump(self, open(
 						self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
 							self.run)
-						+ '_naive_last_object.pkl', 'wb'))
+						+ '_naive_path_last_object.pkl', 'wb'))
 
 			t1 = time.time()
 			times.append(t1-t0)
@@ -132,4 +132,4 @@ class random_MCMC():
 			self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_naive.pkl', 'wb'))
+			+ '_naive_path.pkl', 'wb'))
