@@ -11,6 +11,7 @@ if __name__ == '__main__':
 	results_home = home + '/' + place + '/EP_project/results/'
 	start = int(sys.argv[3])
 	end = int(sys.argv[4])
+	print('Running grid search on ' + dataset + 'data')
 	# num_iters = 21
 	# Empty features directory
 	import glob

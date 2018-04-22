@@ -1,5 +1,0 @@
-"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
-0.000000, 2147483648.000000, 0.000403, 1, 0.000403, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
-43.704175, 5.114160, 43.731404, 1, 0.027229, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
-143.072832, 0.899578, 143.283498, 2, 0.210666, dimensionality_reduction=''naive_dimensionality_reduction'', feature_extraction=''inception'', learning_algorithm=''RF'', rf_max_features='0.3', rf_n_estimators='300'
-251.619218, 0.550702, 252.128626, 3, 0.509408, dimensionality_reduction=''naive_dimensionality_reduction'', feature_extraction=''VGG'', learning_algorithm=''RF'', rf_max_features='0.7', rf_n_estimators='154'
