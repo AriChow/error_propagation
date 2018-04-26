@@ -337,6 +337,71 @@ for run in range(start, stop):
 		agnostic_opt_all = np.vstack((agnostic_opt_all, agnostic_opt))
 	cnt += 1
 
+
+agnostic_opt = np.mean(agnostic_opt_all, 0)
+opt_opt = np.mean(opt_opt_all, 0)
+
+def func_beta(p, e1, e2, e3, e4, e5, e6):
+	alpha1, alpha2, alpha3, gamma1, gamma2, beta = p
+	f1 = alpha1 + gamma1 * (alpha1 * beta) - e1
+	f2 = alpha2 + gamma1 * (alpha2 + beta) - e2
+	f3 = alpha1 + gamma2 * (alpha1 + beta) - e3
+	f4 = alpha2 + gamma2 *(alpha2 + beta) - e4
+	f5 = alpha3 + gamma2 * (alpha3 + beta) - e5
+	f6 = alpha3 + gamma1 * (alpha3 + beta) - e6
+	return (f1, f2, f3, f4, f5, f6)
+
+def func_gamma(p, e1, e2, e3, e4, e5, e6):
+	alpha1, alpha2, alpha3, gamma, beta1, beta2 = p
+	f1 = alpha1 + gamma * (alpha1 * beta1) - e1
+	f2 = alpha2 + gamma * (alpha2 + beta1) - e2
+	f3 = alpha1 + gamma * (alpha1 + beta2) - e3
+	f4 = alpha2 + gamma * (alpha2 + beta2) - e4
+	f5 = alpha3 + gamma * (alpha3 + beta2) - e5
+	f6 = alpha3 + gamma * (alpha3 + beta1) - e6
+	return (f1, f2, f3, f4, f5, f6)
+
+
+
+p = np.random.random(6)
+from scipy.optimize import fsolve
+parameters = np.zeros((3, 6))
+error = np.zeros((3, 6))
+for i in range(3):
+	errs = (agnostic_opt[i], opt_opt[i], agnostic_naive[i], opt_naive[i], naive_naive[i], naive_opt[i])
+	params = fsolve(func_beta, p, errs)
+	err = func_beta(tuple(params), errs[0], errs[1], errs[2], errs[3], errs[4], errs[5])
+	error[i, :] = np.expand_dims(np.asarray(err), 0)
+	parameters[i, :] = np.expand_dims(np.asarray(params), 0)
+
+print('Beta assumption:')
+print('Parameters:')
+print(parameters)
+
+print('Errors:')
+print(error)
+
+
+# p = np.random.random(6)
+# from scipy.optimize import fsolve
+# parameters = np.zeros((3, 6))
+# error = np.zeros((3, 6))
+# for i in range(3):
+# 	errs = (agnostic_opt[i], opt_opt[i], agnostic_naive[i], opt_naive[i], naive_naive[i], naive_opt[i])
+# 	params = fsolve(func_gamma, p, errs)
+# 	err = func_beta(tuple(params), errs[0], errs[1], errs[2], errs[3], errs[4], errs[5])
+# 	error[i, :] = np.expand_dims(np.asarray(err), 0)
+# 	parameters[i, :] = np.expand_dims(np.asarray(params), 0)
+#
+# print ('\n\n')
+# print('Gamma assumption:')
+# print('Parameters:')
+# print(parameters)
+#
+# print('Errors:')
+# print(error)
+
+
 # errors = {'opt_opt': opt_opt_all, 'agnostic_opt': agnostic_opt_all, 'agnostic_naive': agnostic_naive_all,
 # 		  'naive_naive': naive_naive_all, 'opt_naive': opt_naive_all, 'naive_opt': naive_opt_all}
 # pickle.dump(errors, open(results_home + 'intermediate/random_MCMC/error_propagation_steps1.pkl', 'wb'))

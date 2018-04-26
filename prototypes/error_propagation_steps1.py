@@ -8,6 +8,8 @@ import os
 import sys
 import pickle
 
+# np.random.seed(42)
+
 home = os.path.expanduser('~')
 data_name = 'matsc_dataset2'
 data_home = home + '/Documents/research/EP_project/data/'
@@ -274,9 +276,112 @@ for run in range(start, stop):
 		agnostic_opt_all = np.vstack((agnostic_opt_all, agnostic_opt))
 	cnt += 1
 
+agnostic_opt = np.mean(agnostic_opt_all, 0)
+opt_opt = np.mean(opt_opt_all, 0)
+
+def func_beta(p, e1, e2, e3, e4, e5, e6):
+	alpha1, alpha2, alpha3, gamma1, gamma2, beta = p
+	f1 = alpha1 + gamma1 * (alpha1 * beta) - e1
+	f2 = alpha2 + gamma1 * (alpha2 + beta) - e2
+	f3 = alpha1 + gamma2 * (alpha1 + beta) - e3
+	f4 = alpha2 + gamma2 *(alpha2 + beta) - e4
+	f5 = alpha3 + gamma2 * (alpha3 + beta) - e5
+	f6 = alpha3 + gamma1 * (alpha3 + beta) - e6
+	return (f1, f2, f3, f4, f5, f6)
+
+def func_gamma(p, e1, e2, e3, e4, e5, e6):
+	alpha1, alpha2, alpha3, gamma, beta1, beta2 = p
+	f1 = alpha1 + gamma * (alpha1 * beta1) - e1
+	f2 = alpha2 + gamma * (alpha2 + beta1) - e2
+	f3 = alpha1 + gamma * (alpha1 + beta2) - e3
+	f4 = alpha2 + gamma * (alpha2 + beta2) - e4
+	f5 = alpha3 + gamma * (alpha3 + beta2) - e5
+	f6 = alpha3 + gamma * (alpha3 + beta1) - e6
+	return (f1, f2, f3, f4, f5, f6)
 
 
 
-errors = {'opt_opt': opt_opt_all, 'agnostic_opt': agnostic_opt_all, 'agnostic_naive': agnostic_naive_all,
-		  'naive_naive': naive_naive_all, 'opt_naive': opt_naive_all, 'naive_opt': naive_opt_all}
-pickle.dump(errors, open(results_home + 'intermediate/random_MCMC/error_propagation_steps1.pkl', 'wb'))
+p = np.ones(6)
+from scipy.optimize import fsolve
+parameters = np.zeros((3, 6))
+error = np.zeros((3, 6))
+for i in range(3):
+	errs = (agnostic_opt[i], opt_opt[i], agnostic_naive[i], opt_naive[i], naive_naive[i], naive_opt[i])
+	params = fsolve(func_beta, p, errs)
+	err = func_beta(tuple(params), errs[0], errs[1], errs[2], errs[3], errs[4], errs[5])
+	error[i, :] = np.expand_dims(np.asarray(err), 0)
+	parameters[i, :] = np.expand_dims(np.asarray(params), 0)
+
+print('Beta assumption:')
+print('Parameters:')
+print(parameters)
+
+print('Errors:')
+print(error)
+
+E_total = agnostic_opt
+
+E_direct = parameters[:, 0]
+
+gamma_mean = parameters[:, 3]
+
+E_propagation_mean = gamma_mean * (E_direct + parameters[:, 5])
+# E_direct[-1] = E_total[-1]
+# E_propagation_mean[-1] = 0
+
+
+from matplotlib import pyplot as plt
+
+colors = ['b', 'g', 'y']
+steps = ['Feature extraction', 'Feature transformation', 'Learning algorithms']
+x1 = np.asarray([1, 2, 3])
+w = 0.2
+d = w * np.ones(3)
+x2 = x1 + d
+plt.figure()
+plt.bar(x1, E_total.ravel(), width=w, align='center', color=colors[0], label='Total error')
+plt.bar(x2, E_direct.ravel(), width=w, align='center', color=colors[1], label='Direct error')
+plt.bar(x2, E_propagation_mean.ravel(), width=w, bottom=E_direct.ravel(), align='center', color=colors[2], label='Propagation error')
+plt.title('Error propagation in steps for ' + data_name + ' data')
+plt.xlabel('Steps')
+plt.ylabel('Error')
+plt.xticks(x1, steps)
+plt.legend()
+plt.autoscale()
+plt.savefig(results_home + 'figures/error_propagation_new_random_pipeline_steps_' + type1 + '_' + data_name + '.jpg')
+plt.close()
+
+plt.figure()
+x1 = np.asarray([1, 2, 3])
+plt.bar(x1, gamma_mean.ravel(), width=w, color='r')
+plt.title('Propagation factor in steps for ' + data_name + ' data')
+plt.xlabel('Steps')
+plt.ylabel('Propagation factor')
+plt.xticks(x1, steps)
+plt.savefig(results_home + 'figures/propagation_factor_new_random_pipeline_steps_' + type1 + '_'  + data_name + '.jpg')
+plt.close()
+
+# p = np.random.random(6)
+# from scipy.optimize import fsolve
+# parameters = np.zeros((3, 6))
+# error = np.zeros((3, 6))
+# for i in range(3):
+# 	errs = (agnostic_opt[i], opt_opt[i], agnostic_naive[i], opt_naive[i], naive_naive[i], naive_opt[i])
+# 	params = fsolve(func_gamma, p, errs)
+# 	err = func_beta(tuple(params), errs[0], errs[1], errs[2], errs[3], errs[4], errs[5])
+# 	error[i, :] = np.expand_dims(np.asarray(err), 0)
+# 	parameters[i, :] = np.expand_dims(np.asarray(params), 0)
+#
+# print ('\n\n')
+# print('Gamma assumption:')
+# print('Parameters:')
+# print(parameters)
+#
+# print('Errors:')
+# print(error)
+
+
+
+# errors = {'opt_opt': opt_opt_all, 'agnostic_opt': agnostic_opt_all, 'agnostic_naive': agnostic_naive_all,
+# 		  'naive_naive': naive_naive_all, 'opt_naive': opt_naive_all, 'naive_opt': naive_opt_all}
+# pickle.dump(errors, open(results_home + 'intermediate/random_MCMC/error_propagation_steps1.pkl', 'wb'))
