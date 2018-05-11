@@ -9,6 +9,7 @@ if __name__ == '__main__':
 	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
+	print('Running random search (naive) on ' + dataset + 'data')
 	num_iters = 51
 	start = int(sys.argv[3])
 	end = int(sys.argv[4])
@@ -35,6 +36,9 @@ if __name__ == '__main__':
 	# CONTROL
 	type1 = 'random_MCMC'
 	for i in range(start, end):
+		if os.path.exists(results_home + 'intermediate/random_MCMC/' + type1 + '_' + dataset + '_run_' + str(i+1) +
+								  '_naive.pkl'):
+			continue
 		rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, iters=num_iters)
 		rm.populate_paths()
 		rm.randomMcmc()

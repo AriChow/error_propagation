@@ -45,42 +45,42 @@ for data_name in datasets:
 	times = []
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '.pkl', 'rb'), encoding='latin1')
+							   str(run) + '_final.pkl', 'rb'), encoding='latin1')
 
 		times.append(sum(obj.times))
 	random_times.append(times)
 
 # Random1
-start = 1
-stop = 6
+start = 2
+stop = 7
 type1 = 'random_MCMC'
 random1_times = []
 for data_name in datasets:
 	times = []
 	for run in range(start, stop):
-		obj = pickle.load(open(results_home + 'intermediate_CCNI/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_full.pkl', 'rb'), encoding='latin1')
+		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
+							   str(run) + '_full_final.pkl', 'rb'), encoding='latin1')
 
 		times.append(obj.times[-1])
 	random1_times.append(times)
 
 # Bayesian
 start = 1
-stop = 6
+stop = 5
 type1 = 'bayesian_MCMC'
 bayesian_times = []
 for data_name in datasets:
 	times = []
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_parallel.pkl', 'rb'), encoding='latin1')
+							   str(run) + '_final.pkl', 'rb'), encoding='latin1')
 
 		times.append(sum(obj.times))
 	bayesian_times.append(times)
 
 # Bayesian1
 start = 1
-stop = 6
+stop = 5
 type1 = 'bayesian_MCMC'
 bayesian1_times = []
 for data_name in datasets:
@@ -89,9 +89,9 @@ for data_name in datasets:
 		stop = 3
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_full.pkl', 'rb'), encoding='latin1')
+							   str(run) + '_full_final.pkl', 'rb'), encoding='latin1')
 
-		times.append(obj.times[-1])
+		times.append(obj.total_time)
 	bayesian1_times.append(times)
 
 step = np.zeros((len(datasets), 5))
@@ -104,27 +104,27 @@ for i in range(len(datasets)):
 	step_std[i, :] = np.asarray([np.std(grid_times[i]), np.std(random_times[i]), np.std(random1_times[i]),
 							 np.std(bayesian_times[i]), np.mean(bayesian1_times[i])])
 
-x = ['Grid search ', 'Random search(HPO)', 'Random search(CASH)', 'SMAC (HPO)', 'SMAC(CASH)']
-plt.figure(figsize=(10, 5))
-x1 = range(1, 6)
-for i, data_name in enumerate(datasets):
-	plt.errorbar(x1, step[i, :], step_std[i, :], linestyle='None', marker='*', color=colors[i], capsize=3)
-	plt.plot(x1, step[i, :], colors[i] + '*-', label=data_name)
-plt.legend()
-plt.title('Time comparison of algorithms')
-plt.xlabel('Algorithms')
-plt.ylabel('Time(s)')
-plt.xticks(x1, x)
-plt.savefig(results_home + 'figures/times_datasets.jpg')
-plt.close()
+x = ['Random search(HPO)', 'Random search(CASH)', 'SMAC (HPO)', 'SMAC(CASH)']
+# plt.figure(figsize=(10, 5))
+# x1 = range(1, 6)
+# for i, data_name in enumerate(datasets):
+# 	plt.errorbar(x1, step[i, :], step_std[i, :], linestyle='None', marker='*', color=colors[i], capsize=3)
+# 	plt.plot(x1, step[i, :], colors[i] + '*-', label=data_name)
+# plt.legend()
+# plt.title('Time comparison of algorithms')
+# plt.xlabel('Algorithms')
+# plt.ylabel('Time(s)')
+# plt.xticks(x1, x)
+# plt.savefig(results_home + 'figures/times_datasets.jpg')
+# plt.close()
 
 plt.figure(figsize=(10, 5))
-x1 = range(1, 6)
-plt.errorbar(x1, np.mean(step[:, :], axis=0), np.std(step[:, :], axis=0), linestyle='None', marker='*', capsize=3)
-plt.plot(x1, np.mean(step[:, :], axis=0))
+x1 = range(1, 5)
+plt.errorbar(x1, np.mean(step[:, 1:], axis=0), np.std(step[:, 1:], axis=0), linestyle='None', marker='*', capsize=3)
+plt.plot(x1, np.mean(step[:, 1:], axis=0))
 plt.title('Time comparison of algorithms')
 plt.xlabel('Algorithms')
 plt.ylabel('Time(s)')
 plt.xticks(x1, x)
-plt.savefig(results_home + 'figures/times_algorithms.jpg')
+plt.savefig(results_home + 'figures/times_algorithms_no_grid.eps')
 plt.close()

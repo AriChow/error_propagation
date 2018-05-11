@@ -1,48 +1,47 @@
 import numpy as np
-import scipy.optimize as opt
+from scipy.optimize import fsolve
 
-def main():
-    nobservations = 4
-    a, b, c = 3.0, 2.0, 1.0
-    f, x, y, z = generate_data(nobservations, a, b, c)
+def func_beta(p):
+	alpha1, alpha2, alpha3, gamma1, gamma2, gamma3, beta1, beta2, beta3 = p
+	errs = np.random.random(9)
+	f1 = alpha1 + gamma1 * (alpha1 * beta1) - errs[0]
+	f2 = alpha2 + gamma1 * (alpha2 + beta1) - errs[1]
+	f3 = alpha1 + gamma2 * (alpha1 + beta2) - errs[2]
+	f4 = alpha2 + gamma2 * (alpha2 + beta2) - errs[3]
+	f5 = alpha3 + gamma2 * (alpha3 + beta2) - errs[4]
+	f6 = alpha3 + gamma1 * (alpha3 + beta1) - errs[5]
+	f7 = alpha3 + gamma3 * (alpha3 + beta3) - errs[6]
+	f8 = alpha2 + gamma3 * (alpha2 + beta3) - errs[7]
+	f9 = alpha1 + gamma3 * (alpha1 + beta3) - errs[8]
+	return (f1, f2, f3, f4, f5, f6, f7, f8, f9)
 
-    print('Linear results (should be {}, {}, {}):'.format(a, b, c))
-    print(linear_invert(f, x, y, z))
+p = np.random.rand(9)
+parameters = np.zeros((1, 9))
+error = np.zeros((1, 9))
+i = 0
+params = fsolve(func_beta, p)
+err = func_beta(params)
+error[i, :] = np.expand_dims(np.asarray(err), 0)
+parameters[i, :] = np.expand_dims(np.asarray(params), 0)
 
-    print('Non-linear results (should be {}, {}, {}):'.format(a, b, c))
-    print(nonlinear_invert(f, x, y, z))
+print('Parameters:')
+print(parameters)
 
-def generate_data(nobservations, a, b, c, noise_level=0.01):
-    x, y, z = np.random.random((3, nobservations))
-    noise = noise_level * np.random.normal(0, noise_level, nobservations)
-    f = func(x, y, z, a, b, c) + noise
-    return f, x, y, z
+print('Errors:')
+print(error)
 
-def func(x, y, z, a, b, c):
-    f = (a**2
-         + x * b**2
-         + y * a * b * np.cos(c)
-         + z * a * b * np.sin(c))
-    return f
 
-def linear_invert(f, x, y, z):
-    G = np.vstack([np.ones_like(x), x, y, z]).T
-    m, _, _, _ = np.linalg.lstsq(G, f)
+# import numpy as np
+# 
+# def null(A, eps=1e-15):
+#     u, s, vh = np.linalg.svd(A)
+#     null_space = np.compress(s <= eps, vh, axis=0)
+#     return null_space.T
+# 
+# e = -1 + 2 * np.random.rand(3, 3)
+# alpha = null(e).T
+# 
+# print(alpha)
+# print(e * alpha).T
 
-    d, e, f, g = m
-    a = np.sqrt(d)
-    b = np.sqrt(e)
-    c = np.arctan2(g, f) # Note that `c` will be in radians, not degrees
-    return a, b, c
 
-def nonlinear_invert(f, x, y, z):
-    # "curve_fit" expects the function to take a slightly different form...
-    def wrapped_func(observation_points, a, b, c):
-        x, y, z = observation_points
-        return func(x, y, z, a, b, c)
-
-    xdata = np.vstack([x, y, z])
-    model, cov = opt.curve_fit(wrapped_func, xdata, f)
-    return model
-
-main()

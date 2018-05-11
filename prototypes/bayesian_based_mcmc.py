@@ -21,6 +21,7 @@ class bayesian_MCMC():
 		self.best_pipelines_incumbents = []
 		self.potential = []
 		self.run = run
+		self.total_time = 0
 		self.all_incumbents = []
 		self.results_loc = results_loc
 
@@ -305,7 +306,9 @@ class bayesian_MCMC():
 								 "wallclock_limit" : 100000,
 								 "deterministic": "true"})
 			smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
+			t0 = time.time()
 			incumbent, incs, incumbents, incumbents1, times = smac.optimize()
+			t1 = time.time()
 			inc_value = pipeline_from_cfg(incumbent)
 			self.best_pipelines.append(incumbent)
 			self.potential.append(inc_value)
@@ -314,4 +317,5 @@ class bayesian_MCMC():
 			self.all_incumbents = incumbents1
 			# self.objects.append(smac)
 			self.times = times
+			self.total_time = t1-t0
 		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_final.pkl', 'wb'))

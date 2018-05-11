@@ -1,0 +1,10 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000190, 1, 0.000190, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
+22.532160, 0.468121, 22.547940, 1, 0.015780, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''RF'', haralick_distance='1', pca_whiten=''true'', rf_max_features='0.5', rf_n_estimators='81'
+45.369261, 0.320601, 45.458694, 2, 0.089433, dimensionality_reduction=''ISOMAP'', feature_extraction=''inception'', learning_algorithm=''SVM'', isomap_n_components='4', isomap_n_neighbors='5', svm_C='25.075000000000003', svm_gamma='0.01'
+45.868765, 0.311969, 46.035466, 3, 0.166702, dimensionality_reduction=''ISOMAP'', feature_extraction=''inception'', learning_algorithm=''SVM'', isomap_n_components='2', isomap_n_neighbors='5', svm_C='50.050000000000004', svm_gamma='8.0'
+47.885759, 0.311708, 48.152457, 4, 0.266699, dimensionality_reduction=''PCA'', feature_extraction=''inception'', learning_algorithm=''SVM'', pca_whiten=''false'', svm_C='50.050000000000004', svm_gamma='2.0075'
+94.723130, 0.305600, 95.203190, 5, 0.480060, dimensionality_reduction=''ISOMAP'', feature_extraction=''haralick'', learning_algorithm=''SVM'', haralick_distance='2', isomap_n_components='4', isomap_n_neighbors='3', svm_C='100.0', svm_gamma='4.005'
+95.133914, 0.241551, 95.630931, 6, 0.497017, dimensionality_reduction=''PCA'', feature_extraction=''VGG'', learning_algorithm=''SVM'', pca_whiten=''true'', svm_C='75.025', svm_gamma='2.0075'
+163.903604, 0.190764, 164.723580, 7, 0.819976, dimensionality_reduction=''PCA'', feature_extraction=''haralick'', learning_algorithm=''SVM'', haralick_distance='1', pca_whiten=''true'', svm_C='0.1', svm_gamma='4.005'
+166.057844, 0.135514, 167.049462, 8, 0.991617, dimensionality_reduction=''ISOMAP'', feature_extraction=''VGG'', learning_algorithm=''RF'', isomap_n_components='4', isomap_n_neighbors='4', rf_max_features='0.5', rf_n_estimators='154'

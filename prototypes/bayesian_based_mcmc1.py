@@ -22,6 +22,7 @@ class bayesian_MCMC():
 		self.data_name = data_name
 		self.data_loc = data_loc
 		self.run = run
+		self.total_time = 0
 		self.results_loc = results_loc
 
 	def populate_paths(self):
@@ -333,7 +334,9 @@ class bayesian_MCMC():
 							 "wallclock_limit" : 1000000,
 							 "deterministic": "true"})
 		smac = SMAC(scenario=scenario, rng=np.random.RandomState(42), tae_runner=pipeline_from_cfg)
+		t0 = time.time()
 		incumbent, incs, incumbents, incumbents1, times = smac.optimize()
+		t1 = time.time()
 		inc_value = pipeline_from_cfg(incumbent)
 		self.best_pipelines.append(incumbent)
 		self.potential.append(inc_value)
@@ -341,4 +344,5 @@ class bayesian_MCMC():
 		self.all_incumbents = incumbents1
 		self.error_curves.append(incs)
 		self.times = times
+		self.total_time = t1-t0
 		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_full_final.pkl', 'wb'))

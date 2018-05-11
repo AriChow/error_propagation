@@ -35,6 +35,9 @@ if __name__ == '__main__':
 	# CONTROL
 	type1 = 'grid_MCMC'
 	for i in range(start, end):
+		if os.path.exists(results_home + 'intermediate/grid_MCMC/' + type1 + '_' + dataset + '_run_' + str(i+1) +
+								  '_naive.pkl'):
+			continue
 		rm = grid_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline)
 		rm.populate_paths()
 		rm.gridMcmc()
