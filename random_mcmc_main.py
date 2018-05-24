@@ -35,6 +35,9 @@ if __name__ == '__main__':
 	# CONTROL
 	type1 = 'random_MCMC'
 	for i in range(5):
+		if os.path.exists(results_home + 'intermediate/random_MCMC/random_MCMC_' + dataset + '_run_' + str(i+1) +
+								  '_final1.pkl'):
+			continue
 		rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, iters=num_iters)
 		rm.populate_paths()
 		rm.randomMcmc()
