@@ -33,6 +33,9 @@ if __name__=='__main__':
 
 	# CONTROL
 	for i in range(5):
+		if os.path.exists(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + dataset + '_run_' + str(i+1) +
+								  '_final1.pkl'):
+			continue
 		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
 		rm.populate_paths()
 		rm.bayesianmcmc()
