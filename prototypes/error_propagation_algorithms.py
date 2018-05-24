@@ -9,7 +9,7 @@ import sys
 import pickle
 
 home = os.path.expanduser('~')
-datasets = ['brain', 'matsc_dataset1', 'matsc_dataset2']
+datasets = ['brain', 'matsc_dataset1', 'matsc_dataset2', 'breast']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -67,9 +67,14 @@ for z in range(len(datasets)):
 	naive_opt_all = np.zeros((1, 3))
 
 	for run in range(1, 2):
-		obj = pickle.load(
-			open(results_home + 'intermediate_CCNI/' + type2 + '/' + type2 + '_' + data_name + '_run_' +
-				 str(run) + '_naive_path.pkl', 'rb'), encoding='latin1')
+		if data_name == 'breast':
+			obj = pickle.load(
+				open(results_home + 'intermediate_CCNI/' + type2 + '/' + type2 + '_' + data_name + '_run_' +
+					 str(run) + '_naive_path_last_object.pkl', 'rb'), encoding='latin1')
+		else:
+			obj = pickle.load(
+				open(results_home + 'intermediate_CCNI/' + type2 + '/' + type2 + '_' + data_name + '_run_' +
+					 str(run) + '_naive_path.pkl', 'rb'), encoding='latin1')
 		pipelines = obj.pipelines
 		paths = obj.paths
 		path_pipelines = []
@@ -425,7 +430,7 @@ plt.ylabel('Error')
 plt.xticks(x1, steps)
 plt.legend()
 plt.autoscale()
-plt.savefig(results_home + 'figures/error_propagation_random_pipeline_algorithms_all.eps')
+plt.savefig(results_home + 'figures/error_propagation_random_pipeline_algorithms_all1.eps')
 plt.close()
 
 plt.figure()
@@ -435,5 +440,5 @@ plt.title('Propagation factor in algorithms')
 plt.xlabel('Algorithms')
 plt.ylabel('Propagation factor')
 plt.xticks(x1, steps)
-plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_algorithms_all.eps')
+plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_algorithms_all1.eps')
 plt.close()

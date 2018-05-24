@@ -266,6 +266,24 @@ for z in range(len(datasets)):
 	alpha = np.zeros(E1.shape)
 	gamma = np.zeros(E1.shape)
 	E_propagation = np.zeros(E1.shape)
+	# for i in range(3):
+	# 	E11 = E1[:, i]
+	# 	E22 = E2[:, i]
+	# 	E33 = E3[:, i]
+	# 	for j in range(len(E11)):
+	# 		e1 = E11[j]
+	# 		e2 = E22[j]
+	# 		e3 = E33[j]
+	# 		if e3 == 0:
+	# 			g = 0
+	# 			a = e1
+	# 		else:
+	# 			a = e1 * e3 / (e2 + e3 - e1)
+	# 			g = (e2 - e1) / e3
+	# 		alpha[j, i] = a
+	# 		gamma[j, i] = g
+	# 		E_propagation[j, i] = a * g
+
 	for i in range(3):
 		E11 = E1[:, i]
 		E22 = E2[:, i]
@@ -274,15 +292,12 @@ for z in range(len(datasets)):
 			e1 = E11[j]
 			e2 = E22[j]
 			e3 = E33[j]
-			if e3 == 0:
-				g = 0
-				a = e1
-			else:
-				a = e1 * e3 / (e2 + e3 - e1)
-				g = (e2 - e1) / e3
+			a = e2
+			g = (e1 - e2) / e2
 			alpha[j, i] = a
 			gamma[j, i] = g
-			E_propagation[j, i] = a * g
+			E_propagation[j, i] = e1 - e2
+
 
 	E_total = np.mean(E1, 0)
 	E_total_std = np.std(E1, 0)
@@ -320,7 +335,7 @@ plt.ylabel('Error')
 plt.xticks(x1, steps)
 plt.legend()
 plt.autoscale()
-plt.savefig(results_home + 'figures/error_propagation_random_pipeline_steps_all.eps')
+plt.savefig(results_home + 'figures/error_propagation_random_pipeline_steps_all_alternative.eps')
 plt.close()
 
 plt.figure()
@@ -330,5 +345,5 @@ plt.title('Propagation factor in steps')
 plt.xlabel('Steps')
 plt.ylabel('Propagation factor')
 plt.xticks(x1, steps)
-plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_steps_all.eps')
+plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_steps_all_alternative.eps')
 plt.close()

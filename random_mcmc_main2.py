@@ -21,7 +21,7 @@ if __name__ == '__main__':
 		if os.path.exists(f):
 			os.remove(f)
 	pipeline = {}
-	pipeline['feature_extraction'] = ["VGG", "haralick", "inception", "naive_feature_extraction"]
+	pipeline['feature_extraction'] = ["VGG", "haralick", "naive_feature_extraction"]
 	pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP", "naive_dimensionality_reduction"]
 	pipeline['learning_algorithm'] = ["SVM", "RF", "naive_learning_algorithm"]
 	pipeline['haralick_distance'] = range(1, 4)
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 	type1 = 'random_MCMC'
 	for i in range(start, end):
 		if os.path.exists(results_home + 'intermediate/random_MCMC/' + type1 + '_' + dataset + '_run_' + str(i+1) +
-								  '_naive.pkl'):
+								  '_naive_propagation.pkl'):
 			continue
 		rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, iters=num_iters)
 		rm.populate_paths()

@@ -44,9 +44,9 @@ class random_MCMC():
 		times = []
 		pipelines = []
 		if os.path.exists(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl'):
+							self.run) + '_naive_last_object_propagation.pkl'):
 			last_object = pickle.load(open(self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl', 'rb'))
+							self.run) + '_naive_last_object_propagation.pkl', 'rb'))
 			start = last_object.last_iter
 			self.pipelines = last_object.pipelines
 			self.times = last_object.times
@@ -121,7 +121,7 @@ class random_MCMC():
 					pickle.dump(self, open(
 						self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
 							self.run)
-						+ '_naive_last_object.pkl', 'wb'))
+						+ '_naive_last_object_propagation.pkl', 'wb'))
 
 			t1 = time.time()
 			times.append(t1-t0)
@@ -132,4 +132,4 @@ class random_MCMC():
 			self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_naive.pkl', 'wb'))
+			+ '_naive_propagation.pkl', 'wb'))

@@ -1,0 +1,5 @@
+{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 0.00011038780212402344, "evaluations": 0, "cost": 2147483648, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='81'"]}
+{"cpu_time": 4.492091178894043, "total_cpu_time": null, "wallclock_time": 4.530247926712036, "evaluations": 1, "cost": 0.6219934846977568, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='81'"]}
+{"cpu_time": 14.506983757019043, "total_cpu_time": null, "wallclock_time": 14.641165256500244, "evaluations": 3, "cost": 0.5376819954707982, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='154'"]}
+{"cpu_time": 38.09897589683533, "total_cpu_time": null, "wallclock_time": 38.31676888465881, "evaluations": 5, "cost": 0.37757252834668326, "incumbent": ["rf_max_features='0.5'", "rf_n_estimators='227'"]}
+{"cpu_time": 70.04439806938171, "total_cpu_time": null, "wallclock_time": 70.49421048164368, "evaluations": 9, "cost": 0.284654465481941, "incumbent": ["rf_max_features='0.3'", "rf_n_estimators='154'"]}

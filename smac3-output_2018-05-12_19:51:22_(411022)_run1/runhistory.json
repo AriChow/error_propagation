@@ -1,0 +1,1 @@
+{"data": [[[1, null, 0], [2147483647.0, 100000.08487653732, {"__enum__": "StatusType.TIMEOUT"}, {}]]], "configs": {"1": {"haralick_distance": 1, "pca_whiten": "true", "rf_max_features": 0.5, "rf_n_estimators": 81}}}

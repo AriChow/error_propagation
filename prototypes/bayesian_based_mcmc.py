@@ -36,7 +36,8 @@ class bayesian_MCMC():
 				for k in pipeline['learning_algorithm']:
 					path2 = copy.deepcopy(path1)
 					path2.append(k)
-					paths.append(path2)
+					if 'naive' in path2[0] or 'naive' in path2[1] or 'naive' in path2[2]:
+						paths.append(path2)
 		self.paths = paths
 
 
@@ -227,8 +228,8 @@ class bayesian_MCMC():
 					f_val = inception_all_features(names, ids2)
 					f_train = inception_all_features(names, ids1)
 				elif path[0] == "naive_feature_extraction":
-					f_val = naive_all_features(X_val)
-					f_train = naive_all_features(X_train)
+					f_val = inception_all_features(names, ids2)
+					f_train = inception_all_features(names, ids1)
 
 				# Dimensionality reduction
 				if path[1] == "PCA":
@@ -318,4 +319,4 @@ class bayesian_MCMC():
 			# self.objects.append(smac)
 			self.times = times
 			self.total_time = t1-t0
-		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_final.pkl', 'wb'))
+		pickle.dump(self, open(self.results_loc + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + self.data_name + '_run_' + str(self.run) + '_naive_propagation.pkl', 'wb'))

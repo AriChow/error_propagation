@@ -71,7 +71,7 @@ class random_MCMC():
 					r = np.random.choice(pipeline['svm_gamma'], 1)
 					hyper['svm_gamma'] = r[0]
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
-												  data_loc=self.data_loc, type1='random', fe=path[0], dr=path[1], la=path[2],
+												  data_loc=self.data_loc, type1='random1', fe=path[0], dr=path[1], la=path[2],
 												  val_splits=3, test_size=0.2)
 				g.run()
 				err = g.get_error()
@@ -95,4 +95,4 @@ class random_MCMC():
 		self.times = times
 		pickle.dump(self, open(
 			self.results_loc + 'intermediate/random_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(self.run)
-			+ '_final.pkl', 'wb'))
+			+ '_final1.pkl', 'wb'))

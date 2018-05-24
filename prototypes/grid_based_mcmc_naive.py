@@ -42,6 +42,8 @@ class grid_MCMC():
 			for i in range(len(h)):
 				hyper['haralick_distance'] = h[i]
 				hypers.append(copy.deepcopy(hyper))
+		else:
+			hypers = [{}]
 		hypers1 = []
 		if path[1] == 'PCA':
 			h = self.pipeline['pca_whiten']
@@ -74,7 +76,8 @@ class grid_MCMC():
 					for k in range(len(h2)):
 						hyper['n_components'] = h2[k]
 						hypers1.append(copy.deepcopy(hyper))
-
+		else:
+			hypers1 = hypers
 		hypers2 = []
 		if path[2] == 'RF':
 			h1 = self.pipeline['n_estimators']
@@ -98,6 +101,8 @@ class grid_MCMC():
 						for k in range(len(h2)):
 							hyper['svm_C'] = h2[k]
 							hypers2.append(copy.deepcopy(hyper))
+		else:
+			hypers2 = hypers1
 		return hypers2
 
 	def gridMcmc(self):
@@ -106,9 +111,9 @@ class grid_MCMC():
 		times = {}
 		t0 = time.time()
 		if os.path.exists(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl'):
+							self.run) + '_naive_last_object_propagation.pkl'):
 			last_object = pickle.load(open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
-							self.run) + '_naive_last_object.pkl', 'rb'))
+							self.run) + '_naive_last_object_propagation.pkl', 'rb'))
 			start = last_object.last_path
 			self.pipelines = last_object.pipelines
 			self.times = last_object.times
@@ -127,6 +132,8 @@ class grid_MCMC():
 				path = paths[i]
 				start1 = 0
 			hypers = self.populate_path(path)
+			if len(hypers) == 0:
+				hypers = [{}]
 			for j in range(start1, len(hypers)):
 				hyper = hypers[j]
 				g = image_classification_pipeline(hyper, ml_type='validation', data_name=self.data_name,
@@ -146,9 +153,10 @@ class grid_MCMC():
 					pickle.dump(self, open(
 						self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name + '_run_' + str(
 							self.run)
-						+ '_naive_last_object.pkl', 'wb'))
+						+ '_naive_last_object_propagation.pkl', 'wb'))
+		self.pipelines = pipelines
 		pickle.dump(self, open(self.results_loc + 'intermediate/grid_MCMC/' + self.type1 + '_' + self.data_name +
-							   '_run_' + str(self.run) + '_naive.pkl', 'wb'))
+							   '_run_' + str(self.run) + '_naive_propagation.pkl', 'wb'))
 
 
 

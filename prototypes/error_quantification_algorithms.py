@@ -5,6 +5,7 @@ import pickle
 from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
+data_name = 'matsc_dataset2'
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -12,7 +13,7 @@ results_home = home + '/Documents/research/EP_project/results/'
 pipeline = {}
 datasets = ['breast', 'brain', 'matsc_dataset1', 'matsc_dataset2']
 pipeline['feature_extraction'] = ["haralick"]
-pipeline['dimensionality_reduction'] = ["PCA"]
+pipeline['dimensionality_reduction'] = ["ISOMAP"]
 pipeline['learning_algorithm'] = ["RF"]
 
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
@@ -29,7 +30,7 @@ for z in range(len(datasets)):
 
 	type1 = 'bayesian_MCMC'
 	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_breast_run_' +
-							   str(1) + '_final.pkl','rb'), encoding='latin1')
+							   str(1) + '.pkl','rb'), encoding='latin1')
 	path_pipelines = obj.all_incumbents
 
 	fe_params = set()
@@ -38,7 +39,7 @@ for z in range(len(datasets)):
 	for i in range(len(path_pipelines)):
 		p = path_pipelines[i]
 		fe_params.add(p._values['haralick_distance'])
-		dr_params.add(p._values['pca_whiten'])
+		dr_params.add((p._values['isomap_n_neighbors'], p._values['isomap_n_components']))
 		la_params.add((p._values['rf_n_estimators'], p._values['rf_max_features']))
 
 	fe_params = list(fe_params)
@@ -48,7 +49,7 @@ for z in range(len(datasets)):
 	alg_error = np.zeros((stop-1, 3))
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_final.pkl','rb'), encoding='latin1')
+							   str(run) + '.pkl','rb'), encoding='latin1')
 		path_pipelines = obj.all_incumbents
 
 		min_err = 1000000
@@ -66,7 +67,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p._values['pca_whiten'] == dr_params[j]:
+				if (p._values['isomap_n_neighbors'], p._values['isomap_n_components']) == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -143,7 +144,7 @@ for z in range(len(datasets)):
 		for i in range(len(path_pipelines)):
 			p = path_pipelines[i]
 			fe_params.add(p.haralick_distance)
-			dr_params.add(p.pca_whiten)
+			dr_params.add((p._n_neighbors, p.n_components))
 			la_params.add((p.n_estimators, p.max_features))
 
 		fe_params = list(fe_params)
@@ -164,7 +165,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p.pca_whiten == dr_params[j]:
+				if (p.n_neighbors, p.n_components) == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -206,7 +207,7 @@ for z in range(len(datasets)):
 		for i in range(len(path_pipelines)):
 			p = path_pipelines[i]
 			fe_params.add(p.haralick_distance)
-			dr_params.add(p.pca_whiten)
+			dr_params.add((p.n_neighbors, p.n_components))
 			la_params.add((p.n_estimators, p.max_features))
 
 		min_err = 1000000
@@ -227,7 +228,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p.pca_whiten == dr_params[j]:
+				if (p.n_neighbors, p.n_components) == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -278,7 +279,7 @@ axs.set_title('Algorithm error contributions')
 axs.set_xlabel('Agnostic algorithm')
 axs.set_ylabel('Error contributions')
 axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_alg_all.eps')
+plt.savefig(results_home + 'figures/agnostic_error_alg_alternative_all.eps')
 plt.close()
 
 

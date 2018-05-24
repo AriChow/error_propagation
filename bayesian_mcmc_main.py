@@ -19,9 +19,9 @@ if __name__=='__main__':
 		if os.path.exists(f):
 			os.remove(f)
 	pipeline = {}
-	pipeline['feature_extraction'] = ["haralick"]
-	pipeline['dimensionality_reduction'] = ["PCA"]
-	pipeline['learning_algorithm'] = ["RF"]
+	pipeline['feature_extraction'] = ["haralick", "VGG", "naive_feature_extraction"]
+	pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP", "naive_dimensionality_reduction"]
+	pipeline['learning_algorithm'] = ["RF", "SVM", "naive_learning_algorithm"]
 	pipeline['haralick_distance'] = range(1, 4)
 	pipeline['pca_whiten'] = [True, False]
 	pipeline['n_neighbors'] = range(3, 8)

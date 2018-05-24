@@ -125,8 +125,8 @@ class image_classification_pipeline(object):
 			f_val = self.inception_all_features(names, idx2)
 			f_train = self.inception_all_features(names, idx1)
 		if self.feature_extraction == "naive_feature_extraction":
-			f_val = self.naive_all_features(names, idx2)
-			f_train = self.naive_all_features(names, idx1)
+			f_val = self.inception_all_features(names, idx2)
+			f_train = self.inception_all_features(names, idx1)
 
 		# Dimensionality reduction
 		if self.dimensionality_reduction == "PCA":

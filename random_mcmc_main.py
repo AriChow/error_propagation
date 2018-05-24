@@ -12,16 +12,16 @@ if __name__ == '__main__':
 	num_iters = 51
 	# Gradient calculation
 	# Empty features directory
-	start = int(sys.argv[3])
-	end = int(sys.argv[4])
+	#start = int(sys.argv[3])
+	# end = int(sys.argv[4])
 	import glob
-	files = glob.glob(data_home + 'features/random/*.npz')
+	files = glob.glob(data_home + 'features/random1/*.npz')
 	for f in files:
 		if os.path.exists(f):
 			os.remove(f)
 	pipeline = {}
 	pipeline['feature_extraction'] = ["haralick"]
-	pipeline['dimensionality_reduction'] = ["PCA"]
+	pipeline['dimensionality_reduction'] = ["ISOMAP"]
 	pipeline['learning_algorithm'] = ["RF"]
 	pipeline['haralick_distance'] = range(1, 4)
 	pipeline['pca_whiten'] = [True, False]
@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
 	# CONTROL
 	type1 = 'random_MCMC'
-	for i in range(start, end):
+	for i in range(5):
 		rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, iters=num_iters)
 		rm.populate_paths()
 		rm.randomMcmc()

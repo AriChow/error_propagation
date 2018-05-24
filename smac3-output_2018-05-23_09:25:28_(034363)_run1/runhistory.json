@@ -1,0 +1,1 @@
+{"data": [[[1, null, 0], [10.142913275078612, 2.501032590866089, {"__enum__": "StatusType.SUCCESS"}, {}]], [[2, null, 0], [10.20907951338304, 4.212590217590332, {"__enum__": "StatusType.SUCCESS"}, {}]]], "configs": {"1": {"pca_whiten": "true"}, "2": {"pca_whiten": "false"}}}
