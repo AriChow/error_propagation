@@ -1,0 +1,3 @@
+{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 6.246566772460938e-05, "evaluations": 0, "cost": 2147483648, "incumbent": ["haralick_distance='1'", "pca_whiten=''true''"]}
+{"cpu_time": 21.499276876449585, "total_cpu_time": null, "wallclock_time": 21.510133028030396, "evaluations": 1, "cost": 3.820259165831004, "incumbent": ["haralick_distance='1'", "pca_whiten=''true''"]}
+{"cpu_time": 80.19500660896301, "total_cpu_time": null, "wallclock_time": 80.24305653572083, "evaluations": 3, "cost": 3.1440177811264403, "incumbent": ["haralick_distance='2'", "pca_whiten=''false''"]}
