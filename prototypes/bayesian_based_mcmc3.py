@@ -36,7 +36,8 @@ class bayesian_MCMC():
 				for k in pipeline['learning_algorithm']:
 					path2 = copy.deepcopy(path1)
 					path2.append(k)
-					paths.append(path2)
+					if 'naive' in path2[0] or 'naive' in path2[1] or 'naive' in path2[2]:
+						paths.append(path2)
 		self.paths = paths
 
 

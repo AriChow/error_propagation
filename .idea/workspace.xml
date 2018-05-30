@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/error_propagation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/error_propagation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bayesian_mcmc_main3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" beforeDir="false" afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" beforeDir="false" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/random_mcmc_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/random_mcmc_main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,12 +20,105 @@
     <favorites_list name="error_propagation" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            <state relative-caret-position="378">
+              <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_based_mcmc.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_mcmc_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="23" column="76" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_mcmc_main3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_mcmc_main1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_based_mcmc1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4170">
+              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_mcmc_main2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_based_mcmc2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="283" column="30" lean-forward="true" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_based_mcmc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="31" column="22" lean-forward="true" selection-end-line="321" selection-end-column="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bayesian_based_mcmc3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-304">
+              <caret line="274" column="56" lean-forward="true" selection-start-line="274" selection-start-column="56" selection-end-line="274" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -39,15 +134,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>princi</find>
-      <find>grid</find>
       <find>naive_feature</find>
       <find>naive_fe</find>
       <find>naive_feature_</find>
       <find>pkl</find>
       <find>inception</find>
       <find>naive_fea</find>
-      <find>pipeline</find>
       <find>pipeline</find>
       <find>naive_feat</find>
       <find>.decode('latin1')</find>
@@ -69,9 +161,11 @@
       <find>bayesian/</find>
       <find>random/</find>
       <find>random</find>
+      <find>features/bayesian</find>
+      <find>bayesian</find>
+      <find>for</find>
     </findStrings>
     <replaceStrings>
-      <replace>tests</replace>
       <replace>grid</replace>
       <replace>bayesian1</replace>
       <replace>SMAC</replace>
@@ -101,6 +195,7 @@
       <replace>matsc_dataset1</replace>
       <replace>all</replace>
       <replace>matsc_dataset2</replace>
+      <replace>features/bayesian1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/script_random_naive_breast.sh" />
-        <option value="$PROJECT_DIR$/script_random_naive_brain.py" />
         <option value="$PROJECT_DIR$/script_random_matsc2.py" />
         <option value="$PROJECT_DIR$/script_random_matsc2.sh" />
         <option value="$PROJECT_DIR$/random_mcmc_naive1.py" />
@@ -154,12 +247,14 @@
         <option value="$PROJECT_DIR$/prototypes/error_propagation_algorithms2.py" />
         <option value="$PROJECT_DIR$/prototypes/error_propagation_steps1.py" />
         <option value="$PROJECT_DIR$/prototypes/error_quantification_algorithms.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" />
-        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
-        <option value="$PROJECT_DIR$/bayesian_mcmc_main.py" />
         <option value="$PROJECT_DIR$/bayesian_mcmc_main2.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py" />
+        <option value="$PROJECT_DIR$/bayesian_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/bayesian_mcmc_main3.py" />
+        <option value="$PROJECT_DIR$/prototypes/bayesian_based_mcmc3.py" />
         <option value="$PROJECT_DIR$/random_mcmc_main.py" />
+        <option value="$PROJECT_DIR$/prototypes/random_based_mcmc.py" />
       </list>
     </option>
   </component>
@@ -172,9 +267,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="638" />
-    <option name="height" value="720" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="627" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1022,53 +1118,53 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="627" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="627" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="10" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5064157" side_tool="true" weight="0.3580931" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49358425" weight="0.38248336" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.33924612" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.24978614" />
-      <window_info anchor="right" id="R Packages" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="right" id="R Graphics" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="R Packages" order="3" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.24978614" />
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32934132" />
       <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.49358425" weight="0.3203991" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="0" weight="0.32934132" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="right" id="Data View" order="0" weight="0.32934132" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49358425" weight="0.3337029" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.24978614" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49358425" weight="0.3337029" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="0" weight="0.32934132" />
       <window_info id="Structure" order="2" weight="0.24978614" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.3292683" />
-      <window_info id="Favorites" order="0" side_tool="true" weight="0.32934132" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.3292683" />
-      <window_info anchor="right" id="Data View" order="0" weight="0.32934132" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Debug" order="6" sideWeight="0.49358425" visible="true" weight="0.3580931" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.33924612" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5064157" side_tool="true" weight="0.3580931" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.3292683" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Python Console" order="2" weight="0.3292683" />
+      <window_info id="Favorites" order="0" side_tool="true" weight="0.32934132" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1420,9 +1516,6 @@
     </entry>
     <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/smac/facade/smac_facade.py" />
     <entry file="file://$USER_HOME$/anaconda2/envs/py36/lib/python3.6/site-packages/smac/optimizer/smbo.py" />
-    <entry file="file://$PROJECT_DIR$/script_bayesian1.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/error_analysis_time_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -1468,9 +1561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
           <caret line="87" column="34" lean-forward="true" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#75#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1554,19 +1644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="277" column="16" selection-start-line="277" selection-start-column="16" selection-end-line="277" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script_bayesian_breast.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/grid_based_mcmc_naive.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1640,13 +1717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script_random.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1661,51 +1731,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="305" column="47" lean-forward="true" selection-start-line="305" selection-start-column="47" selection-end-line="305" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="301" column="55" lean-forward="true" selection-start-line="301" selection-start-column="55" selection-end-line="301" selection-end-column="55" />
+        <state relative-caret-position="-4170">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="37" column="20" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="37" selection-end-column="20" />
+        <state relative-caret-position="158">
+          <caret line="283" column="30" lean-forward="true" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#75#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        <state relative-caret-position="175">
+          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="31" column="22" lean-forward="true" selection-end-line="321" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="23" column="76" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesian_mcmc_main3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/bayesian_based_mcmc3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="274" column="56" lean-forward="true" selection-start-line="274" selection-start-column="56" selection-end-line="274" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        <state relative-caret-position="378">
+          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
         </state>
       </provider>
     </entry>

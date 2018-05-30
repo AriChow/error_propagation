@@ -1,21 +1,20 @@
 import numpy as np
 import os
-from prototypes.random_based_mcmc import random_MCMC
+from prototypes.bayesian_based_mcmc3 import bayesian_MCMC
+import pickle
 import sys
 
-if __name__ == '__main__':
+if __name__=='__main__':
 	home = os.path.expanduser('~')
 	dataset = sys.argv[1]
 	place = sys.argv[2]  # Documents/research for beeblebrox; barn for CCNI
 	data_home = home + '/' + place + '/EP_project/data/'
 	results_home = home + '/' + place + '/EP_project/results/'
-	num_iters = 51
-	# Gradient calculation
-	# Empty features directory
-	#start = int(sys.argv[3])
+	# start = int(sys.argv[3])
 	# end = int(sys.argv[4])
+	# Empty features directory
 	import glob
-	files = glob.glob(data_home + 'features/random1/*.npz')
+	files = glob.glob(data_home + 'features/bayesian1/*.npz')
 	for f in files:
 		if os.path.exists(f):
 			os.remove(f)
@@ -33,11 +32,10 @@ if __name__ == '__main__':
 	pipeline['svm_C'] = np.linspace(0.1, 100, 5)
 
 	# CONTROL
-	type1 = 'random_MCMC'
 	for i in range(5):
-		if os.path.exists(results_home + 'intermediate/random_MCMC/random_MCMC_' + dataset + '_run_' + str(i+1) +
+		if os.path.exists(results_home + 'intermediate/bayesian_MCMC/bayesian_MCMC_' + dataset + '_run_' + str(i+1) +
 								  '_final_all.pkl'):
 			continue
-		rm = random_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, type1=type1, pipeline=pipeline, iters=num_iters)
+		rm = bayesian_MCMC(data_name=dataset, data_loc=data_home, results_loc=results_home, run=i+1, pipeline=pipeline)
 		rm.populate_paths()
-		rm.randomMcmc()
+		rm.bayesianmcmc()
