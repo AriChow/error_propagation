@@ -1,11 +1,8 @@
 import numpy as np
 import os
-import sys
 import pickle
-from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
-data_name = 'matsc_dataset2'
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -49,7 +46,7 @@ for z in range(len(datasets)):
 	alg_error = np.zeros((stop-1, 3))
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '.pkl','rb'), encoding='latin1')
+							   str(run) + '_final1.pkl','rb'), encoding='latin1')
 		path_pipelines = obj.all_incumbents
 
 		min_err = 1000000
