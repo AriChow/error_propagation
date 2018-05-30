@@ -5,21 +5,21 @@ import pickle
 from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
-datasets = ['breast', 'brain', 'matsc_dataset1', 'matsc_dataset2']
+datasets = ['matsc_dataset2']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
 # Specification of pipeline
 pipeline = {}
 pipeline['feature_extraction'] = ["haralick"]
-pipeline['dimensionality_reduction'] = ["PCA"]
+pipeline['dimensionality_reduction'] = ["ISOMAP"]
 pipeline['learning_algorithm'] = ["RF"]
 
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
 
-grid_error = np.zeros((4, 4))
-random_error = np.zeros((4, 4))
-bayesian_error = np.zeros((4, 4))
+grid_error = np.zeros((1, 4))
+random_error = np.zeros((1, 4))
+bayesian_error = np.zeros((1, 4))
 
 for z in range(len(datasets)):
 	data_name = datasets[z]
@@ -31,7 +31,7 @@ for z in range(len(datasets)):
 
 	type1 = 'bayesian_MCMC'
 	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_breast_run_' +
-							   str(1) + '_final.pkl','rb'), encoding='latin1')
+							   str(1) + '_final1.pkl','rb'), encoding='latin1')
 	path_pipelines = obj.all_incumbents
 
 	fe_params = set()
@@ -41,7 +41,7 @@ for z in range(len(datasets)):
 	for i in range(len(path_pipelines)):
 		p = path_pipelines[i]
 		fe_params.add(p._values['haralick_distance'])
-		dr_params.add(p._values['pca_whiten'])
+		dr_params.add(p._values['isomap_n_neighbors'])
 		la_params.add(p._values['rf_n_estimators'])
 		la_params1.add(p._values['rf_max_features'])
 
@@ -52,7 +52,7 @@ for z in range(len(datasets)):
 	alg_error = np.zeros((stop-1, 4))
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_final.pkl','rb'), encoding='latin1')
+							   str(run) + '_final1.pkl','rb'), encoding='latin1')
 		path_pipelines = obj.all_incumbents
 
 		min_err = 1000000
@@ -71,7 +71,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p._values['pca_whiten'] == dr_params[j]:
+				if p._values['isomap_n_neighbors'] == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -164,7 +164,7 @@ for z in range(len(datasets)):
 		for i in range(len(path_pipelines)):
 			p = path_pipelines[i]
 			fe_params.add(p.haralick_distance)
-			dr_params.add(p.pca_whiten)
+			dr_params.add(p.n_neighbors)
 			la_params.add(p.n_estimators)
 			la_params1.add(p.max_features)
 
@@ -188,7 +188,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p.pca_whiten == dr_params[j]:
+				if p.n_neighbors == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -218,7 +218,7 @@ for z in range(len(datasets)):
 	alg_error = np.zeros((stop-1, 4))
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_final.pkl','rb'), encoding='latin1')
+							   str(run) + '_final1.pkl','rb'), encoding='latin1')
 		pipelines = obj.pipelines
 		paths = obj.paths
 		path_pipelines = []
@@ -236,7 +236,7 @@ for z in range(len(datasets)):
 		for i in range(len(path_pipelines)):
 			p = path_pipelines[i]
 			fe_params.add(p.haralick_distance)
-			dr_params.add(p.pca_whiten)
+			dr_params.add(p.n_neighbors)
 			la_params.add(p.n_estimators)
 			la_params1.add(p.max_features)
 
@@ -260,7 +260,7 @@ for z in range(len(datasets)):
 						min_fe[j] = err
 
 			for j in range(len(dr_params)):
-				if p.pca_whiten == dr_params[j]:
+				if p.n_neighbors == dr_params[j]:
 					if min_dr[j] > err:
 						min_dr[j] = err
 
@@ -287,16 +287,16 @@ for z in range(len(datasets)):
 
 import matplotlib.pyplot as plt
 
-x = ['Haralick distance', 'Whitening', 'Number of estimators', 'Maximum features']
+x = ['Haralick distance', 'Number of neighbors', 'Number of estimators']
 
 _, axs = plt.subplots(nrows=1, ncols=1)
-x1 = [1, 2, 3, 4]
-axs.errorbar(x1, np.mean(grid_error, 0), np.std(grid_error, 0), linestyle='None', marker='^', capsize=3, color='r', label='grid search')
-axs.plot(x1, np.mean(grid_error, 0), color='r')
-axs.errorbar(x1, np.mean(random_error, 0), np.std(random_error, 0), linestyle='None', marker='^', capsize=3, color='b', label='random search')
-axs.plot(x1, np.mean(random_error, 0), color='b')
-axs.errorbar(x1, np.mean(bayesian_error, 0), np.std(bayesian_error, 0), linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
-axs.plot(x1, np.mean(bayesian_error, 0), color='y')
+x1 = [1, 2, 3]
+axs.errorbar(x1, np.mean(grid_error[:, :3], 0), np.std(grid_error[:, :3], 0), linestyle='None', marker='^', capsize=3, color='r', label='grid search')
+axs.plot(x1, np.mean(grid_error[:, :3], 0), color='r')
+axs.errorbar(x1, np.mean(random_error[:, :3], 0), np.std(random_error[:, :3], 0), linestyle='None', marker='^', capsize=3, color='b', label='random search')
+axs.plot(x1, np.mean(random_error[:, :3], 0), color='b')
+axs.errorbar(x1, np.mean(bayesian_error[:, :3], 0), np.std(bayesian_error[:, :3], 0), linestyle='None', marker='^', capsize=3, color='y', label='bayesian optimization')
+axs.plot(x1, np.mean(bayesian_error[:, :3], 0), color='y')
 labels = []
 cnt = 1
 for item in axs.get_xticklabels():
@@ -316,7 +316,7 @@ axs.set_title('Hyper-parameter error contributions')
 axs.set_xlabel('Agnostic hyper-parameter')
 axs.set_ylabel('Error contributions')
 axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_hyper_all.eps')
+plt.savefig(results_home + 'figures/agnostic_error_hyper_matsc2.eps')
 plt.close()
 
 

@@ -11,19 +11,19 @@ import pickle
 from prototypes.data_analytic_pipeline import image_classification_pipeline
 
 home = os.path.expanduser('~')
-datasets = ['breast', 'brain', 'matsc_dataset1', 'matsc_dataset2']
+datasets = ['matsc_dataset2']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
 # Specification of pipeline
 pipeline = {}
-pipeline['feature_extraction'] = ["VGG", "haralick", "inception"]
+pipeline['feature_extraction'] = ["VGG", "haralick"]
 pipeline['dimensionality_reduction'] = ["PCA", "ISOMAP"]
 pipeline['learning_algorithm'] = ["SVM", "RF"]
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
-grid_error = np.zeros((4, 3))
-random_error = np.zeros((4, 3))
-bayesian_error = np.zeros((4, 3))
+grid_error = np.zeros((1, 3))
+random_error = np.zeros((1, 3))
+bayesian_error = np.zeros((1, 3))
 
 for z in range(len(datasets)):
 	data_name = datasets[z]
@@ -266,8 +266,8 @@ for z in range(len(datasets)):
 			min_all = np.asarray(min_all)
 			min_all1 = np.asarray(min_all1)
 			min_alls = np.asarray(min_alls)
-			alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-			alg1_error[run - 1, z, :] = min_alls - min_all1
+			# alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 6)
+			# alg1_error[run - 1, z, :] = min_alls - min_all1
 	std_error = np.std(step_error, 0)
 	step_error = np.mean(step_error, 0)
 	grid_step_error = step_error.astype('float32')
@@ -446,8 +446,8 @@ for z in range(len(datasets)):
 			min_all = np.asarray(min_all)
 			min_all1 = np.asarray(min_all1)
 			min_alls = np.asarray(min_alls)
-			alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
-			alg1_error[run - 1, z, :] = min_alls - min_all1
+			# alg_error[run - 1, z, :] = min_all - np.asarray([min_err] * 7)
+			# alg1_error[run - 1, z, :] = min_alls - min_all1
 	std_error = np.std(step_error, 0)
 	step_error = np.mean(step_error, 0)
 	random1_step_error = step_error.astype('float32')
@@ -596,7 +596,7 @@ for item in axs.get_xticklabels():
 		labels.append('')
 
 axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_steps_all.eps')
+plt.savefig(results_home + 'figures/agnostic_error_steps_alternative_matsc2.eps')
 plt.close()
 
 # x = pipeline['all']

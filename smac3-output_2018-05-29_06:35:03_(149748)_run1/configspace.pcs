@@ -1,0 +1,2 @@
+isomap_n_components integer [2, 4] [2]
+isomap_n_neighbors integer [3, 7] [5]

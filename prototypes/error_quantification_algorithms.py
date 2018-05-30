@@ -8,15 +8,15 @@ results_home = home + '/Documents/research/EP_project/results/'
 
 # Specification of pipeline
 pipeline = {}
-datasets = ['breast', 'brain', 'matsc_dataset1', 'matsc_dataset2']
+datasets = ['matsc_dataset2']
 pipeline['feature_extraction'] = ["haralick"]
 pipeline['dimensionality_reduction'] = ["ISOMAP"]
 pipeline['learning_algorithm'] = ["RF"]
 
 pipeline['all'] = pipeline['feature_extraction'] + pipeline['dimensionality_reduction'] + pipeline['learning_algorithm']
-grid_error = np.zeros((4, 3))
-random_error = np.zeros((4, 3))
-bayesian_error = np.zeros((4, 3))
+grid_error = np.zeros((1, 3))
+random_error = np.zeros((1, 3))
+bayesian_error = np.zeros((1, 3))
 for z in range(len(datasets)):
 	data_name = datasets[z]
 	# Bayesian optimization
@@ -27,7 +27,7 @@ for z in range(len(datasets)):
 
 	type1 = 'bayesian_MCMC'
 	obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_breast_run_' +
-							   str(1) + '.pkl','rb'), encoding='latin1')
+							   str(1) + '_final1.pkl','rb'), encoding='latin1')
 	path_pipelines = obj.all_incumbents
 
 	fe_params = set()
@@ -141,7 +141,7 @@ for z in range(len(datasets)):
 		for i in range(len(path_pipelines)):
 			p = path_pipelines[i]
 			fe_params.add(p.haralick_distance)
-			dr_params.add((p._n_neighbors, p.n_components))
+			dr_params.add((p.n_neighbors, p.n_components))
 			la_params.add((p.n_estimators, p.max_features))
 
 		fe_params = list(fe_params)
@@ -187,7 +187,7 @@ for z in range(len(datasets)):
 	alg_error = np.zeros((stop-1, 3))
 	for run in range(start, stop):
 		obj = pickle.load(open(results_home + 'intermediate/' + type1 + '/' + type1 + '_' + data_name + '_run_' +
-							   str(run) + '_final.pkl','rb'), encoding='latin1')
+							   str(run) + '_final1.pkl','rb'), encoding='latin1')
 		pipelines = obj.pipelines
 		paths = obj.paths
 		path_pipelines = []
@@ -276,7 +276,7 @@ axs.set_title('Algorithm error contributions')
 axs.set_xlabel('Agnostic algorithm')
 axs.set_ylabel('Error contributions')
 axs.set_xticklabels(labels)
-plt.savefig(results_home + 'figures/agnostic_error_alg_alternative_all.eps')
+plt.savefig(results_home + 'figures/agnostic_error_alg_alternative_matsc_dataset2.eps')
 plt.close()
 
 
