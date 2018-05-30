@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/bayesian_mcmc_main3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" beforeDir="false" afterPath="$PROJECT_DIR$/prototypes/bayesian_based_mcmc2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" beforeDir="false" afterPath="$PROJECT_DIR$/prototypes/random_based_mcmc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random_mcmc_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/random_mcmc_main.py" afterDir="false" />
-    </list>
+    <list default="true" id="aa3ad6da-a12c-4d73-8b79-0613b909eb1a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,19 +14,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="random_mcmc_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            <state relative-caret-position="318">
+              <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_based_mcmc.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="random_based_mcmc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="508">
               <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
             </state>
           </provider>
@@ -1799,17 +1792,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
+    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+        <state relative-caret-position="508">
+          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/random_based_mcmc.py">
+    <entry file="file://$PROJECT_DIR$/random_mcmc_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+        <state relative-caret-position="318">
+          <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
         </state>
       </provider>
     </entry>
