@@ -1,0 +1,7 @@
+{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 6.532669067382812e-05, "evaluations": 0, "cost": 2147483648, "incumbent": ["pca_whiten=''true''", "svm_C='0.1'", "svm_gamma='4.005'"]}
+{"cpu_time": 0.5296719074249268, "total_cpu_time": null, "wallclock_time": 0.5458211898803711, "evaluations": 1, "cost": 1.0104665630663243, "incumbent": ["pca_whiten=''true''", "svm_C='0.1'", "svm_gamma='4.005'"]}
+{"cpu_time": 1.0883853435516357, "total_cpu_time": null, "wallclock_time": 1.1344082355499268, "evaluations": 2, "cost": 0.7114896931093018, "incumbent": ["pca_whiten=''true''", "svm_C='100.0'", "svm_gamma='6.0024999999999995'"]}
+{"cpu_time": 1.5536909103393555, "total_cpu_time": null, "wallclock_time": 1.616917371749878, "evaluations": 3, "cost": 0.6504047920078074, "incumbent": ["pca_whiten=''true''", "svm_C='25.075000000000003'", "svm_gamma='4.005'"]}
+{"cpu_time": 1.9606521129608154, "total_cpu_time": null, "wallclock_time": 2.071580648422241, "evaluations": 4, "cost": 0.3554186554164705, "incumbent": ["pca_whiten=''true''", "svm_C='75.025'", "svm_gamma='0.01'"]}
+{"cpu_time": 3.3824613094329834, "total_cpu_time": null, "wallclock_time": 3.572676658630371, "evaluations": 7, "cost": 0.35390821194762306, "incumbent": ["pca_whiten=''false''", "svm_C='50.050000000000004'", "svm_gamma='0.01'"]}
+{"cpu_time": 12.617648601531982, "total_cpu_time": null, "wallclock_time": 13.44067907333374, "evaluations": 26, "cost": 0.3509316232899711, "incumbent": ["pca_whiten=''true''", "svm_C='50.050000000000004'", "svm_gamma='0.01'"]}

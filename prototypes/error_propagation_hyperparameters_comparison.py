@@ -9,7 +9,7 @@ import sys
 import pickle
 
 home = os.path.expanduser('~')
-datasets = ['matsc_dataset2']
+datasets = ['breast', 'brain', 'matsc_dataset1', 'matsc_dataset2']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -20,10 +20,10 @@ pipeline['dimensionality_reduction'] = ["ISOMAP", "naive_dimensionality_reductio
 pipeline['learning_algorithm'] = ["RF", "naive_learning_algorithm"]
 pipeline['all'] = pipeline['feature_extraction'][:-1] + pipeline['dimensionality_reduction'][:-1] + pipeline['learning_algorithm'][:-1]
 
-E_totals = np.zeros((1, 3))
-E_directs = np.zeros((1, 3))
-E_propagations = np.zeros((1, 3))
-gammas = np.zeros((1, 3))
+E_totals = np.zeros((4, 3))
+E_directs = np.zeros((4, 3))
+E_propagations = np.zeros((4, 3))
+gammas = np.zeros((4, 3))
 
 for z in range(len(datasets)):
 	data_name = datasets[z]
@@ -421,10 +421,10 @@ gamma_grid = gammas
 
 # Random
 
-E_totals = np.zeros((1, 3))
-E_directs = np.zeros((1, 3))
-E_propagations = np.zeros((1, 3))
-gammas = np.zeros((1, 3))
+E_totals = np.zeros((4, 3))
+E_directs = np.zeros((4, 3))
+E_propagations = np.zeros((4, 3))
+gammas = np.zeros((4, 3))
 
 for z in range(len(datasets)):
 	data_name = datasets[z]
@@ -834,12 +834,12 @@ axs.plot(x1, np.mean(E_propagation_grid, 0), color='r')
 axs.errorbar(x1, np.mean(E_propagation_random, 0), np.std(E_propagation_random, 0), linestyle='None', marker='^', capsize=3, color='b', label='random search')
 axs.plot(x1, np.mean(E_propagation_random, 0), color='b')
 plt.title('Error propagation in hyper-parameters')
-plt.xlabel('Algorithms')
+plt.xlabel('Hyper-parameters')
 plt.ylabel('Error')
 plt.xticks(x1, steps)
 plt.legend()
 plt.autoscale()
-plt.savefig(results_home + 'figures/error_propagation_hyper_comparison_matsc_dataset2.eps')
+plt.savefig(results_home + 'figures/error_propagation_hyper_comparison_all.eps')
 plt.close()
 _, axs = plt.subplots(nrows=1, ncols=1)
 axs.errorbar(x1, np.mean(gamma_grid, 0), np.std(gamma_grid, 0), linestyle='None', marker='^', capsize=3, color='r', label='grid search')
@@ -847,13 +847,12 @@ axs.plot(x1, np.mean(gamma_grid, 0), color='r')
 axs.errorbar(x1, np.mean(gamma_random, 0), np.std(gamma_random, 0), linestyle='None', marker='^', capsize=3, color='b', label='random search')
 axs.plot(x1, np.mean(gamma_random, 0), color='b')
 plt.title('Propagation factor in hyper-parameters')
-plt.xlabel('Algorithms')
+plt.xlabel('Hyper-parameters')
 plt.ylabel('Propagation factor')
 plt.xticks(x1, steps)
 plt.legend()
 plt.autoscale()
-plt.savefig(results_home + 'figures/propagation_factor_hyper_comparison_matsc_dataset2'
-						   '.eps')
+plt.savefig(results_home + 'figures/propagation_factor_hyper_comparison_all.eps')
 plt.close()
 
 # w = 0.2

@@ -1,0 +1,5 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000064, 1, 0.000064, svm_C='0.1', svm_gamma='4.005'
+1.844590, 0.538538, 1.859303, 1, 0.014713, svm_C='0.1', svm_gamma='4.005'
+3.982016, 0.513054, 4.026173, 2, 0.044158, svm_C='100.0', svm_gamma='2.0075'
+7.636166, 0.446752, 7.734397, 3, 0.098232, svm_C='0.1', svm_gamma='0.01'

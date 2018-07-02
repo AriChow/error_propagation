@@ -1,0 +1,3 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000079, 1, 0.000079, pca_whiten=''true''
+3.699498, 9.281727, 3.801864, 1, 0.102366, pca_whiten=''true''

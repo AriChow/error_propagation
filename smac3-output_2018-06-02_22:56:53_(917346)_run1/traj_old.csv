@@ -1,0 +1,3 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000051, 1, 0.000051, haralick_distance='1'
+100000.098976, 2147483647.000000, 100000.100925, 1, 0.001949, haralick_distance='1'

@@ -1,0 +1,8 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000087, 1, 0.000087, rf_max_features='0.5', rf_n_estimators='81'
+2.589981, 0.623466, 2.609260, 1, 0.019279, rf_max_features='0.5', rf_n_estimators='81'
+7.873410, 0.545271, 7.950711, 2, 0.077300, rf_max_features='0.5', rf_n_estimators='154'
+25.147861, 0.465991, 25.292528, 3, 0.144667, rf_max_features='0.5', rf_n_estimators='227'
+49.512844, 0.450391, 49.836361, 4, 0.323517, rf_max_features='0.3', rf_n_estimators='154'
+68.276473, 0.291771, 68.718982, 5, 0.442509, rf_max_features='0.3', rf_n_estimators='300'
+72.910643, 0.288166, 73.375102, 6, 0.464459, rf_max_features='0.3', rf_n_estimators='227'

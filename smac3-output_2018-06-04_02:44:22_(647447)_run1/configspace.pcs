@@ -1,0 +1,2 @@
+rf_max_features categorical {0.3, 0.5, 0.7} [0.5]
+rf_n_estimators categorical {8, 81, 154, 227, 300} [81]

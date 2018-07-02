@@ -1,0 +1,9 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000113, 1, 0.000113, isomap_n_components='2', isomap_n_neighbors='5', rf_max_features='0.5', rf_n_estimators='81'
+1.307749, 1.090985, 1.325042, 1, 0.017293, isomap_n_components='2', isomap_n_neighbors='5', rf_max_features='0.5', rf_n_estimators='81'
+4.195289, 0.964787, 4.265083, 2, 0.069794, isomap_n_components='2', isomap_n_neighbors='5', rf_max_features='0.7', rf_n_estimators='154'
+6.049189, 0.856190, 6.169416, 3, 0.120227, isomap_n_components='4', isomap_n_neighbors='4', rf_max_features='0.5', rf_n_estimators='227'
+15.774822, 0.755445, 16.120713, 4, 0.345891, isomap_n_components='3', isomap_n_neighbors='3', rf_max_features='0.3', rf_n_estimators='227'
+24.839452, 0.709975, 25.459465, 5, 0.620012, isomap_n_components='4', isomap_n_neighbors='3', rf_max_features='0.5', rf_n_estimators='300'
+165.503449, 0.709038, 170.131151, 6, 4.627702, isomap_n_components='4', isomap_n_neighbors='3', rf_max_features='0.7', rf_n_estimators='227'
+243.853237, 0.693699, 251.128992, 7, 7.275754, isomap_n_components='4', isomap_n_neighbors='3', rf_max_features='0.3', rf_n_estimators='227'

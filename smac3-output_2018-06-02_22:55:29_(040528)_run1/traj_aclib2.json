@@ -1,0 +1,2 @@
+{"cpu_time": 0, "total_cpu_time": null, "wallclock_time": 5.173683166503906e-05, "evaluations": 0, "cost": 2147483648, "incumbent": ["haralick_distance='1'"]}
+{"cpu_time": 100000.09985542297, "total_cpu_time": null, "wallclock_time": 100000.10207867622, "evaluations": 1, "cost": 2147483647.0, "incumbent": ["haralick_distance='1'"]}

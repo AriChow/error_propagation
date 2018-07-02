@@ -1,0 +1,6 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.000000, 2147483648.000000, 0.000072, 1, 0.000072, pca_whiten=''true'', svm_C='0.1', svm_gamma='4.005'
+1.820490, 1.055361, 1.895055, 1, 0.074565, pca_whiten=''true'', svm_C='0.1', svm_gamma='4.005'
+2.821745, 1.015014, 2.961706, 2, 0.139961, pca_whiten=''true'', svm_C='100.0', svm_gamma='6.0024999999999995'
+4.089360, 1.008924, 4.255396, 3, 0.166036, pca_whiten=''true'', svm_C='25.075000000000003', svm_gamma='4.005'
+6.577937, 1.001194, 6.894270, 4, 0.316334, pca_whiten=''false'', svm_C='100.0', svm_gamma='2.0075'

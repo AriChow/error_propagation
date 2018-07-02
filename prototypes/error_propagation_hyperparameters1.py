@@ -9,7 +9,7 @@ import sys
 import pickle
 
 home = os.path.expanduser('~')
-datasets = ['matsc_dataset2', 'matsc_dataset1', 'brain', 'breast']
+datasets = ['breast']
 data_home = home + '/Documents/research/EP_project/data/'
 results_home = home + '/Documents/research/EP_project/results/'
 
@@ -20,10 +20,10 @@ pipeline['dimensionality_reduction'] = ["ISOMAP", "naive_dimensionality_reductio
 pipeline['learning_algorithm'] = ["RF", "naive_learning_algorithm"]
 pipeline['all'] = pipeline['feature_extraction'][:-1] + pipeline['dimensionality_reduction'][:-1] + pipeline['learning_algorithm'][:-1]
 
-E_totals = np.zeros((4, 3))
-E_directs = np.zeros((4, 3))
-E_propagations = np.zeros((4, 3))
-gammas = np.zeros((4, 3))
+E_totals = np.zeros((1, 3))
+E_directs = np.zeros((1, 3))
+E_propagations = np.zeros((1, 3))
+gammas = np.zeros((1, 3))
 
 for z in range(len(datasets)):
 	data_name = datasets[z]
@@ -427,21 +427,21 @@ plt.bar(x1, np.mean(E_totals, 0), width=w, align='center', color=colors[0], yerr
 plt.bar(x2, np.mean(E_directs, 0), width=w, align='center', color=colors[1], yerr=np.std(E_directs, 0), label='Direct error')
 plt.bar(x2, np.mean(E_propagations, 0), width=w, bottom=np.mean(E_directs, 0), align='center', color=colors[2],
 		yerr=np.std(E_propagations, 0), label='Propagation error')
-plt.title('Error propagation in algorithms')
-plt.xlabel('Algorithms')
+plt.title('Error propagation in hyper-parameters')
+plt.xlabel('Hyper-parameters')
 plt.ylabel('Error')
 plt.xticks(x1, steps)
 plt.legend()
 plt.autoscale()
-plt.savefig(results_home + 'figures/error_propagation_random_pipeline_hyperparameters_all.eps')
+plt.savefig(results_home + 'figures/error_propagation_random_pipeline_hyperparameters_breast.eps')
 plt.close()
 
 plt.figure()
 x1 = np.asarray([1, 2, 3])
 plt.bar(x1, np.mean(gammas, 0), width=w, color='r', yerr=np.std(gammas, 0))
-plt.title('Propagation factor in algorithms')
-plt.xlabel('Algorithms')
+plt.title('Propagation factor in hyper-parameters')
+plt.xlabel('Hyper-parameters')
 plt.ylabel('Propagation factor')
 plt.xticks(x1, steps)
-plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_hyperparameters_all.eps')
+plt.savefig(results_home + 'figures/propagation_factor_random_pipeline_hyperparameters_breast.eps')
 plt.close()
